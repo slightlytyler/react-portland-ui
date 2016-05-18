@@ -13,21 +13,25 @@ module.exports = {
       {
         test: /\.js$/,
         include: path.join(__dirname, 'src'),
-        loader: 'eslint-loader'
+        loader: 'eslint'
       }
     ],
     loaders: [
       {
         test: /\.js$/,
         include: path.join(__dirname, 'src'),
-        loader: 'babel-loader',
+        loader: 'babel',
         query: {
           presets: ['es2015', 'react', 'stage-0']
         }
       },
       {
         test: /\.styl$/,
-        loader: 'style-loader!css-loader!stylus-loader'
+        loader: 'style!css!stylus'
+      },
+      {
+        test: /\.otf$/,
+        loader: 'url'
       }
     ]
   },
