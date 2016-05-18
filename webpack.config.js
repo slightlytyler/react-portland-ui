@@ -9,11 +9,11 @@ module.exports = {
     libraryTarget: 'commonjs2'
   },
   module: {
-    preloaders: [
+    preLoaders: [
       {
         test: /\.js$/,
-        loader: 'eslint',
-        include: path.join(__dirname, 'src')
+        include: path.join(__dirname, 'src'),
+        loader: 'eslint-loader'
       }
     ],
     loaders: [
@@ -31,7 +31,6 @@ module.exports = {
     react: "react"
   },
   eslint: {
-    configFile: path.join(__dirname, '.eslintrc'),
-    emitWarning: true
+    configFile: path.join(__dirname, '.eslintrc')
   }
 };

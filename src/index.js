@@ -1,3 +1,3 @@
 export {
-  Input
+  Input,
 } from './modules';
