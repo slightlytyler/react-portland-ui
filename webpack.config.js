@@ -24,6 +24,10 @@ module.exports = {
         query: {
           presets: ['es2015', 'react', 'stage-0']
         }
+      },
+      {
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader'
       }
     ]
   },
