@@ -28,7 +28,7 @@ module.exports = {
     ]
   },
   externals: {
-    react: "react"
+    react: "React"
   },
   eslint: {
     configFile: path.join(__dirname, '.eslintrc')
