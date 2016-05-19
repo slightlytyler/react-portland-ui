@@ -52,6 +52,7 @@
     "react": "^0.14.0 || ^15.0.0-0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "normalize.css": "^4.1.1"
   }
 }

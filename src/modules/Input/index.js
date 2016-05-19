@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classnames from 'classnames';
 
 export default class Input extends Component {
   static propTypes = {
@@ -7,6 +8,11 @@ export default class Input extends Component {
       PropTypes.string,
       PropTypes.bool,
     ]),
+    responsive: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    responsive: true,
   };
 
   placeholder() {
@@ -30,8 +36,10 @@ export default class Input extends Component {
   }
 
   render() {
+    const classes = classnames('pui--input', { responsive: this.props.responsive });
+
     return (
-      <div className="pui--input">
+      <div className={classes}>
         {this.renderLabel()}
         <input className="input" placeholder={this.placeholder()} />
       </div>
