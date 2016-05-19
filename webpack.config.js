@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
@@ -27,7 +28,7 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        loader: 'style!css!stylus'
+        loader: 'style!css!postcss!stylus'
       },
       {
         test: /\.otf$/,
@@ -37,6 +38,9 @@ module.exports = {
   },
   externals: {
     react: "react"
+  },
+  postcss: function () {
+    return [autoprefixer];
   },
   eslint: {
     configFile: path.join(__dirname, '.eslintrc')

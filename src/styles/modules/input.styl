@@ -1,5 +1,22 @@
-.pui--input
-  font-size: 2em
-
+.{namespace(input)}
   .input
-    color: $aqua-a
+    padding: 1em
+    border: 1px solid $light-gray-b
+    border-radius: 4px
+
+    &::placeholder
+      color: $dark-gray-a
+      opacity: 1
+
+    &:focus
+      outline: none
+      box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+
+  .label
+    size = .85em
+    display: block
+    margin-bottom: .4em
+    font-size: size
+    color: $dark-gray-a
+    text-transform: uppercase
+    letter-spacing: size * .2
