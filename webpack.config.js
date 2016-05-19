@@ -7,7 +7,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'index.js',
-    libraryTarget: 'commonjs2'
+    library: 'ReactPortlandUI',
+    libraryTarget: 'umd'
   },
   module: {
     preLoaders: [
@@ -37,7 +38,18 @@ module.exports = {
     ]
   },
   externals: {
-    react: "react"
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react',
+      root: 'React'
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'react-dom',
+      root: 'ReactDOM'
+    }
   },
   postcss: function () {
     return [autoprefixer];

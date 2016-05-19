@@ -1,0 +1,52 @@
+.pui--select
+  cursor: pointer
+
+  &.responsive .input
+    width: 100%
+
+  &.active
+    .input
+      box-shadow: 0 30px 40px 0 alpha($dark-blue-b, 0.2)
+
+    .display
+      padding-bottom: 0
+
+
+  .input
+    line-height: 1.2
+    border: 1px solid $light-gray-b
+    border-radius: 4px
+
+  .display
+    padding: 1em
+
+  .placeholder
+    color: $dark-gray-a
+
+  .label
+    size = .85em
+    display: block
+    margin-bottom: .4em
+    font-size: size
+    color: $dark-gray-a
+    text-transform: uppercase
+    letter-spacing: size * .2
+
+  .value-container
+    position: absolute
+    width: 0
+    height: 0
+    opacity: 0
+
+  .menu
+    list-style: none
+    padding: 0
+
+.pui--select__option
+  padding: .75em 1em
+
+  &:hover
+    background-color: $light-gray-a
+
+  &.active
+    background-color: $light-gray-a
