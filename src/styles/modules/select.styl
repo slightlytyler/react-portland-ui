@@ -1,21 +1,26 @@
 .pui--select
+  position: relative
   cursor: pointer
 
   &.responsive .input
     width: 100%
 
-  &.active
-    .input
-      box-shadow: 0 30px 40px 0 alpha($dark-blue-b, 0.2)
+  &.focusing .input .container
+    box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
 
-    .display
-      padding-bottom: 0
-
+  &.selecting .input .container
+    position: absolute
+    width: 100%
+    box-shadow: 0 30px 40px 0 alpha($dark-blue-b, 0.2)
 
   .input
+    height: 3.3125em
     line-height: 1.2
-    border: 1px solid $light-gray-b
-    border-radius: 4px
+
+    .container
+      background-color: white
+      border: 1px solid $light-gray-b
+      border-radius: 4px
 
   .display
     padding: 1em
@@ -39,8 +44,9 @@
     opacity: 0
 
   .menu
-    list-style: none
     padding: 0
+    margin: 0
+    list-style: none
 
 .pui--select__option
   padding: .75em 1em

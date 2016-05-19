@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
+import keycode from 'keycode';
 import Option from './Option';
 
 export default class Select extends Component {
@@ -14,10 +15,16 @@ export default class Select extends Component {
       PropTypes.string,
       PropTypes.bool,
     ]),
+    responsive: PropTypes.bool,
     children: PropTypes.node,
   };
 
+  static defaultProps = {
+    responsive: true,
+  };
+
   state = {
+    focusing: false,
     selecting: false,
     currentValue: undefined,
   };
@@ -44,17 +51,63 @@ export default class Select extends Component {
     this.refs.valueContainer.value = value;
   };
 
-  handleClick = () => {
-    if (!this.state.selecting) this.setState({ selecting: true });
+  incrementSelection = inc => {
+    const { options } = this.props;
+    const currentIndex = options.findIndex(o => o.value === this.state.currentValue);
+    const nextIndex = currentIndex + inc;
+    let nextOption;
+
+    if (currentIndex === -1 || nextIndex === options.length) nextOption = options[0];
+    else if (nextIndex === -1) nextOption = options[options.length - 1];
+    else nextOption = options[currentIndex + inc];
+
+    this.setCurrentValue(nextOption.value);
   };
 
-  handleFocus = () => this.setState({ selecting: true });
+  focus = () => this.refs.valueContainer.focus();
 
-  handleBlur = () => this.setState({ selecting: false });
+  beginSelecting = () => {
+    this.setState({ selecting: true, focusing: true });
+  };
+
+  finishSelecting = () => {
+    this.setState({ selecting: false });
+  };
+
+  handleClick = () => {
+    if (this.state.selecting) this.finishSelecting();
+    else this.beginSelecting();
+  };
+
+  handleFocus = () => this.setState({ focusing: true });
+
+  handleBlur = () => {
+    if (!this.state.selecting) this.setState({ focusing: false });
+  };
+
+  handleKeyDown = e => {
+    const key = keycode(e.which);
+
+    if (key === 'up' || key === 'down') {
+      if (!this.state.selecting) {
+        this.setState({ selecting: true });
+      } else {
+        if (key === 'up') this.incrementSelection(-1);
+        else this.incrementSelection(1);
+      }
+    }
+
+    if (key === 'enter') this.finishSelecting();
+
+    if (key === 'tab' && this.state.selecting) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
 
   handleSelect = value => {
     this.setCurrentValue(value);
-    this.setState({ selecting: false });
+    this.finishSelecting();
   };
 
   renderLabel() {
@@ -100,7 +153,14 @@ export default class Select extends Component {
   }
 
   render() {
-    const classes = classnames('pui--select', { active: this.state.selecting });
+    const classes = classnames(
+      'pui--select',
+      { responsive: this.props.responsive },
+      { selecting: this.state.selecting },
+      { focusing: this.state.focusing },
+    );
+
+    if (this.state.focusing) this.focus();
 
     return (
       <div className={classes} onClick={this.handleClick}>
@@ -109,13 +169,16 @@ export default class Select extends Component {
           ref="valueContainer"
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
+          onKeyDown={this.handleKeyDown}
         />
         {this.renderLabel()}
         <div className="input">
-          <div className="display">
-            {this.renderDisplay()}
+          <div className="container">
+            <div className="display">
+              {this.renderDisplay()}
+            </div>
+            {this.renderMenu()}
           </div>
-          {this.renderMenu()}
         </div>
       </div>
     );
