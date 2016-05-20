@@ -1,0 +1,43 @@
+.pui--button
+  size = .9em
+  padding: 1em 4em
+  font-size: size
+  letter-spacing: size * .1
+  text-transform: uppercase
+  border-width: 2px
+  border-style: solid
+  border-radius: 4px
+  cursor: pointer
+
+  color: white
+  background-color: $highlight-color
+  border-color: $highlight-color
+
+  &:focus
+    outline: none
+    box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+
+  &:hover
+    color = darken($highlight-color, 10%)
+    background-color: color
+    border-color: color
+
+  &:active
+    color = darken($highlight-color, 25%)
+    background-color: color
+    border-color: color
+    box-shadow: 0 7px 20px 0 alpha($dark-blue-a, 0.17)
+
+  &.ghost
+    color: $dark-blue-a
+    background-color: transparent
+    border-color: $light-gray-b
+
+    &:hover
+      background-color: alpha($light-gray-b, .2)
+
+    &:active
+      background-color: $light-gray-b
+
+  &.fluid
+    width: 100%
