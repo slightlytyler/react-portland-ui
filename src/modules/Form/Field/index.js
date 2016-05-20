@@ -1,14 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 import { Field, Message } from 'react-formal';
 import classnames from 'classnames';
+import omit from 'lodash.omit';
 
 export default class FormField extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     label: PropTypes.string,
-    placeholder: PropTypes.string,
+    placeholder: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.bool,
+    ]),
     error: PropTypes.array,
   };
+
+  handledProps = ['label', 'placeholder'];
 
   placeholder() {
     if (this.props.placeholder) {
@@ -19,7 +25,7 @@ export default class FormField extends Component {
       return placeholder;
     }
 
-    return undefined;
+    return '';
   }
 
   renderLabel() {
@@ -37,11 +43,12 @@ export default class FormField extends Component {
 
   render() {
     const classes = classnames('pui--form__field', { error: this.props.error });
+    const passProps = omit(this.props, this.handledProps);
 
     return (
       <div className={classes}>
         {this.renderLabel()}
-        <Field {...this.props} />
+        <Field {...passProps} placeholder={this.placeholder()} />
       </div>
     );
   }

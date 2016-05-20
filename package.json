@@ -55,6 +55,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "keycode": "^2.1.1",
+    "lodash.omit": "^4.3.0",
     "normalize.css": "^4.1.1",
     "react-formal": "^0.17.9"
   }
