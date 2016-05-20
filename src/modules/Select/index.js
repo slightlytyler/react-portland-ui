@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 import classnames from 'classnames';
 import keycode from 'keycode';
 import Option from './Option';
@@ -34,14 +35,14 @@ export default class Select extends Component {
     this.setState({ currentValue: this.props.value });
   }
 
-  componentDidMount() {
-    this.setValueContainer(this.state.currentValue);
-  }
-
   componentWillReceiveProps(nextProps) {
     if (this.props.value !== nextProps.value) {
       this.setCurrentValue(nextProps.value);
     }
+  }
+
+  componentDidUpdate() {
+    if (this.state.focusing) this.focus();
   }
 
   getPlaceholder = () => {
@@ -61,27 +62,11 @@ export default class Select extends Component {
     return option.label || option.value;
   };
 
-  setValueContainer = value => { this.refs.valueContainer.value = value; }
-
   setCurrentValue = value => {
     this.setState({ currentValue: value });
-    this.setValueContainer(value);
   };
 
-  incrementSelection = inc => {
-    const { options } = this.props;
-    const currentIndex = options.findIndex(o => o.value === this.state.currentValue);
-    const nextIndex = currentIndex + inc;
-    let nextOption;
-
-    if (currentIndex === -1 || nextIndex === options.length) nextOption = options[0];
-    else if (nextIndex === -1) nextOption = options[options.length - 1];
-    else nextOption = options[currentIndex + inc];
-
-    this.setCurrentValue(nextOption.value);
-  };
-
-  focus = () => this.refs.valueContainer.focus();
+  focus = () => findDOMNode(this.refs.dummy).focus();
 
   beginSelecting = () => this.setState({ selecting: true, focusing: true });
 
@@ -111,8 +96,8 @@ export default class Select extends Component {
       if (!this.state.selecting) {
         this.setState({ selecting: true });
       } else {
-        if (key === 'up') this.incrementSelection(-1);
-        else this.incrementSelection(1);
+        if (key === 'up') this.handleIncrementSelection(-1);
+        else this.handleIncrementSelection(1);
       }
     }
 
@@ -124,10 +109,27 @@ export default class Select extends Component {
     }
   };
 
-  handleSelect = value => {
+  handleChange = value => {
     this.setCurrentValue(value);
     if (this.props.onChange) this.props.onChange(value);
+  };
+
+  handleSelection = value => {
+    this.handleChange(value);
     this.finishSelecting();
+  };
+
+  handleIncrementSelection = inc => {
+    const { options } = this.props;
+    const currentIndex = options.findIndex(o => o.value === this.state.currentValue);
+    const nextIndex = currentIndex + inc;
+    let nextOption;
+
+    if (currentIndex === -1 || nextIndex === options.length) nextOption = options[0];
+    else if (nextIndex === -1) nextOption = options[options.length - 1];
+    else nextOption = options[currentIndex + inc];
+
+    this.handleChange(nextOption.value);
   };
 
   renderLabel() {
@@ -155,7 +157,7 @@ export default class Select extends Component {
         value={o.value}
         label={o.label}
         active={o.value === this.state.currentValue}
-        onSelect={this.handleSelect}
+        onSelect={this.handleSelection}
       />
     ));
   }
@@ -180,8 +182,6 @@ export default class Select extends Component {
       { focusing: this.state.focusing },
     );
 
-    if (this.state.focusing) this.focus();
-
     return (
       <div
         className={classes}
@@ -190,7 +190,7 @@ export default class Select extends Component {
       >
         <input
           className="value-container"
-          ref="valueContainer"
+          ref="dummy"
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
           onKeyDown={this.handleKeyDown}
