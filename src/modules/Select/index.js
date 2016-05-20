@@ -6,6 +6,7 @@ import Option from './Option';
 export default class Select extends Component {
   static propTypes = {
     value: PropTypes.any,
+    onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape({
       label: PropTypes.string,
       value: PropTypes.any.isRequired,
@@ -29,6 +30,20 @@ export default class Select extends Component {
     currentValue: undefined,
   };
 
+  componentWillMount() {
+    this.setState({ currentValue: this.props.value });
+  }
+
+  componentDidMount() {
+    this.setValueContainer(this.state.currentValue);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.value !== nextProps.value) {
+      this.setCurrentValue(nextProps.value);
+    }
+  }
+
   getPlaceholder = () => {
     if (this.props.placeholder) {
       const placeholder = typeof this.props.placeholder === 'string'
@@ -46,9 +61,11 @@ export default class Select extends Component {
     return option.label || option.value;
   };
 
+  setValueContainer = value => { this.refs.valueContainer.value = value; }
+
   setCurrentValue = value => {
     this.setState({ currentValue: value });
-    this.refs.valueContainer.value = value;
+    this.setValueContainer(value);
   };
 
   incrementSelection = inc => {
@@ -109,6 +126,7 @@ export default class Select extends Component {
 
   handleSelect = value => {
     this.setCurrentValue(value);
+    if (this.props.onChange) this.props.onChange(value);
     this.finishSelecting();
   };
 
