@@ -67,12 +67,16 @@ export default class Select extends Component {
   handleFocus = () => this.setState({ focusing: true });
 
   handleBlur = () => {
-    if (!this.state.selecting) this.setState({ focusing: false });
-    else this.setState({ selecting: false });
+    if (this.state.selecting) this.setState({ selecting: false });
+    else this.setState({ focusing: false });
   };
 
   handleKeyDown = e => {
     const key = keycode(e.which);
+    const cancelEvent = () => {
+      e.preventDefault();
+      e.stopPropagation();
+    };
 
     if (key === 'up' || key === 'down') {
       if (!this.state.selecting) {
@@ -83,12 +87,12 @@ export default class Select extends Component {
       }
     }
 
-    if (key === 'enter') this.finishSelecting();
-
-    if (key === 'tab' && this.state.selecting) {
-      e.preventDefault();
-      e.stopPropagation();
+    if (key === 'enter' && this.state.selecting) {
+      cancelEvent();
+      this.finishSelecting();
     }
+
+    if (key === 'tab' && this.state.selecting) cancelEvent();
   };
 
   handleChange = value => {

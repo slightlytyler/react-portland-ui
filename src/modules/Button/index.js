@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 export default class Button extends Component {
   static propTypes = {
+    type: PropTypes.string,
     ghost: PropTypes.bool,
     fluid: PropTypes.bool,
     children: PropTypes.node,
@@ -19,7 +20,7 @@ export default class Button extends Component {
     );
 
     return (
-      <FormalButton className={classes}>
+      <FormalButton className={classes} type={this.props.type}>
         {this.props.children}
       </FormalButton>
     );
