@@ -9,7 +9,12 @@ export default class SelectOption extends Component {
     onSelect: PropTypes.func.isRequired,
   };
 
-  handleClick = () => this.props.onSelect(this.props.value);
+  handleMouseDown = e => {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  handleMouseUp = () => this.props.onSelect(this.props.value);
 
   render() {
     const classes = classnames('pui--select__option', { active: this.props.active });
@@ -17,7 +22,8 @@ export default class SelectOption extends Component {
     return (
       <li
         className={classes}
-        onClick={this.handleClick}
+        onMouseDown={this.handleMouseDown}
+        onMouseUp={this.handleMouseUp}
       >
         {this.props.label || this.props.value}
       </li>

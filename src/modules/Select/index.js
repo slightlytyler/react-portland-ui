@@ -83,6 +83,7 @@ export default class Select extends Component {
 
   handleBlur = () => {
     if (!this.state.selecting) this.setState({ focusing: false });
+    else this.setState({ selecting: false });
   };
 
   handleKeyDown = e => {
