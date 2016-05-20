@@ -12,17 +12,13 @@ export default class Select extends Component {
       label: PropTypes.string,
       value: PropTypes.any.isRequired,
     })),
-    label: PropTypes.string,
-    placeholder: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.bool,
-    ]),
-    responsive: PropTypes.bool,
+    placeholder: PropTypes.string,
+    fluid: PropTypes.bool,
     children: PropTypes.node,
   };
 
   static defaultProps = {
-    responsive: true,
+    fluid: true,
   };
 
   state = {
@@ -32,7 +28,7 @@ export default class Select extends Component {
   };
 
   componentWillMount() {
-    this.setState({ currentValue: this.props.value });
+    this.setCurrentValue(this.props.value);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -45,25 +41,11 @@ export default class Select extends Component {
     if (this.state.focusing) this.focus();
   }
 
-  getPlaceholder = () => {
-    if (this.props.placeholder) {
-      const placeholder = typeof this.props.placeholder === 'string'
-        ? this.props.placeholder
-        : this.props.label;
-
-      return placeholder;
-    }
-
-    return undefined;
-  };
+  setCurrentValue = value => this.setState({ currentValue: value });
 
   getLabelForOption = value => {
     const option = this.props.options.find(o => o.value === value);
     return option.label || option.value;
-  };
-
-  setCurrentValue = value => {
-    this.setState({ currentValue: value });
   };
 
   focus = () => findDOMNode(this.refs.dummy).focus();
@@ -132,16 +114,8 @@ export default class Select extends Component {
     this.handleChange(nextOption.value);
   };
 
-  renderLabel() {
-    if (this.props.label) {
-      return <label className="label">{this.props.label}</label>;
-    }
-
-    return undefined;
-  }
-
   renderPlaceholder() {
-    return <span className="placeholder">{this.getPlaceholder()}</span>;
+    return <span className="placeholder">{this.props.placeholder}</span>;
   }
 
   renderDisplay() {
@@ -177,7 +151,7 @@ export default class Select extends Component {
   render() {
     const classes = classnames(
       'pui--select',
-      { responsive: this.props.responsive },
+      { fluid: this.props.fluid },
       { selecting: this.state.selecting },
       { focusing: this.state.focusing },
     );
@@ -195,7 +169,6 @@ export default class Select extends Component {
           onBlur={this.handleBlur}
           onKeyDown={this.handleKeyDown}
         />
-        {this.renderLabel()}
         <div className="input">
           <div className="container">
             <div className="display">

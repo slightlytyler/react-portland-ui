@@ -7,11 +7,11 @@ export default class Input extends Component {
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
     error: PropTypes.array,
-    responsive: PropTypes.bool,
+    fluid: PropTypes.bool,
   };
 
   static defaultProps = {
-    responsive: true,
+    fluid: true,
   };
 
   handleChange = e => this.props.onChange(e.target.value);
@@ -20,7 +20,7 @@ export default class Input extends Component {
     const classes = classnames(
       'pui--input',
       { error: this.props.error },
-      { responsive: this.props.responsive }
+      { fluid: this.props.fluid }
     );
 
     return (
