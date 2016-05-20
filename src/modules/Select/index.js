@@ -66,15 +66,16 @@ export default class Select extends Component {
 
   focus = () => this.refs.valueContainer.focus();
 
-  beginSelecting = () => {
-    this.setState({ selecting: true, focusing: true });
+  beginSelecting = () => this.setState({ selecting: true, focusing: true });
+
+  finishSelecting = () => this.setState({ selecting: false });
+
+  handleMouseDown = e => {
+    e.preventDefault();
+    e.stopPropagation();
   };
 
-  finishSelecting = () => {
-    this.setState({ selecting: false });
-  };
-
-  handleClick = () => {
+  handleMouseUp = () => {
     if (this.state.selecting) this.finishSelecting();
     else this.beginSelecting();
   };
@@ -164,7 +165,11 @@ export default class Select extends Component {
     if (this.state.focusing) this.focus();
 
     return (
-      <div className={classes} onClick={this.handleClick}>
+      <div
+        className={classes}
+        onMouseDown={this.handleMouseDown}
+        onMouseUp={this.handleMouseUp}
+      >
         <input
           className="value-container"
           ref="valueContainer"
