@@ -1,0 +1,68 @@
+.pui--switch
+  display: inline-block
+
+  input
+    position: absolute
+    width: 0
+    height: 0
+    opacity: 0
+
+  label
+    size = 2.75em
+    width = size * 1.89
+    content: ''
+    position: relative
+    display: inline-block
+    width: width
+    height: size
+    color: white
+    background-color: $light-gray-b
+    border-radius: 3px
+    cursor: pointer
+
+    .knob
+      knob-ratio = .78
+      knob-size = knob-ratio * size
+      knob-margin = size * ((1 - knob-ratio) / 2)
+      position: absolute
+      left: 0
+      top: 50%
+      height: knob-size
+      width: knob-size
+      border-radius: 3px
+      overflow: hidden
+
+      transform: translate3d(knob-margin, -50%, 0)
+      background-color: $red-a
+
+      transition: background-color .3s ease, transform .3s ease
+
+      ^[-2] input:checked + ^[1..2]
+          transform: 'translate3d(calc(%s - 100%), -50%, 0)' % (width - knob-margin)
+          background-color: $green-a
+
+          .icon
+            &.check
+              transform: translate(-50%, -50%)
+
+            &.close
+              transform: translate(-50%, 200%)
+
+
+      .icon
+        icon-ratio = .6
+        display: inline-block
+        position: absolute
+        height: knob-size * icon-ratio
+        left: 50%
+        top: 50%
+
+        transform: translate(-50%, -50%)
+
+        transition: transform .3s ease
+
+        &.check
+          transform: translate(-50%, -200%)
+
+        &.close
+          transform: translate(-50%, -50%)

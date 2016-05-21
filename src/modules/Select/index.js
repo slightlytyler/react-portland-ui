@@ -167,7 +167,6 @@ export default class Select extends Component {
         onMouseUp={this.handleMouseUp}
       >
         <input
-          className="value-container"
           ref="dummy"
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}

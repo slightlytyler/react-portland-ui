@@ -6,4 +6,5 @@ export {
   Form,
   Input,
   Select,
+  Switch,
 } from './modules';
