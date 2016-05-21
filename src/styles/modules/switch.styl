@@ -1,6 +1,9 @@
 .pui--switch
   display: inline-block
 
+  &.focusing label
+    box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+
   input
     position: absolute
     width: 0
@@ -38,31 +41,31 @@
       transition: background-color .3s ease, transform .3s ease
 
       ^[-2] input:checked + ^[1..2]
-          transform: 'translate3d(calc(%s - 100%), -50%, 0)' % (width - knob-margin)
-          background-color: $green-a
+        transform: 'translate3d(calc(%s - 100%), -50%, 0)' % (width - knob-margin)
+        background-color: $green-a
 
-          .icon
-            &.check
-              transform: translate(-50%, -50%)
+        .icon
+          &.check
+            transform: translate3d(-50%, -50%, 0)
 
-            &.close
-              transform: translate(-50%, 200%)
+          &.close
+            transform: translate3d((knob-size) * 1.2, -50%, 0)
 
 
       .icon
-        icon-ratio = .6
+        icon-ratio = .4
         display: inline-block
         position: absolute
         height: knob-size * icon-ratio
         left: 50%
         top: 50%
 
-        transform: translate(-50%, -50%)
+        transform: translate3d(-50%, -50%, 0)
 
         transition: transform .3s ease
 
         &.check
-          transform: translate(-50%, -200%)
+          transform: translate3d(-(knob-size) * 1.2, -50%, 0)
 
         &.close
-          transform: translate(-50%, -50%)
+          transform: translate3d(-50%, -50%, 0)
