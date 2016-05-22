@@ -10,15 +10,14 @@
 
   display: inline-block
 
-  &.focusing label
-    box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+  &.focusing label .knob
+    box-shadow: 0 10px 25px 0 alpha($dark-blue-b, 0.4)
 
   &.regular
     label
       color: alpha(black, .3)
       background-color: $red-a
       border-radius: 24px
-      overflow: hidden
 
       transition: background-color .3s ease
 
