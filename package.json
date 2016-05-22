@@ -58,6 +58,6 @@
     "lodash.omit": "^4.3.0",
     "normalize.css": "^4.1.1",
     "react-formal": "^0.17.9",
-    "react-svgcon": "^0.4.1"
+    "react-svgcon": "^0.4.2"
   }
 }

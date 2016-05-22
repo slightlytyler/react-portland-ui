@@ -37,16 +37,16 @@ export default class Switch extends Component {
     if (this.props.square) {
       return (
         <div className="knob">
-          <Icon className="check icon" path={checkIcon} color="currentColor" />
-          <Icon className="close icon" path={closeIcon} color="currentColor" />
+          <Icon className="check icon" path={checkIcon} />
+          <Icon className="close icon" path={closeIcon} />
         </div>
       );
     }
 
     return [
       <div key="knob" className="knob" />,
-      <Icon key="check" className="check icon" path={checkIcon} color="currentColor" />,
-      <Icon key="close" className="close icon" path={closeIcon} color="currentColor" />,
+      <Icon key="check" className="check icon" path={checkIcon} />,
+      <Icon key="close" className="close icon" path={closeIcon} />,
     ];
   }
 

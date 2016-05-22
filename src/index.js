@@ -2,6 +2,7 @@ import './styles/index.styl';
 
 export {
   Button,
+  Checkbox,
   Field,
   Form,
   Input,

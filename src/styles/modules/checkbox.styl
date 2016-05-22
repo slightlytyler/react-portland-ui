@@ -1,0 +1,49 @@
+.pui--checkbox
+  size = 2em
+  icon-ratio = .5
+  icon-size = size * icon-ratio
+
+  &.focusing label
+    box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+
+  input
+    position: absolute
+    width: 0
+    height: 0
+    opacity: 0
+
+    &:checked + label
+      background-color: $highlight-color
+      border-color: $highlight-color
+
+      .icon
+        transform: translate3d(-50%, -50%, 0) scale(1)
+
+  label
+    position: relative
+    display: inline-block
+    width: size
+    height: size
+    cursor: pointer
+
+    color: white
+    border-width: 2px
+    border-style: solid
+    border-radius: 3px
+
+    background-color: transparent
+    border-color: $light-gray-b
+
+    transition: background-color .1s ease, border-color .1s ease
+
+  .icon
+    display: inline-block
+    position: absolute
+    left: 50%
+    top: 50%
+    width: icon-size
+    height: icon-size
+
+    transform: translate3d(-50%, -50%, 0) scale(0)
+
+    transition: transform .3s cubic-bezier(0.68, -0.55, 0.265, 1.55)
