@@ -1,8 +1,84 @@
 .pui--switch
+  size = 2.75em
+  width = size * 1.89
+
+  knob-ratio = .78
+  knob-size = knob-ratio * size
+  knob-margin = size * ((1 - knob-ratio) / 2)
+
+  icon-ratio = .4
+
   display: inline-block
 
   &.focusing label
     box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+
+  &.regular
+    label
+      color: alpha(black, .3)
+      background-color: $red-a
+      border-radius: 24px
+      overflow: hidden
+
+      transition: background-color .3s ease
+
+    input:checked + label
+      background-color: $green-a
+
+    .knob
+      border-radius: 50%
+      background-color: white
+      z-index: 1
+
+      transition: transform .3s ease
+
+    .icon
+      top: 50%
+      z-index: 0
+
+      &.check
+        left: (knob-size / 2) + knob-margin
+        transform: translate3d(-50%, -50%, 0)
+
+      &.close
+        right: (knob-size / 2) + knob-margin
+        transform: translate3d(50%, -50%, 0)
+
+  &.square
+    label
+      color: white
+      background-color: $light-gray-b
+      border-radius: 3px
+
+    input:checked + label .knob
+      background-color: $green-a
+
+      .icon
+        &.check
+          transform: translate3d(-50%, -50%, 0)
+
+        &.close
+          transform: translate3d((knob-size) * 1.2, -50%, 0)
+
+    .knob
+      border-radius: 3px
+      background-color: $red-a
+      z-index: 0
+      overflow: hidden
+
+      transition: background-color .3s ease, transform .3s ease
+
+    .icon
+      left: 50%
+      top: 50%
+      transform: translate3d(-50%, -50%, 0)
+      z-index: 1
+
+      &.check
+        transform: translate3d(-(knob-size) * 1.2, -50%, 0)
+
+      &.close
+        transform: translate3d(-50%, -50%, 0)
 
   input
     position: absolute
@@ -10,62 +86,29 @@
     height: 0
     opacity: 0
 
+    &:checked + label .knob
+      transform: 'translate3d(calc(%s - 100%), -50%, 0)' % (width - knob-margin)
+
   label
-    size = 2.75em
-    width = size * 1.89
     content: ''
     position: relative
     display: inline-block
     width: width
     height: size
-    color: white
-    background-color: $light-gray-b
-    border-radius: 3px
     cursor: pointer
 
     .knob
-      knob-ratio = .78
-      knob-size = knob-ratio * size
-      knob-margin = size * ((1 - knob-ratio) / 2)
       position: absolute
       left: 0
       top: 50%
       height: knob-size
       width: knob-size
-      border-radius: 3px
-      overflow: hidden
 
       transform: translate3d(knob-margin, -50%, 0)
-      background-color: $red-a
 
-      transition: background-color .3s ease, transform .3s ease
+    .icon
+      display: inline-block
+      position: absolute
+      height: knob-size * icon-ratio
 
-      ^[-2] input:checked + ^[1..2]
-        transform: 'translate3d(calc(%s - 100%), -50%, 0)' % (width - knob-margin)
-        background-color: $green-a
-
-        .icon
-          &.check
-            transform: translate3d(-50%, -50%, 0)
-
-          &.close
-            transform: translate3d((knob-size) * 1.2, -50%, 0)
-
-
-      .icon
-        icon-ratio = .4
-        display: inline-block
-        position: absolute
-        height: knob-size * icon-ratio
-        left: 50%
-        top: 50%
-
-        transform: translate3d(-50%, -50%, 0)
-
-        transition: transform .3s ease
-
-        &.check
-          transform: translate3d(-(knob-size) * 1.2, -50%, 0)
-
-        &.close
-          transform: translate3d(-50%, -50%, 0)
+      transition: transform .3s ease

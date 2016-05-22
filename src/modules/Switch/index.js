@@ -9,6 +9,11 @@ export default class Switch extends Component {
     value: PropTypes.bool,
     onChange: PropTypes.func,
     name: PropTypes.string.isRequired,
+    square: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    square: false,
   };
 
   state = {
@@ -28,8 +33,32 @@ export default class Switch extends Component {
 
   handleMouseUp = () => this.setState({ toggling: false });
 
+  renderKnob() {
+    if (this.props.square) {
+      return (
+        <div className="knob">
+          <Icon className="check icon" path={checkIcon} color="currentColor" />
+          <Icon className="close icon" path={closeIcon} color="currentColor" />
+        </div>
+      );
+    }
+
+    return [
+      <div key="knob" className="knob" />,
+      <Icon key="check" className="check icon" path={checkIcon} color="currentColor" />,
+      <Icon key="close" className="close icon" path={closeIcon} color="currentColor" />,
+    ];
+  }
+
   render() {
-    const classes = classnames('pui--switch', { focusing: this.state.focusing });
+    const classes = classnames(
+      'pui--switch',
+      {
+        focusing: this.state.focusing,
+        square: this.props.square,
+        regular: !this.props.square,
+      }
+    );
 
     return (
       <div className={classes}>
@@ -46,10 +75,7 @@ export default class Switch extends Component {
           onMouseDown={this.handleMouseDown}
           onMouseUp={this.handleMouseUp}
         >
-          <div className="knob">
-            <Icon className="check icon" path={checkIcon} color="currentColor" />
-            <Icon className="close icon" path={closeIcon} color="currentColor" />
-          </div>
+          {this.renderKnob()}
         </label>
       </div>
     );
