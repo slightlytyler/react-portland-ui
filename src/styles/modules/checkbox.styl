@@ -5,6 +5,9 @@
 
   padding: .657em 0
 
+  &.focusing label
+    box-shadow: $inputs-shadow-focus
+
   &.error label
     @extends $inputs-error
 
@@ -18,8 +21,6 @@
       .icon
         transform: translate3d(-50%, -50%, 0) scale(1)
 
-    &:focus + label
-      box-shadow: $inputs-shadow-focus
 
   label
     display: block
@@ -35,9 +36,6 @@
     transition: background-color .1s ease, border-color .1s ease
     background-color: white
     border-color: $light-gray-b
-
-    &:active
-      box-shadow: $inputs-shadow-focus
 
   .icon
     display: inline-block
