@@ -45,5 +45,12 @@
     color: $dark-blue-a
 
 .pui--radio__group
-  & > *:not(:last-child)
-    margin-bottom: .5em
+  &.error .pui--radio__button .input
+    @extends $inputs-error
+
+  .pui--radio__button
+    &:not(:last-child)
+      margin-bottom: .5em
+
+    .input
+      transition: border-color .1s ease

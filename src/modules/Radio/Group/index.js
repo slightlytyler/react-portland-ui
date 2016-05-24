@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classnames from 'classnames';
 import RadioButton from '../Button';
 
 export default class RadioGroup extends Component {
@@ -9,6 +10,7 @@ export default class RadioGroup extends Component {
       label: PropTypes.string,
       value: PropTypes.any.isRequired,
     })),
+    error: PropTypes.array,
   };
 
   renderOptions = () => this.props.options.map(o => (
@@ -22,8 +24,10 @@ export default class RadioGroup extends Component {
   ));
 
   render() {
+    const classes = classnames('pui--radio__group', { error: this.props.error });
+
     return (
-      <div className="pui--radio__group">
+      <div className={classes}>
         {this.renderOptions()}
       </div>
     );
