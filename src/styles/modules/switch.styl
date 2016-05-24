@@ -11,9 +11,6 @@
   display: inline-block
   padding: .285em 0
 
-  &.focusing label .knob
-    box-shadow: $inputs-shadow-float
-
   &.regular
     label
       color: alpha(black, .3)
@@ -100,6 +97,7 @@
       top: 50%
       height: knob-size
       width: knob-size
+      box-shadow: $inputs-shadow-float
 
       transform: translate3d(knob-margin, -50%, 0)
 

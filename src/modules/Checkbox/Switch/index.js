@@ -1,12 +1,11 @@
-import React, { PropTypes } from 'react';
-import Base from '../Base';
+import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import { pickDiff } from 'helpers';
 import Icon from 'react-svgcon';
 import checkIcon from 'icons/check.svg';
 import closeIcon from 'icons/close.svg';
 
-export default class Switch extends Base {
+export default class Switch extends Component {
   static propTypes = {
     value: PropTypes.bool,
     onChange: PropTypes.func,
@@ -18,21 +17,21 @@ export default class Switch extends Base {
     square: false,
   };
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     const acceptedProps = ['value', 'square'];
-    const acceptedState = ['focusing'];
 
-    if (
-      pickDiff(this.props, nextProps, acceptedProps)
-      || pickDiff(this.state, nextState, acceptedState)
-    ) {
+    if (pickDiff(this.props, nextProps, acceptedProps)) {
       return true;
     }
 
     return false;
   }
 
-  renderKnob() {
+  handleChange = e => {
+    if (this.props.onChange) this.props.onChange(e.target.checked);
+  };
+
+  renderKnob = () => {
     if (this.props.square) {
       return (
         <div className="knob">
@@ -47,13 +46,12 @@ export default class Switch extends Base {
       <Icon key="check" className="check icon" path={checkIcon} />,
       <Icon key="close" className="close icon" path={closeIcon} />,
     ];
-  }
+  };
 
   render() {
     const classes = classnames(
       'pui--switch',
       {
-        focusing: this.getFocusingClassName(),
         square: this.props.square,
         regular: !this.props.square,
       }

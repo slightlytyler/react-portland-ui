@@ -1,11 +1,10 @@
-import React, { PropTypes } from 'react';
-import Base from '../Base';
+import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import { pickDiff } from 'helpers';
 import Icon from 'react-svgcon';
 import checkIcon from 'icons/check.svg';
 
-export default class Switch extends Base {
+export default class Switch extends Component {
   static propTypes = {
     value: PropTypes.bool,
     onChange: PropTypes.func,
@@ -13,28 +12,22 @@ export default class Switch extends Base {
     error: PropTypes.array,
   };
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     const acceptedProps = ['value', 'error'];
-    const acceptedState = ['focusing'];
 
-    if (
-      pickDiff(this.props, nextProps, acceptedProps)
-      || pickDiff(this.state, nextState, acceptedState)
-    ) {
+    if (pickDiff(this.props, nextProps, acceptedProps)) {
       return true;
     }
 
     return false;
   }
 
+  handleChange = e => {
+    if (this.props.onChange) this.props.onChange(e.target.checked);
+  };
+
   render() {
-    const classes = classnames(
-      'pui--checkbox',
-      {
-        focusing: this.getFocusingClassName(),
-        error: this.props.error,
-      }
-    );
+    const classes = classnames('pui--checkbox', { error: this.props.error });
 
     return (
       <div className={classes}>

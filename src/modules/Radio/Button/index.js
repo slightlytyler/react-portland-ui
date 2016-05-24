@@ -8,7 +8,9 @@ export default class RadioButton extends Component {
     label: PropTypes.string,
   };
 
-  handleChange = () => this.props.onChange(this.props.value);
+  handleChange = () => {
+    if (!this.props.checked) this.props.onChange(this.props.value);
+  };
 
   render() {
     return (
