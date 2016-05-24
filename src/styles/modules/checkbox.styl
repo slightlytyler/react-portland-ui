@@ -5,11 +5,11 @@
 
   padding: .657em 0
 
+  &.error label
+    @extends $inputs-error
+
   input
-    position: absolute
-    width: 0
-    height: 0
-    opacity: 0
+    @extends $inputs-dummy
 
     &:checked + label
       background-color: $highlight-color
@@ -19,27 +19,25 @@
         transform: translate3d(-50%, -50%, 0) scale(1)
 
     &:focus + label
-      box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+      box-shadow: $inputs-shadow-focus
 
   label
     display: block
     position: relative
     width: size
     height: size
-    cursor: pointer
-
     color: white
     border-width: 2px
     border-style: solid
     border-radius: 3px
-
-    background-color: transparent
-    border-color: $light-gray-b
+    cursor: pointer
 
     transition: background-color .1s ease, border-color .1s ease
+    background-color: white
+    border-color: $light-gray-b
 
     &:active
-      box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+      box-shadow: $inputs-shadow-focus
 
   .icon
     display: inline-block
@@ -49,6 +47,5 @@
     width: icon-size
     height: icon-size
 
-    transform: translate3d(-50%, -50%, 0) scale(0)
-
     transition: transform .3s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+    transform: translate3d(-50%, -50%, 0) scale(0)

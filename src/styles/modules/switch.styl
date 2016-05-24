@@ -12,7 +12,7 @@
   padding: .285em 0
 
   &.focusing label .knob
-    box-shadow: 0 10px 25px 0 alpha($dark-blue-b, 0.4)
+    box-shadow: $inputs-shadow-float
 
   &.regular
     label
@@ -81,10 +81,7 @@
         transform: translate3d(-50%, -50%, 0)
 
   input
-    position: absolute
-    width: 0
-    height: 0
-    opacity: 0
+    @extends $inputs-dummy
 
     &:checked + label .knob
       transform: 'translate3d(calc(%s - 100%), -50%, 0)' % (width - knob-margin)

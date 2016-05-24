@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classnames from 'classnames';
 import pickDiff from 'helpers/pickDiff';
 import Icon from 'react-svgcon';
 import checkIcon from 'icons/check.svg';
@@ -8,10 +9,11 @@ export default class Switch extends Component {
     value: PropTypes.bool,
     onChange: PropTypes.func,
     name: PropTypes.string.isRequired,
+    error: PropTypes.array,
   };
 
   shouldComponentUpdate(nextProps) {
-    const acceptedProps = ['value'];
+    const acceptedProps = ['value', 'error'];
 
     if (pickDiff(this.props, nextProps, acceptedProps)) {
       return true;
@@ -23,8 +25,10 @@ export default class Switch extends Component {
   handleChange = e => this.props.onChange(e.target.checked);
 
   render() {
+    const classes = classnames('pui--checkbox', { error: this.props.error });
+
     return (
-      <div className="pui--checkbox">
+      <div className={classes}>
         <input
           id={this.props.name}
           type="checkbox"
