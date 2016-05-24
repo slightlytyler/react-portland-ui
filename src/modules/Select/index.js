@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { findDOMNode } from 'react-dom';
 import classnames from 'classnames';
 import keycode from 'keycode';
+import { pickDiff, focusNode } from 'helpers';
 import Option from './Option';
 
 export default class Select extends Component {
@@ -15,7 +15,6 @@ export default class Select extends Component {
     placeholder: PropTypes.string,
     error: PropTypes.array,
     fluid: PropTypes.bool,
-    children: PropTypes.node,
   };
 
   static defaultProps = {
@@ -38,6 +37,20 @@ export default class Select extends Component {
     }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    const acceptedProps = ['value', 'options', 'placeholder', 'error', 'fluid'];
+    const acceptedState = ['focusing', 'selecting'];
+
+    if (
+      pickDiff(this.props, nextProps, acceptedProps)
+      || pickDiff(this.state, nextState, acceptedState)
+    ) {
+      return true;
+    }
+
+    return false;
+  }
+
   componentDidUpdate() {
     if (this.state.focusing) this.focus();
   }
@@ -49,7 +62,7 @@ export default class Select extends Component {
     return option.label || option.value;
   };
 
-  focus = () => findDOMNode(this.refs.dummy).focus();
+  focus = () => focusNode(this.refs.dummy);
 
   beginSelecting = () => this.setState({ selecting: true, focusing: true });
 
