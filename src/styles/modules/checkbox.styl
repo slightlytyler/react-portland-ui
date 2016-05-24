@@ -3,8 +3,7 @@
   icon-ratio = .5
   icon-size = size * icon-ratio
 
-  &.focusing label
-    box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+  padding: .657em 0
 
   input
     position: absolute
@@ -19,9 +18,12 @@
       .icon
         transform: translate3d(-50%, -50%, 0) scale(1)
 
+    &:focus + label
+      box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+
   label
+    display: block
     position: relative
-    display: inline-block
     width: size
     height: size
     cursor: pointer
@@ -35,6 +37,9 @@
     border-color: $light-gray-b
 
     transition: background-color .1s ease, border-color .1s ease
+
+    &:active
+      box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
 
   .icon
     display: inline-block

@@ -62,7 +62,8 @@ module.exports = {
     alias: {
       modules: path.join(__src, 'modules'),
       styles: path.join(__src, 'styles'),
-      icons: path.join(__src, 'assets/icons')
+      icons: path.join(__src, 'assets/icons'),
+      helpers: path.join(__src, 'helpers')
     }
   },
   postcss: function () {

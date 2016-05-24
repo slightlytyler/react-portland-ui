@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import classnames from 'classnames';
+import pickDiff from 'helpers/pickDiff';
 import Icon from 'react-svgcon';
 import checkIcon from 'icons/check.svg';
 
@@ -10,44 +10,28 @@ export default class Switch extends Component {
     name: PropTypes.string.isRequired,
   };
 
-  static defaultProps = {
-  };
+  shouldComponentUpdate(nextProps) {
+    const acceptedProps = ['value'];
 
-  state = {
-    focusing: false,
-    toggling: false,
-  };
+    if (pickDiff(this.props, nextProps, acceptedProps)) {
+      return true;
+    }
+
+    return false;
+  }
 
   handleChange = e => this.props.onChange(e.target.checked);
 
-  handleFocus = () => this.setState({ focusing: true });
-
-  handleBlur = () => {
-    if (!this.state.toggling) this.setState({ focusing: false });
-  };
-
-  handleMouseDown = () => this.setState({ toggling: true });
-
-  handleMouseUp = () => this.setState({ toggling: false });
-
   render() {
-    const classes = classnames('pui--checkbox', { focusing: this.state.focusing });
-
     return (
-      <div className={classes}>
+      <div className="pui--checkbox">
         <input
           id={this.props.name}
           type="checkbox"
           value={this.props.value}
           onChange={this.handleChange}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
         />
-        <label
-          htmlFor={this.props.name}
-          onMouseDown={this.handleMouseDown}
-          onMouseUp={this.handleMouseUp}
-        >
+        <label htmlFor={this.props.name}>
           <Icon key="check" className="check icon" path={checkIcon} />
         </label>
       </div>
