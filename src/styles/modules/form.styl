@@ -1,5 +1,5 @@
 .pui--form
-  width: 30em
+  width: 50em
   padding: 1em
   margin: 0 auto
 
@@ -24,3 +24,12 @@
     .message
       &:before
         content: "\00a0 "
+
+.pui--form__field-set
+  display: flex
+
+  & > *
+    flex: 1
+
+    &:not(:last-child)
+      margin-right: 1em

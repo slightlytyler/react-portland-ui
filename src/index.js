@@ -4,6 +4,7 @@ export {
   Button,
   Checkbox,
   Field,
+  FieldSet,
   Form,
   Input,
   RadioButton,
