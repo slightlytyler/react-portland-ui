@@ -1,0 +1,49 @@
+.pui--radio__button
+  size = 2em * .9
+  dot-ratio = .4
+  dot-size = size * dot-ratio
+
+  display: flex
+  align-items: center
+
+  .dummy
+    @extends $inputs-dummy
+
+    &:checked + .input
+      cursor: default
+
+      &:after
+        transform: translate3d(-50%, -50%, 0) scale(1)
+
+  .input
+    content: ''
+    display: inline-block
+    position: relative
+    width: size
+    height: size
+    background-color: white
+    border: 2px solid $light-gray-b
+    border-radius: 50%
+    cursor: pointer
+
+    &:after
+      content: ''
+      display: block
+      position: absolute
+      left: 50%
+      top: 50%
+      width: dot-size
+      height: dot-size
+      background-color: $highlight-color
+      border-radius: 50%
+
+      transition: transform .3s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+      transform: translate3d(-50%, -50%, 0) scale(0)
+
+  .label
+    margin-left: 1em
+    color: $dark-blue-a
+
+.pui--radio__group
+  & > *:not(:last-child)
+    margin-bottom: .5em

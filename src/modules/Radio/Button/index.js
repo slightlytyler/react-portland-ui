@@ -12,14 +12,18 @@ export default class RadioButton extends Component {
 
   render() {
     return (
-      <div>
+      <div className="pui--radio__button">
         <input
+          ref="dummy"
+          className="dummy"
+          id={this.props.value}
           type="radio"
           value={this.props.value}
           onChange={this.handleChange}
           checked={this.props.checked}
         />
-        <label>{this.props.label || this.props.value}</label>
+        <label htmlFor={this.props.value} className="input" />
+        <span className="label">{this.props.label || this.props.value}</span>
       </div>
     );
   }

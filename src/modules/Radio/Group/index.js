@@ -23,7 +23,7 @@ export default class RadioGroup extends Component {
 
   render() {
     return (
-      <div>
+      <div className="pui--radio__group">
         {this.renderOptions()}
       </div>
     );
