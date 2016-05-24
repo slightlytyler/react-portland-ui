@@ -9,6 +9,10 @@ export default class BaseCheckbox extends Component {
     focusing: false,
   };
 
+  componentDidUpdate() {
+    if (this.state.focusing) this.focus();
+  }
+
   getFocusingClassName = () => this.state.focusing || this.state.active;
 
   focus = () => focusNode(this.refs.dummy);
@@ -23,8 +27,5 @@ export default class BaseCheckbox extends Component {
 
   handleMouseDown = () => this.setState({ active: true });
 
-  handleMouseUp = () => {
-    this.focus();
-    this.setState({ active: false });
-  };
+  handleMouseUp = () => this.setState({ active: false, focusing: true });
 }
