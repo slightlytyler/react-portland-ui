@@ -13,6 +13,7 @@ export default class Select extends Component {
       value: PropTypes.any.isRequired,
     })),
     placeholder: PropTypes.string,
+    error: PropTypes.array,
     fluid: PropTypes.bool,
     children: PropTypes.node,
   };
@@ -155,9 +156,10 @@ export default class Select extends Component {
   render() {
     const classes = classnames(
       'pui--select',
-      { fluid: this.props.fluid },
       { selecting: this.state.selecting },
       { focusing: this.state.focusing },
+      { error: this.props.error },
+      { fluid: this.props.fluid },
     );
 
     return (
@@ -172,7 +174,7 @@ export default class Select extends Component {
           onBlur={this.handleBlur}
           onKeyDown={this.handleKeyDown}
         />
-        <div className="input">
+        <div className="body">
           <div className="container">
             <div className="display">
               {this.renderDisplay()}

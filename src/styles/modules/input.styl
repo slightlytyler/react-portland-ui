@@ -1,18 +1,16 @@
 .pui--input
+  @extends $inputs-container
   padding: 1em
-  border: 1px solid $light-gray-b
-  border-radius: 4px
 
   &::placeholder
-    color: $dark-gray-a
+    @extends $inputs-placeholder
     opacity: 1
 
   &:focus
-    outline: none
-    box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+    @extends $inputs-focus
 
   &.fluid
-    width: 100%
+    @extends $inputs-fluid
 
   &.error
-    border-color: $red-a
+    @extends $inputs-error
