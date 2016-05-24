@@ -1,12 +1,12 @@
-import React, { Component, PropTypes } from 'react';
-import { findDOMNode } from 'react-dom';
+import React, { PropTypes } from 'react';
+import Base from '../Base';
 import classnames from 'classnames';
-import pickDiff from 'helpers/pickDiff';
+import { pickDiff } from 'helpers';
 import Icon from 'react-svgcon';
 import checkIcon from 'icons/check.svg';
 import closeIcon from 'icons/close.svg';
 
-export default class Switch extends Component {
+export default class Switch extends Base {
   static propTypes = {
     value: PropTypes.bool,
     onChange: PropTypes.func,
@@ -16,11 +16,6 @@ export default class Switch extends Component {
 
   static defaultProps = {
     square: false,
-  };
-
-  state = {
-    focusing: false,
-    active: false,
   };
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -36,23 +31,6 @@ export default class Switch extends Component {
 
     return false;
   }
-
-  focus = () => findDOMNode(this.refs.dummy).focus();
-
-  handleChange = e => {
-    if (this.props.onChange) this.props.onChange(e.target.checked);
-  };
-
-  handleFocus = () => this.setState({ focusing: true });
-
-  handleBlur = () => this.setState({ focusing: false });
-
-  handleMouseDown = () => this.setState({ active: true });
-
-  handleMouseUp = () => {
-    this.focus();
-    this.setState({ active: false });
-  };
 
   renderKnob() {
     if (this.props.square) {
@@ -75,7 +53,7 @@ export default class Switch extends Component {
     const classes = classnames(
       'pui--switch',
       {
-        focusing: this.state.focusing || this.state.active,
+        focusing: this.getFocusingClassName(),
         square: this.props.square,
         regular: !this.props.square,
       }
