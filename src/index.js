@@ -7,6 +7,8 @@ export {
   FieldSet,
   Form,
   Input,
+  TextInput,
+  PasswordInput,
   RadioButton,
   RadioGroup,
   Select,

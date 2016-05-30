@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classnames from 'classnames';
 import Formal from 'react-formal';
 import FieldSet from '../FieldSet';
 
@@ -7,6 +8,11 @@ export default class Form extends Component {
     children: PropTypes.node,
     schema: PropTypes.object.isRequired,
     defaultValue: PropTypes.object.isRequired,
+    fluid: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    fluid: false,
   };
 
   state = {
@@ -26,9 +32,11 @@ export default class Form extends Component {
   });
 
   render() {
+    const classes = classnames('pui--form', { fluid: this.props.fluid });
+
     return (
       <Formal
-        className="pui--form"
+        className={classes}
         schema={this.props.schema}
         defaultValue={this.props.defaultValue}
         onError={this.handleErrors}
