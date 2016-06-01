@@ -13,5 +13,6 @@ export {
   RadioButton,
   RadioGroup,
   Select,
+  Spinner,
   Switch,
 } from './modules';
