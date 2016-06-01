@@ -3,18 +3,22 @@ import classnames from 'classnames';
 
 export default class SelectOption extends Component {
   static propTypes = {
-    value: PropTypes.any.isRequired,
+    value: PropTypes.any,
+    onSelect: PropTypes.func,
     label: PropTypes.string,
     active: PropTypes.bool,
-    onSelect: PropTypes.func.isRequired,
   };
 
   handleMouseDown = e => {
     e.preventDefault();
     e.stopPropagation();
-  }
+  };
 
-  handleMouseUp = () => this.props.onSelect(this.props.value);
+  handleMouseUp = () => {
+    if (this.props.value && this.props.onSelect) {
+      this.props.onSelect(this.props.value);
+    }
+  };
 
   render() {
     const classes = classnames('pui--select__option', { active: this.props.active });

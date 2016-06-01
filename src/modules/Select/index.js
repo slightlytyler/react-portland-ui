@@ -145,15 +145,19 @@ export default class Select extends Component {
   }
 
   renderOptions() {
-    return this.props.options.map(o => (
-      <Option
-        key={o.value}
-        value={o.value}
-        label={o.label}
-        active={o.value === this.state.currentValue}
-        onSelect={this.handleSelection}
-      />
-    ));
+    if (this.props.options.length) {
+      return this.props.options.map(o => (
+        <Option
+          key={o.value}
+          value={o.value}
+          label={o.label}
+          active={o.value === this.state.currentValue}
+          onSelect={this.handleSelection}
+        />
+      ));
+    }
+
+    return [<Option key="no-options" label="No options available." />];
   }
 
   renderMenu() {
