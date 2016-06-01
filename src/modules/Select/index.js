@@ -4,6 +4,7 @@ import keycode from 'keycode';
 import { pickDiff, focusNode } from 'helpers';
 import Icon from 'react-svgcon';
 import Option from './Option';
+import Spinner from 'modules/Spinner';
 import dropdownIcon from 'icons/dropdown.svg';
 
 export default class Select extends Component {
@@ -15,11 +16,16 @@ export default class Select extends Component {
       value: PropTypes.any.isRequired,
     })),
     placeholder: PropTypes.string,
+    disabled: PropTypes.bool,
+    loading: PropTypes.bool,
+    loadingLabel: PropTypes.string,
     error: PropTypes.array,
     fluid: PropTypes.bool,
   };
 
   static defaultProps = {
+    disabled: false,
+    loading: false,
     fluid: false,
   };
 
@@ -64,6 +70,8 @@ export default class Select extends Component {
     return option.label || option.value;
   };
 
+  isReady = () => !(this.props.disabled || this.props.loading);
+
   focus = () => focusNode(this.refs.dummy);
 
   beginSelecting = () => this.setState({ selecting: true, focusing: true });
@@ -76,8 +84,10 @@ export default class Select extends Component {
   };
 
   handleMouseUp = () => {
-    if (this.state.selecting) this.finishSelecting();
-    else this.beginSelecting();
+    if (this.isReady()) {
+      if (this.state.selecting) this.finishSelecting();
+      else this.beginSelecting();
+    }
   };
 
   handleFocus = () => this.setState({ focusing: true });
@@ -139,6 +149,15 @@ export default class Select extends Component {
   }
 
   renderDisplay() {
+    if (this.props.loading && !this.props.disabled) {
+      return (
+        <span className="label">
+          <Spinner className="spinner" />
+          {this.props.loadingLabel || 'Loading...'}
+        </span>
+      );
+    }
+
     return this.state.currentValue
       ? this.getLabelForOption(this.state.currentValue)
       : this.renderPlaceholder();
@@ -161,7 +180,7 @@ export default class Select extends Component {
   }
 
   renderMenu() {
-    if (this.state.selecting) {
+    if (this.isReady() && this.state.selecting) {
       return (
         <ul className="menu">
           {this.renderOptions()}
@@ -172,13 +191,32 @@ export default class Select extends Component {
     return undefined;
   }
 
+  renderDummy() {
+    if (this.isReady()) {
+      return (
+        <input
+          ref="dummy"
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          onKeyDown={this.handleKeyDown}
+        />
+      );
+    }
+
+    return undefined;
+  }
+
   render() {
     const classes = classnames(
       'pui--select',
-      { selecting: this.state.selecting },
-      { focusing: this.state.focusing },
-      { error: this.props.error },
-      { fluid: this.props.fluid },
+      {
+        selecting: this.state.selecting,
+        focusing: this.state.focusing,
+        disabled: this.props.disabled,
+        loading: this.props.loading,
+        error: this.props.error,
+        fluid: this.props.fluid,
+      }
     );
 
     return (
@@ -187,12 +225,7 @@ export default class Select extends Component {
         onMouseDown={this.handleMouseDown}
         onMouseUp={this.handleMouseUp}
       >
-        <input
-          ref="dummy"
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          onKeyDown={this.handleKeyDown}
-        />
+        {this.renderDummy()}
         <div className="body">
           <div className="container">
             <div className="display">

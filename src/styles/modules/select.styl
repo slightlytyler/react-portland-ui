@@ -3,9 +3,6 @@
   cursor: pointer
   width: $inputs-width
 
-  &.fluid .body
-    @extends $inputs-fluid
-
   &.focusing .container
     @extends $inputs-focus
 
@@ -13,6 +10,24 @@
     position: absolute
     width: 100%
     box-shadow: $inputs-shadow-cover
+
+  &.disabled
+    cursor: not-allowed
+
+    .container
+      background-color: $light-gray-a
+
+    .display, .placeholder
+      color: $dark-gray-a
+
+  &.loading
+    cursor: wait
+
+    .display .icon
+      color: $dark-gray-a
+
+  &.fluid .body
+    @extends $inputs-fluid
 
   &.error .container
     @extends $inputs-error
@@ -33,6 +48,13 @@
     justify-content: space-between
     align-items: center
     padding: 1em
+
+    .label
+      display: flex
+      align-items: center
+
+      .spinner
+        margin-right: 1em
 
   .icon
     width: .8em

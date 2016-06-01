@@ -1,0 +1,25 @@
+.pui--spinner
+  position: relative
+  display: inline-block
+  font-size: 1em
+  text-indent: -9999em
+  border-top: .15em solid alpha($dark-blue-a, 0.2)
+  border-right: .15em solid alpha($dark-blue-a, 0.2)
+  border-bottom: .15em solid alpha($dark-blue-a, 0.2)
+  border-left: .15em solid $dark-blue-a
+  transform: translateZ(0)
+  animation: spinner 1.1s infinite linear
+
+  &, &:after
+    width: 1em
+    height: 1em
+    border-radius: 50%
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
