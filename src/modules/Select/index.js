@@ -9,6 +9,7 @@ import dropdownIcon from 'icons/dropdown.svg';
 
 export default class Select extends Component {
   static propTypes = {
+    className: PropTypes.string,
     value: PropTypes.any,
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape({
@@ -209,6 +210,7 @@ export default class Select extends Component {
   render() {
     const classes = classnames(
       'pui--select',
+      this.props.className,
       {
         selecting: this.state.selecting,
         focusing: this.state.focusing,

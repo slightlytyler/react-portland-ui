@@ -27,8 +27,9 @@
     .display .icon
       color: $dark-gray-a
 
-  &.fluid .body
-    @extends $inputs-fluid
+  &.fluid
+    &, .body, .container
+      @extends $inputs-fluid
 
   &.error .container
     @extends $inputs-error
