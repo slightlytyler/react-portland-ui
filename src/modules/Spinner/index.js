@@ -4,7 +4,11 @@ import classnames from 'classnames';
 const Spinner = ({ className, thin = false }) => {
   const classes = classnames('pui--spinner', className, { thin });
 
-  return <div className={classes} />;
+  return (
+    <div className={classes}>
+      <div className="animation" />
+    </div>
+  );
 };
 
 Spinner.propTypes = {

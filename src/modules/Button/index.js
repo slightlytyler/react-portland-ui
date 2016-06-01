@@ -6,6 +6,7 @@ export default class Button extends Component {
   static propTypes = {
     type: PropTypes.string,
     className: PropTypes.string,
+    onClick: PropTypes.func,
     ghost: PropTypes.bool,
     fluid: PropTypes.bool,
     big: PropTypes.bool,
@@ -32,7 +33,11 @@ export default class Button extends Component {
     }
 
     return (
-      <button className={classes} type={this.props.type}>
+      <button
+        className={classes}
+        type={this.props.type}
+        onClick={this.props.onClick}
+      >
         {this.props.children}
       </button>
     );
