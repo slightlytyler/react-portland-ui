@@ -2,7 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import keycode from 'keycode';
 import { pickDiff, focusNode } from 'helpers';
+import Icon from 'react-svgcon';
 import Option from './Option';
+import dropdownIcon from 'icons/dropdown.svg';
 
 export default class Select extends Component {
   static propTypes = {
@@ -191,6 +193,7 @@ export default class Select extends Component {
           <div className="container">
             <div className="display">
               {this.renderDisplay()}
+              <Icon className="icon" path={dropdownIcon} />
             </div>
             {this.renderMenu()}
           </div>
