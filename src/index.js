@@ -8,6 +8,7 @@ export {
   Form,
   Input,
   TextInput,
+  Label,
   PasswordInput,
   RadioButton,
   RadioGroup,

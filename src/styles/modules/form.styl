@@ -12,19 +12,12 @@
 .pui--form__field
   &.error
     & > .label
-      color: $red-a
+      &, .pui--label
+        color: $red-a
 
   & > .label
-    size = .85em
-    margin-bottom: .4em
-    font-size: size
-    color: $dark-gray-a
-
-    .body
-      text-transform: uppercase
-      letter-spacing: size * .2
-
     .message
+      font-size: .9em
       &:before
         content: "\00a0 "
 

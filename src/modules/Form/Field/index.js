@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Field, Message } from 'react-formal';
+import Label from '../../Label';
 import classnames from 'classnames';
 import omit from 'lodash.omit';
 
@@ -38,7 +39,7 @@ export default class FormField extends Component {
     if (this.props.label) {
       return (
         <div className="label">
-          <label className="body">{this.props.label}</label>
+          <Label className="body">{this.props.label}</Label>
           <Message className="message" for={this.props.name} />
         </div>
       );

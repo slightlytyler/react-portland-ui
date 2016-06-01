@@ -18,7 +18,7 @@ export default class Select extends Component {
   };
 
   static defaultProps = {
-    fluid: true,
+    fluid: false,
   };
 
   state = {

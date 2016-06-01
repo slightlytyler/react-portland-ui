@@ -23,10 +23,18 @@ export default class Button extends Component {
       }
     );
 
+    if (this.context.reactFormalContext) {
+      return (
+        <FormalButton className={classes} type={this.props.type}>
+          {this.props.children}
+        </FormalButton>
+      );
+    }
+
     return (
-      <FormalButton className={classes} type={this.props.type}>
+      <button className={classes} type={this.props.type}>
         {this.props.children}
-      </FormalButton>
+      </button>
     );
   }
 }

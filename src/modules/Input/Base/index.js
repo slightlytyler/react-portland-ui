@@ -5,6 +5,7 @@ import { pickDiff } from 'helpers';
 
 export default class InputBase extends Component {
   static propTypes = {
+    className: PropTypes.string,
     type: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
@@ -15,7 +16,7 @@ export default class InputBase extends Component {
   };
 
   static defaultProps = {
-    fluid: true,
+    fluid: false,
   };
 
   state = {
@@ -32,7 +33,9 @@ export default class InputBase extends Component {
     return false;
   }
 
-  handleChange = e => this.props.onChange(e.target.value);
+  handleChange = e => {
+    if (this.props.onChange) this.props.onChange(e.target.value);
+  };
 
   handleFocus = () => this.setState({ focusing: true });
 
@@ -49,6 +52,7 @@ export default class InputBase extends Component {
   render() {
     const classes = classnames(
       'pui--input',
+      this.props.className,
       {
         error: this.props.error,
         fluid: this.props.fluid,
