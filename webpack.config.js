@@ -1,10 +1,12 @@
-var path = require('path');
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
-var __src = path.join(__dirname, 'src')
+const __src = path.join(__dirname, 'src')
 
 module.exports = {
+  devtool: 'eval',
   entry: path.join(__src, 'index.js'),
   output: {
     path: path.join(__dirname, 'dist'),
@@ -12,7 +14,9 @@ module.exports = {
     library: 'ReactPortlandUI',
     libraryTarget: 'umd'
   },
-  devtool: 'eval',
+  plugins: [
+    new ExtractTextPlugin('styles.css')
+  ],
   module: {
     preLoaders: [
       {
@@ -32,7 +36,7 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        loader: 'style!css!postcss!stylus'
+        loader: ExtractTextPlugin.extract('style', 'css!postcss!stylus')
       },
       {
         test: /\.otf$/,

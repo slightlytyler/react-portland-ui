@@ -159,9 +159,13 @@ export default class Select extends Component {
       );
     }
 
-    return this.state.currentValue
-      ? this.getLabelForOption(this.state.currentValue)
-      : this.renderPlaceholder();
+    if (this.props.options) {
+      return this.state.currentValue
+        ? this.getLabelForOption(this.state.currentValue)
+        : this.renderPlaceholder();
+    }
+
+    return this.renderPlaceholder();
   }
 
   renderOptions() {
