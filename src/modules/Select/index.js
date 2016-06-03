@@ -159,7 +159,7 @@ export default class Select extends Component {
       );
     }
 
-    if (this.props.options) {
+    if (this.props.options && this.props.options.length) {
       return this.state.currentValue
         ? this.getLabelForOption(this.state.currentValue)
         : this.renderPlaceholder();

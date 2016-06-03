@@ -6,6 +6,7 @@ export {
   Field,
   FieldSet,
   Form,
+  Icon,
   Input,
   TextInput,
   Label,
