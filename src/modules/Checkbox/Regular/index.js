@@ -4,11 +4,12 @@ import { pickDiff } from 'helpers';
 import Icon from 'react-svgcon';
 import checkIcon from 'icons/check.svg';
 
-export default class Switch extends Component {
+export default class Checkbox extends Component {
   static propTypes = {
+    name: PropTypes.string.isRequired,
     value: PropTypes.bool,
     onChange: PropTypes.func,
-    name: PropTypes.string.isRequired,
+    label: PropTypes.string,
     error: PropTypes.array,
   };
 
@@ -47,6 +48,7 @@ export default class Switch extends Component {
         >
           <Icon key="check" className="check icon" path={checkIcon} />
         </label>
+        <span className="label">{this.props.label}</span>
       </div>
     );
   }

@@ -3,6 +3,7 @@ import './styles/index.styl';
 export {
   Button,
   Checkbox,
+  CheckboxGroup,
   Field,
   FieldSet,
   Form,

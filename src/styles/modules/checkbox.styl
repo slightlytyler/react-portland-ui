@@ -1,9 +1,11 @@
 .pui--checkbox
-  size = 2em
-  icon-ratio = .5
-  icon-size = size * icon-ratio
+  size = 1.5em
+  icon-size = .5em
 
-  padding: .657em 0
+  display: flex
+  align-items: center
+  padding: .325em 0
+  font-size: size
 
   &.error label
     @extends $inputs-error
@@ -20,10 +22,10 @@
 
 
   label
-    display: block
+    display: inline-block
     position: relative
-    width: size
-    height: size
+    width: 1em
+    height: 1em
     color: white
     border-width: 2px
     border-style: solid
@@ -33,6 +35,10 @@
     transition: background-color .1s ease, border-color .1s ease
     background-color: white
     border-color: $light-gray-b
+
+  .label
+    margin-left: 1em
+    font-size: .666em
 
   .icon
     display: inline-block
@@ -44,3 +50,8 @@
 
     transition: transform .3s cubic-bezier(0.68, -0.55, 0.265, 1.55)
     transform: translate3d(-50%, -50%, 0) scale(0)
+
+.pui--checkbox__group
+  display: flex
+  justify-content: space-between
+  align-items: center
