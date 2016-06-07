@@ -17,4 +17,5 @@ export {
   Select,
   Spinner,
   Switch,
+  SwitchGroup,
 } from './modules';

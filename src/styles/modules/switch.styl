@@ -8,7 +8,8 @@
 
   icon-ratio = .4
 
-  display: inline-block
+  display: flex
+  align-items: center
   padding: .285em 0
 
   &.regular
@@ -85,7 +86,7 @@
 
   label
     content: ''
-    display: block
+    display: inline-block
     position: relative
     width: width
     height: size
@@ -107,3 +108,6 @@
       height: knob-size * icon-ratio
 
       transition: transform .3s ease
+
+  .label
+    margin-left: 1em

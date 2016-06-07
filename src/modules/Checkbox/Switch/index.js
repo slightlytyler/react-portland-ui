@@ -7,9 +7,10 @@ import closeIcon from 'icons/close.svg';
 
 export default class Switch extends Component {
   static propTypes = {
+    name: PropTypes.string.isRequired,
     value: PropTypes.bool,
     onChange: PropTypes.func,
-    name: PropTypes.string.isRequired,
+    label: PropTypes.string,
     square: PropTypes.bool,
   };
 
@@ -75,6 +76,7 @@ export default class Switch extends Component {
         >
           {this.renderKnob()}
         </label>
+        <span className="label">{this.props.label}</span>
       </div>
     );
   }

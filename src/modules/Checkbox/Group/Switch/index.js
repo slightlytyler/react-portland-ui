@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import Group from '../Base';
-import Checkbox from '../../Regular';
+import Switch from '../../Switch';
 
-export default class CheckboxGroupRegular extends Component {
+export default class CheckboxGroupSwitch extends Component {
   static propTypes = {
     value: PropTypes.any,
     onChange: PropTypes.func,
@@ -16,12 +16,12 @@ export default class CheckboxGroupRegular extends Component {
   };
 
   static defaultProps = {
-    vertical: false,
+    vertical: true,
   };
 
   render() {
     return (
-      <Group component={Checkbox} {...this.props} />
+      <Group component={Switch} {...this.props} />
     );
   }
 }

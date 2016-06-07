@@ -1,5 +1,5 @@
 export Button from './Button';
-export { Checkbox, CheckboxGroup, Switch } from './Checkbox';
+export { Checkbox, CheckboxGroup, Switch, SwitchGroup } from './Checkbox';
 export { Form, Field, FieldSet } from './Form';
 export Icon from 'react-svgcon';
 export Input, { TextInput, PasswordInput } from './Input';
