@@ -11,6 +11,7 @@ export default class Switch extends Component {
     value: PropTypes.bool,
     onChange: PropTypes.func,
     label: PropTypes.string,
+    error: PropTypes.array,
     square: PropTypes.bool,
   };
 
@@ -19,7 +20,7 @@ export default class Switch extends Component {
   };
 
   shouldComponentUpdate(nextProps) {
-    const acceptedProps = ['value', 'square'];
+    const acceptedProps = ['value', 'error', 'square'];
 
     if (pickDiff(this.props, nextProps, acceptedProps)) {
       return true;
@@ -53,6 +54,7 @@ export default class Switch extends Component {
     const classes = classnames(
       'pui--switch',
       {
+        error: this.props.error,
         square: this.props.square,
         regular: !this.props.square,
       }
