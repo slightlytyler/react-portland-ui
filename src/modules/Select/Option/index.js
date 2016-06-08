@@ -5,7 +5,10 @@ export default class SelectOption extends Component {
   static propTypes = {
     value: PropTypes.any,
     onSelect: PropTypes.func,
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node,
+    ]),
     active: PropTypes.bool,
   };
 
@@ -14,7 +17,10 @@ export default class SelectOption extends Component {
     e.stopPropagation();
   };
 
-  handleMouseUp = () => {
+  handleMouseUp = e => {
+    e.preventDefault();
+    e.stopPropagation();
+
     if (this.props.value && this.props.onSelect) {
       this.props.onSelect(this.props.value);
     }

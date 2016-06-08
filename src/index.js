@@ -15,6 +15,7 @@ export {
   RadioButton,
   RadioGroup,
   Select,
+  MultiSelect,
   Spinner,
   Switch,
   SwitchGroup,

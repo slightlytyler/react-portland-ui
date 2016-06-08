@@ -69,6 +69,26 @@
     margin: 0
     list-style: none
 
+.pui--select.multi
+  .pui--select__option.active
+    &:not(:hover)
+      background-color: transparent
+
+    .label .icon
+      transform: scale(1)
+
+  .label
+    display: flex
+    justify-content: flex-start
+    align-items: center
+
+    .icon
+      height: 1em
+      transform: scale(0)
+
+    .text
+      margin-left: 1em
+
 .pui--select__option
   padding: .75em 1em
 
