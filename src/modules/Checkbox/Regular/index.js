@@ -36,7 +36,7 @@ export default class Checkbox extends Component {
           ref="dummy"
           id={this.props.name}
           type="checkbox"
-          value={this.props.value}
+          checked={this.props.value}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}

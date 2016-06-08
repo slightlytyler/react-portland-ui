@@ -12,26 +12,45 @@ export default class CheckboxGroupBase extends Component {
       label: PropTypes.string,
       value: PropTypes.any.isRequired,
     })),
+    valueByKey: PropTypes.bool,
     error: PropTypes.array,
     vertical: PropTypes.bool,
   };
 
+  static defaultProps = {
+    valueByKey: false,
+  };
+
+  valueByKey = () => this.props.valueByKey || !Array.isArray(this.props.value);
+
   handleChange = (value, checked) => {
     const { value: currentValue, onChange } = this.props;
 
-    if (checked) onChange(uniq([...currentValue, value]));
-    else onChange(without(currentValue, value));
+    if (this.valueByKey()) {
+      if (checked) onChange({ ...currentValue, [value]: true });
+      else onChange({ ...currentValue, [value]: false });
+    } else {
+      if (checked) onChange(uniq([...currentValue, value]));
+      else onChange(without(currentValue, value));
+    }
   };
 
   renderOption = option => {
     const key = `${this.props.name}-${option.value}`;
-    const isChecked = this.props.value.indexOf(option.value) !== -1;
+    const isChecked = () => {
+      if (this.props.value) {
+        if (this.valueByKey()) return !!this.props.value[option.value];
+        return this.props.value.indexOf(option.value) !== -1;
+      }
+
+      return false;
+    };
     const handleChange = checked => this.handleChange(option.value, checked);
 
     return React.createElement(this.props.component, {
       key,
       name: key,
-      value: isChecked,
+      value: isChecked(),
       onChange: handleChange,
       label: option.label,
       error: this.props.error,
