@@ -1,0 +1,29 @@
+.pui--pagination
+  display: flex
+  background-color: white
+  border: 1px solid $light-gray-b
+  border-radius: 4px
+  overflow: hidden
+
+  .option
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 3em
+    height: 3em
+
+    &:not(:last-child)
+      border-right: 1px solid $light-gray-b
+
+    &.current
+      color: white
+      background-color: $dark-blue-a
+
+    &:not(.current):not(.ellipsis)
+      cursor: pointer
+
+      &:hover
+        background-color: $light-gray-b
+
+    .icon
+      height: .8em
