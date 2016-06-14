@@ -1,0 +1,100 @@
+.pui--table
+  width: 100%
+  background-color: white
+  border-color: $light-gray-b
+  border-radius: 4px
+  border-collapse: collapse
+  box-shadow: 0 30px 40px 0 alpha($dark-blue-b, 0.2)
+  overflow: hidden
+
+.pui--table__body
+  .cell
+    & > .icon
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      width: 1.5em
+
+    .actions
+      display: flex
+      justify-content: space-between
+      align-items: center
+
+      .icon
+        width: 2em
+        cursor: pointer
+
+.pui--table__row
+  &:nth-child(odd)
+    background-color: white
+
+  &:nth-child(even)
+    background-color: $light-gray-a
+
+  &:not(:last-child)
+    border-bottom: 2px solid $light-gray-b
+
+.pui--table__cell
+  font-size: .85em
+  padding: .65rem 1.2rem
+
+.pui--table__cell, .pui--table__head__cell
+  position: relative
+
+  &:not(:last-child)
+    border-right: 2px solid $light-gray-b
+
+.pui--table__head
+  background-color: $light-gray-a
+  border-bottom: 2px solid $light-gray-b
+
+  .pui--table__row
+    background-color: $light-gray-a
+
+  .container
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.pui--table__head__cell
+  padding: 1rem 1.2rem
+  text-align: left
+
+  &.wide
+    &.one
+      width: (1 / 16 * 100)%
+
+    &.two
+      width: (2 / 16 * 100)%
+
+    &.three
+      width: (3 / 16 * 100)%
+
+    &.four
+      width: (4 / 16 * 100)%
+
+  &.sortable
+    cursor: pointer
+
+  &:not(.active) .icon
+    color: $dark-gray-a
+
+  &.ascending .icon
+    transform: rotate(180deg)
+
+  .icon
+    height: .5em
+    margin-left: auto
+
+.pui--table__prompt
+  .pui--table__cell
+    position: relative
+    height: 22.5em
+
+    & > *
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      z-index: 0

@@ -1,10 +1,11 @@
 export Button from './Button';
-export { Checkbox, CheckboxGroup, Switch, SwitchGroup } from './Checkbox';
-export { Form, Field, FieldSet } from './Form';
-export Icon from 'react-svgcon';
-export Input, { TextInput, PasswordInput } from './Input';
+export * from './Checkbox';
+export * from './Form';
+export Icon from './Icon';
+export * from './Input';
 export Label from './Label';
 export Pagination from './Pagination';
-export { RadioButton, RadioGroup } from './Radio';
-export { Select, MultiSelect } from './Select';
+export * from './Radio';
+export * from './Select';
 export Spinner from './Spinner';
+export * from './Table';
