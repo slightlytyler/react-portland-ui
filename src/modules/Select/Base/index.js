@@ -5,7 +5,7 @@ import { pickDiff, focusNode } from 'helpers';
 import Icon from 'react-svgcon';
 import Option from '../Option';
 import Spinner from 'modules/Spinner';
-import dropdownIcon from 'icons/dropdown.svg';
+import downCaret from 'icons/caret--down.svg';
 
 export default class BaseSelect extends Component {
   static propTypes = {
@@ -248,7 +248,7 @@ export default class BaseSelect extends Component {
           <div className="container">
             <div className="display">
               {this.renderDisplay()}
-              <Icon className="icon" path={dropdownIcon} />
+              <Icon className="icon" path={downCaret} />
             </div>
             {this.renderMenu()}
           </div>

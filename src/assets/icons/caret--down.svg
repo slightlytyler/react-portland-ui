@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="10px" height="6px" viewBox="0 0 10 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.2 (29753) - http://www.bohemiancoding.com/sketch -->
+    <title>Sort arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Appointments-view" transform="translate(-426.000000, -292.000000)" fill="#000000">
+            <g id="Table" transform="translate(140.000000, 272.000000)">
+                <g id="Header">
+                    <g id="Col" transform="translate(176.000000, 0.000000)">
+                        <path d="M114.75,25.352284 C114.478852,25.4191877 114.180357,25.3466965 113.968471,25.1348104 L110.241557,21.4078963 C109.919481,21.0858205 109.919481,20.5636326 110.241557,20.2415568 C110.563633,19.9194811 111.085821,19.9194811 111.407896,20.2415568 L114.75,23.5836605 L118.092104,20.2415568 C118.414179,19.9194811 118.936367,19.9194811 119.258443,20.2415568 C119.580519,20.5636326 119.580519,21.0858205 119.258443,21.4078963 L115.531529,25.1348104 C115.319643,25.3466965 115.021148,25.4191877 114.75,25.352284 Z" id="Sort-arrow"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

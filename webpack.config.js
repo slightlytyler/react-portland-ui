@@ -8,9 +8,13 @@ const __src = path.join(__dirname, 'src')
 module.exports = {
   devtool: 'eval',
   entry: path.join(__src, 'index.js'),
+  entry: {
+    index: path.join(__src, 'index.js'),
+    icons: path.join(__src, 'assets/icons/index.js'),
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: '[name].js',
     library: 'ReactPortlandUI',
     libraryTarget: 'umd'
   },

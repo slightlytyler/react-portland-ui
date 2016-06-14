@@ -4,7 +4,8 @@
   "description": "A React component & pattern library based on the Portland UI Kit",
   "main": "dist/index.js",
   "scripts": {
-    "build": "webpack",
+    "clean": "rimraf dist",
+    "build": "npm run clean && webpack",
     "prepublish": "npm run build",
     "dev": "nodemon --watch ./ --exec 'node ./node_modules/.bin/webpack'",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -41,8 +42,10 @@
     "eslint-plugin-jsx-a11y": "^1.2.0",
     "eslint-plugin-react": "^5.1.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
     "nodemon": "^1.9.2",
     "postcss-loader": "^0.9.1",
+    "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.0.0",
