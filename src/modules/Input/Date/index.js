@@ -8,7 +8,10 @@ import { calendar } from 'icons';
 export default class DateInput extends Component {
   static propTypes = {
     className: PropTypes.string,
-    value: PropTypes.object,
+    value: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string,
+    ]),
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
     error: PropTypes.array,
