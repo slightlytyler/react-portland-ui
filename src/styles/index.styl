@@ -1,10 +1,6 @@
-__dirname = '../'
-__assets = __dirname + '/assets'
-__fonts = __assets + '/fonts'
+@import './directories';
 
-@import '~normalize.css/normalize.css'
-@import '~react-infinite-calendar/styles.css'
+// Only present in dist build
+@import './vendor/*'
 
-@import 'base/*'
-@import 'common/*'
-@import 'modules/*'
+@import './build'

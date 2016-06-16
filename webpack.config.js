@@ -1,9 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-const __src = path.join(__dirname, 'src')
+const __src = path.join(__dirname, 'src');
+const __node_modules = path.join(__dirname, 'node_modules');
 
 module.exports = {
   devtool: 'eval',
@@ -18,7 +20,23 @@ module.exports = {
     libraryTarget: 'umd'
   },
   plugins: [
-    new ExtractTextPlugin('styles.css')
+    new ExtractTextPlugin('styles.css'),
+    new CopyWebpackPlugin(
+      [
+        {
+          from: path.join(__src, 'styles'),
+          to: 'stylus'
+        },
+        {
+          from: path.join(__node_modules, 'react-infinite-calendar/styles.css'),
+          to: 'stylus/vendor/react-infinite-calendar.styl'
+        },
+        {
+          from: path.join(__node_modules, 'normalize.css/normalize.css'),
+          to: 'stylus/vendor/normalize.styl'
+        }
+      ]
+    )
   ],
   module: {
     preLoaders: [
