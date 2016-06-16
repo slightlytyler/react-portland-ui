@@ -1,4 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Input from '../Base';
 
-export default props => <Input type="password" {...props} />;
+const PasswordInput = props => <Input type="password" {...props} />;
+
+PasswordInput.propTypes = {
+  value: PropTypes.string,
+};
+
+export default PasswordInput;

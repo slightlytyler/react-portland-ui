@@ -58,11 +58,29 @@ module.exports = {
       amd: 'react',
       root: 'React'
     },
+    'react/lib/shallowCompare': {
+      commonjs: 'react/lib/shallowCompare',
+      commonjs2: 'react/lib/shallowCompare',
+      amd: 'react/lib/shallowCompare',
+      root: 'ReactShallowCompare'
+    },
+    'react/lib/ReactCSSTransitionGroup': {
+      commonjs: 'react/lib/ReactCSSTransitionGroup',
+      commonjs2: 'react/lib/ReactCSSTransitionGroup',
+      amd: 'react/lib/ReactCSSTransitionGroup',
+      root: 'ReactCSSTransitionGroup'
+    },
     'react-dom': {
       commonjs: 'react-dom',
       commonjs2: 'react-dom',
       amd: 'react-dom',
       root: 'ReactDOM'
+    },
+    'react-dom/server': {
+      commonjs: 'react-dom/server',
+      commonjs2: 'react-dom/server',
+      amd: 'react-dom/server',
+      root: 'ReactDOMServer'
     }
   },
   resolve: {

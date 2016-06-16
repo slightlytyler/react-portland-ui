@@ -1,4 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Input from '../Base';
 
-export default props => <Input type="text" {...props} />;
+const TextInput = props => <Input type="text" {...props} />;
+
+TextInput.propTypes = {
+  value: PropTypes.string,
+};
+
+export default TextInput;

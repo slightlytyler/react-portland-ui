@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { attempt } from 'lodash';
 import classnames from 'classnames';
 import Icon from 'react-svgcon';
 import { pickDiff } from 'helpers';
@@ -6,17 +7,21 @@ import { pickDiff } from 'helpers';
 export default class InputBase extends Component {
   static propTypes = {
     className: PropTypes.string,
+    children: PropTypes.node,
     type: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.any,
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
     icon: PropTypes.string,
     error: PropTypes.array,
     fluid: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    onClick: PropTypes.func,
   };
 
   static defaultProps = {
     fluid: false,
+    readOnly: false,
   };
 
   state = {
@@ -24,7 +29,7 @@ export default class InputBase extends Component {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    const acceptedProps = ['value', 'placeholder', 'error', 'fluid'];
+    const acceptedProps = ['className', 'value', 'placeholder', 'error', 'fluid'];
 
     if (pickDiff(this.props, nextProps, acceptedProps)) return true;
 
@@ -37,6 +42,8 @@ export default class InputBase extends Component {
     if (this.props.onChange) this.props.onChange(e.target.value);
   };
 
+  handleClick = e => attempt(this.props.onClick, e);
+
   handleFocus = () => this.setState({ focusing: true });
 
   handleBlur = () => this.setState({ focusing: false });
@@ -47,6 +54,34 @@ export default class InputBase extends Component {
     }
 
     return undefined;
+  };
+
+  renderDummy = () => {
+    const content = this.props.value
+      || <span className="placeholder">{this.props.placeholder}</span>;
+
+    return (
+      <div className="dummy">
+        {content}
+      </div>
+    );
+  };
+
+  renderInput = () => {
+    if (!this.props.readOnly) {
+      return (
+        <input
+          type={this.props.type}
+          value={this.props.value}
+          onChange={this.handleChange}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          placeholder={this.props.placeholder}
+        />
+      );
+    }
+
+    return this.renderDummy();
   };
 
   render() {
@@ -61,16 +96,10 @@ export default class InputBase extends Component {
     );
 
     return (
-      <div className={classes}>
+      <div className={classes} onClick={this.handleClick}>
         {this.renderIcon()}
-        <input
-          type={this.props.type}
-          value={this.props.value}
-          onChange={this.handleChange}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          placeholder={this.props.placeholder}
-        />
+        {this.renderInput()}
+        {this.props.children}
       </div>
     );
   }

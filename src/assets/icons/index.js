@@ -1,3 +1,4 @@
+export calendar from './calendar.svg';
 export caretLeft from './caret--left.svg';
 export caretRight from './caret--right.svg';
 export caretDown from './caret--down.svg';
