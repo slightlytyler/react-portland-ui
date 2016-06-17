@@ -1,0 +1,61 @@
+[
+	{
+		"config": {
+			"module": "buttons",
+			"component": "button",
+			"description": "Hey this is a great button,",
+			"code": "<Button>Great Button</Button>"
+		},
+		"props": {
+			"type": {
+				"type": {
+					"name": "string"
+				},
+				"required": false,
+				"description": ""
+			},
+			"className": {
+				"type": {
+					"name": "string"
+				},
+				"required": false,
+				"description": ""
+			},
+			"onClick": {
+				"type": {
+					"name": "func"
+				},
+				"required": false,
+				"description": ""
+			},
+			"ghost": {
+				"type": {
+					"name": "bool"
+				},
+				"required": false,
+				"description": ""
+			},
+			"fluid": {
+				"type": {
+					"name": "bool"
+				},
+				"required": false,
+				"description": ""
+			},
+			"big": {
+				"type": {
+					"name": "bool"
+				},
+				"required": false,
+				"description": ""
+			},
+			"children": {
+				"type": {
+					"name": "node"
+				},
+				"required": false,
+				"description": ""
+			}
+		}
+	}
+]

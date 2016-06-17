@@ -8,6 +8,7 @@
     "build": "npm run clean && webpack",
     "prepublish": "npm run build",
     "dev": "nodemon --watch ./ --exec 'node  ./node_modules/.bin/webpack'",
+    "document": "node document.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -44,8 +45,10 @@
     "eslint-plugin-react": "^5.1.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "glob": "^7.0.4",
     "nodemon": "^1.9.2",
     "postcss-loader": "^0.9.1",
+    "react-docgen": "^2.8.2",
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
