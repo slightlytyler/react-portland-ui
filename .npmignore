@@ -1,0 +1,7 @@
+src
+docs
+node_modules
+.eslintrc
+.gitignore
+nodemon.json
+webpack.config.js
