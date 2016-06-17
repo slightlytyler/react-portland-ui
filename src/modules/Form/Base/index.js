@@ -67,7 +67,7 @@ export default class Form extends Component {
       <Formal
         className={classes}
         onError={this.handleErrors}
-        { ...passProps }
+        {...passProps}
       >
         {this.renderChildren()}
       </Formal>
