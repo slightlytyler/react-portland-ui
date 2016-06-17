@@ -4,8 +4,8 @@ import classnames from 'classnames';
 
 export default class Button extends Component {
   static documentation = {
+    name: 'Button',
     module: 'buttons',
-    component: 'button',
     description: 'Hey this is a great button,',
     code: '<Button>Great Button</Button>',
   };

@@ -13,11 +13,12 @@ const __static = path.join(__src, 'static');
 const __dist = path.join(__dirname, 'dist');
 const __node_modules = path.join('../', __dirname, 'node_modules')
 
-const DOC_DATA = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf-8'));
+const __DOC_DATA__ = fs.readFileSync(path.join(__dirname, 'data.json'), 'utf-8').toString();
+
 const env = process.env.NODE_ENV || 'development';
 const globals = {
-  DOC_DATA,
-  NODE_ENV: env,
+  __DOC_DATA__,
+  __NODE_ENV__: JSON.stringify(env),
   __DEV__: env === 'development',
   __PROD__: env === 'production',
   __TEST__: env === 'test',
