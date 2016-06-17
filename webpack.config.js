@@ -34,6 +34,10 @@ module.exports = {
         {
           from: path.join(__node_modules, 'normalize.css/normalize.css'),
           to: 'stylus/vendor/normalize.styl'
+        },
+        {
+          from: path.join(__src, 'assets'),
+          to: 'assets'
         }
       ]
     )
@@ -57,14 +61,17 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss!stylus')
+        include: __src,
+        loader: ExtractTextPlugin.extract('style', 'css!postcss!stylus-relative?resolve url')
       },
       {
         test: /\.otf$/,
+        include: __src,
         loader: 'url'
       },
       {
         test: /\.svg$/,
+        include: __src,
         loader: 'url'
       }
     ]
@@ -109,6 +116,9 @@ module.exports = {
       icons: path.join(__src, 'assets/icons'),
       helpers: path.join(__src, 'helpers')
     }
+  },
+  stylus: {
+    resolver: () => __dirname
   },
   postcss: function () {
     return [autoprefixer];
