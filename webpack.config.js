@@ -25,7 +25,8 @@ module.exports = {
       [
         {
           from: path.join(__src, 'styles'),
-          to: 'stylus'
+          to: 'stylus',
+          ignore: [ '.DS_Store']
         },
         {
           from: path.join(__node_modules, 'react-infinite-calendar/styles.css'),
@@ -37,7 +38,8 @@ module.exports = {
         },
         {
           from: path.join(__src, 'assets'),
-          to: 'assets'
+          to: 'assets',
+          ignore: [ '.DS_Store']
         }
       ]
     )
