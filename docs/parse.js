@@ -56,5 +56,5 @@ const docs = files.reduce((acc, path) => {
 }, {});
 
 const configuredDocs = _.filter(docs, doc => typeof doc.config === 'object')
-console.log(configuredDocs);
-fs.writeFile('docs/data.json', JSON.stringify(configuredDocs, null, '\t'));
+
+fs.writeFile(path.join(__dirname, 'data.json'), JSON.stringify(configuredDocs, null, '\t'));
