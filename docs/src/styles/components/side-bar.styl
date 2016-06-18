@@ -1,0 +1,61 @@
+.side-bar
+  width: 17.5em
+  height: 100%
+  color: white
+  background-color: $dark-blue-b
+
+  .header, .search
+    border-bottom: 1px solid $dark-blue-a
+
+  .header, .search, .list .item
+    padding: 1em
+
+    .title, .by
+      margin-top: 0
+      font-weight: normal
+
+    .title
+      margin-bottom: .15em
+      font-size: 1.5em
+
+    .by
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      margin-bottom: 0
+      font-size: 1em
+
+      .label
+        color: $dark-gray-b
+
+      .logo
+        width: 6em
+        margin-left: .5em
+
+        .image
+          width: 100%
+
+  .search .input, .list .item
+    color: alpha(white, 0.65)
+
+  .search
+    .input
+      background-color: transparent
+      border-width: 0
+
+      &:focus
+        color: white
+        outline: none
+
+  .list
+    list-style: none
+    padding: 0
+    margin: 0
+
+    .item
+      text-transform: capitalize
+      cursor: pointer
+
+      &:hover, &.active
+        color: white
+        background-color: alpha(black, 0.3)

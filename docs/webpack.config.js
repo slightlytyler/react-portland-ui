@@ -11,13 +11,14 @@ const argv = require('yargs').argv;
 const __src = path.join(__dirname, 'src');
 const __static = path.join(__src, 'static');
 const __dist = path.join(__dirname, 'dist');
-const __node_modules = path.join('../', __dirname, 'node_modules')
+const __node_modules = path.join(__dirname, '../node_modules')
+const __pui = path.join(__dirname, '../dist')
 
-const __DOC_DATA__ = fs.readFileSync(path.join(__dirname, 'data.json'), 'utf-8').toString();
+const DOC_DATA = fs.readFileSync(path.join(__dirname, 'data.json'), 'utf-8').toString();
 
 const env = process.env.NODE_ENV || 'development';
 const globals = {
-  __DOC_DATA__,
+  DOC_DATA,
   __NODE_ENV__: JSON.stringify(env),
   __DEV__: env === 'development',
   __PROD__: env === 'production',
@@ -67,14 +68,14 @@ const config = {
       },
       {
         test: /\.styl$/,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss!stylus-relative-loader'),
+        loader: ExtractTextPlugin.extract('style', 'css!postcss!stylus-relative-loader?resolve url'),
       },
       {
         test: /\.otf$/,
         loader: 'url',
       },
       {
-        test: /\.svg$/,
+        test: /\.svg|\.png$/,
         loader: 'url',
       },
     ],
@@ -83,7 +84,10 @@ const config = {
     fallback: __node_modules,
     alias: {
       src: __src,
+      pui: __pui,
+      assets: path.join(__src, 'assets'),
       components: path.join(__src, 'components'),
+      constants: path.join(__src, 'constants'),
       routes: path.join(__src, 'routes'),
       styles: path.join(__src, 'styles'),
     },

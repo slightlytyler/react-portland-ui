@@ -1,5 +1,5 @@
 {
   "verbose": false,
-  "ignore": ["dist", "node_modules"],
+  "ignore": ["dist", "node_modules", "docs"],
   "ext": "js, styl"
 }
