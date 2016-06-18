@@ -11,13 +11,25 @@ export default class Button extends Component {
   };
 
   static propTypes = {
-    type: PropTypes.string,
     className: PropTypes.string,
-    onClick: PropTypes.func,
-    ghost: PropTypes.bool,
-    fluid: PropTypes.bool,
-    big: PropTypes.bool,
     children: PropTypes.node,
+    /**
+     * HTML type attribute
+     */
+    type: PropTypes.string,
+    onClick: PropTypes.func,
+    /**
+     * If true component has ghost styling
+     */
+    ghost: PropTypes.bool,
+    /**
+     * If true component expands to fill container
+     */
+    fluid: PropTypes.bool,
+    /**
+     * If true component will be big size
+     */
+    big: PropTypes.bool,
   };
 
   render() {

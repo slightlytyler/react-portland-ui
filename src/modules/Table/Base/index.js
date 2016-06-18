@@ -11,7 +11,9 @@ export default class Table extends Component {
     const classes = classnames('pui--table', this.props.className);
 
     return (
-      <table className={classes}>{this.props.children}</table>
+      <div className={classes}>
+        <table className="table">{this.props.children}</table>
+      </div>
     );
   }
 }

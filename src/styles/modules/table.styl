@@ -1,11 +1,13 @@
 .pui--table
-  width: 100%
   background-color: white
   border-color: $light-gray-b
   border-radius: 4px
-  border-collapse: collapse
   box-shadow: 0 30px 40px 0 alpha($dark-blue-b, 0.2)
   overflow: hidden
+
+  .table
+    width: 100%
+    border-collapse: collapse
 
 .pui--table__body
   .cell
@@ -48,6 +50,9 @@
 .pui--table__head
   background-color: $light-gray-a
   border-bottom: 2px solid $light-gray-b
+
+  .pui--table__row
+    background-color: transparent
 
   .container
     display: flex

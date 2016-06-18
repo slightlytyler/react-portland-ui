@@ -6,19 +6,26 @@
 		"description": "Hey this is a great button.",
 		"examples": "<Button>Great Button</Button>",
 		"props": {
-			"type": {
-				"type": {
-					"name": "string"
-				},
-				"required": false,
-				"description": ""
-			},
 			"className": {
 				"type": {
 					"name": "string"
 				},
 				"required": false,
 				"description": ""
+			},
+			"children": {
+				"type": {
+					"name": "node"
+				},
+				"required": false,
+				"description": ""
+			},
+			"type": {
+				"type": {
+					"name": "string"
+				},
+				"required": true,
+				"description": "HTML type attribute"
 			},
 			"onClick": {
 				"type": {
@@ -32,28 +39,25 @@
 					"name": "bool"
 				},
 				"required": false,
-				"description": ""
+				"description": "If true component has ghost styling"
 			},
 			"fluid": {
 				"type": {
 					"name": "bool"
 				},
 				"required": false,
-				"description": ""
+				"description": "If true component expands to fill container"
 			},
 			"big": {
 				"type": {
 					"name": "bool"
 				},
 				"required": false,
-				"description": ""
-			},
-			"children": {
-				"type": {
-					"name": "node"
-				},
-				"required": false,
-				"description": ""
+				"description": "If true component will be big size",
+				"defaultValue": {
+					"value": "false",
+					"computed": false
+				}
 			}
 		}
 	}
