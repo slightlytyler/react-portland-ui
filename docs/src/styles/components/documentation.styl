@@ -1,0 +1,25 @@
+.documentation
+  background-color: white
+  border: 1px solid $light-gray-b
+  border-radius: 7px
+
+  & > *
+    padding: 1em
+
+    &:not(:last-child)
+      border-bottom: 1px solid $light-gray-b
+
+  .header
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .name
+      font-size: 2em
+      font-weight: bold
+
+    .github .link
+      color: $blue-a
+
+      &:hover, &:active
+        color: $blue-b

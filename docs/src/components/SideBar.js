@@ -5,7 +5,7 @@ import logo from 'assets/images/see-er.png';
 export default class SideBar extends Component {
   render() {
     return (
-      <div className="side-bar">
+      <div className="page__side-bar">
         <header className="header">
           <h1 className="title">React Portland UI</h1>
           <h3 className="by">

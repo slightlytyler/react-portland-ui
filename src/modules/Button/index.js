@@ -6,8 +6,8 @@ export default class Button extends Component {
   static documentation = {
     name: 'Button',
     module: 'buttons',
-    description: 'Hey this is a great button,',
-    code: '<Button>Great Button</Button>',
+    description: 'Hey this is a great button.',
+    examples: '<Button>Great Button</Button>',
   };
 
   static propTypes = {

@@ -16,7 +16,7 @@ const amendConfig = (doc, path) => {
     Object.assign(acc, { [propertyPath.key.name]: propertyPath.value.value })
   ), {});
 
-  doc._data._c.set('config', config)
+  Object.keys(config).forEach(key => doc._data._c.set(key, config[key]));
 };
 
 const configHandler = (doc, path) => {
@@ -35,26 +35,29 @@ const configHandler = (doc, path) => {
   amendConfig(doc, configPath);
 };
 
-const handler = [
+const fileHandler = file => doc => doc._data._c.set('file', file);
+
+const handler = (file) => [
   handlers.propTypeHandler,
   handlers.propDocBlockHandler,
   handlers.defaultPropsHandler,
+  fileHandler(file),
   configHandler,
 ];
 
-const parse = path => docgen.parse(fs.readFileSync(path), undefined, handler)
+const parse = file => docgen.parse(fs.readFileSync(file), undefined, handler(file))
 
 const files = glob.sync('./src/modules/**/*.js');
 
-const docs = files.reduce((acc, path) => {
+const docs = files.reduce((acc, file) => {
   try {
-    const result = parse(path);
-    return Object.assign({}, acc, { [path]: result });
+    const result = parse(file);
+    return Object.assign({}, acc, { [file]: result });
   } catch(error) {
     return acc;
   }
 }, {});
 
-const configuredDocs = _.filter(docs, doc => typeof doc.config === 'object')
+const configuredDocs = _.filter(docs, doc => doc.name && doc.module)
 
 fs.writeFile(path.join(__dirname, 'data.json'), JSON.stringify(configuredDocs, null, '\t'));

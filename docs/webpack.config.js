@@ -87,6 +87,7 @@ const config = {
       pui: __pui,
       assets: path.join(__src, 'assets'),
       components: path.join(__src, 'components'),
+      config: path.join(__src, 'config'),
       constants: path.join(__src, 'constants'),
       routes: path.join(__src, 'routes'),
       styles: path.join(__src, 'styles'),

@@ -1,11 +1,10 @@
 [
 	{
-		"config": {
-			"name": "Button",
-			"module": "buttons",
-			"description": "Hey this is a great button,",
-			"code": "<Button>Great Button</Button>"
-		},
+		"file": "./src/modules/Button/index.js",
+		"name": "Button",
+		"module": "buttons",
+		"description": "Hey this is a great button.",
+		"examples": "<Button>Great Button</Button>",
 		"props": {
 			"type": {
 				"type": {
