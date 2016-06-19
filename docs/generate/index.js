@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
-const _ = require('lodash');
+const filter = require('lodash').filter;
 const docgen = require('react-docgen');
 const handlers = docgen.handlers;
 const frontMatter = require('front-matter');
@@ -43,6 +43,9 @@ const docs = files.reduce((acc, file) => {
   }
 }, {});
 
-const configuredDocs = _.filter(docs, doc => doc.name && doc.module)
+const configuredDocs = filter(docs, doc => doc.name && doc.module)
 
-fs.writeFile(path.join(__dirname, '../build/data.js'), `export default ${JSON.stringify(configuredDocs, null, '\t')}`);
+fs.writeFile(
+  path.join(__dirname, '../build/data.js'),
+  `export default ${JSON.stringify(configuredDocs, null, '\t')}`
+);

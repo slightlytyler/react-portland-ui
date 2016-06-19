@@ -7,7 +7,6 @@
     "browser": true
   },
   "globals" : {
-    "DOC_DATA": false,
     "__NODE_ENV__": false,
     "__DEV__": false,
     "__PROD__": false,
