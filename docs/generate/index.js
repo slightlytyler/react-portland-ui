@@ -45,4 +45,4 @@ const docs = files.reduce((acc, file) => {
 
 const configuredDocs = _.filter(docs, doc => doc.name && doc.module)
 
-fs.writeFile(path.join(__dirname, '../build/data.json'), JSON.stringify(configuredDocs, null, '\t'));
+fs.writeFile(path.join(__dirname, '../build/data.js'), `export default ${JSON.stringify(configuredDocs, null, '\t')}`);

@@ -1,4 +1,4 @@
-[
+export default [
 	{
 		"file": "./src/modules/Button/index.js",
 		"name": "Button",

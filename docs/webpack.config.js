@@ -9,16 +9,14 @@ const autoprefixer = require('autoprefixer');
 const argv = require('yargs').argv;
 
 const __src = path.join(__dirname, 'src');
-const __static = path.join(__src, 'static');
+const __build = path.join(__dirname, 'build');
 const __dist = path.join(__dirname, 'dist');
-const __node_modules = path.join(__dirname, '../node_modules')
-const __pui = path.join(__dirname, '../dist')
-
-const DOC_DATA = fs.readFileSync(path.join(__dirname, 'build/data.json'), 'utf-8').toString();
+const __node_modules = path.join(__dirname, '../node_modules');
+const __pui = path.join(__dirname, '../dist');
+const __static = path.join(__src, 'static');
 
 const env = process.env.NODE_ENV || 'development';
 const globals = {
-  DOC_DATA,
   __NODE_ENV__: JSON.stringify(env),
   __DEV__: env === 'development',
   __PROD__: env === 'production',
@@ -64,7 +62,7 @@ const config = {
       {
         test: /\.js$/,
         loaders: ['react-hot', 'babel'],
-        include: __src
+        include: [__src, __build],
       },
       {
         test: /\.styl$/,
@@ -84,6 +82,7 @@ const config = {
     fallback: __node_modules,
     alias: {
       src: __src,
+      build: __build,
       pui: __pui,
       assets: path.join(__src, 'assets'),
       components: path.join(__src, 'components'),

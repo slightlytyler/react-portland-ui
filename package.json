@@ -7,10 +7,10 @@
     "clean": "rimraf dist",
     "build": "npm run clean && webpack",
     "prepublish": "npm run build",
-    "dev": "nodemon --watch ./ --exec 'node  ./node_modules/.bin/webpack'",
-    "docs:parse": "node docs/generate",
-    "docs:build": "npm run docs:parse && webpack --config docs/webpack.config.js",
-    "docs:dev": "npm run docs:parse && webpack-dev-server --config docs/webpack.config.js --inline --hot",
+    "dev": "nodemon",
+    "docs:generate": "node docs/generate",
+    "docs:build": "npm run docs:generate && webpack --config docs/webpack.config.js",
+    "docs:dev": "npm run docs:generate && webpack-dev-server --config docs/webpack.config.js --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -70,6 +70,7 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",
+    "webpack-shell-plugin": "^0.4.2",
     "yargs": "^4.7.1"
   },
   "peerDependencies": {

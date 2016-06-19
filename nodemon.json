@@ -1,5 +1,7 @@
 {
-  "verbose": false,
-  "ignore": ["dist", "node_modules", "docs"],
+  "verbose": true,
+  "watch": ["src", "webpack.config.js"],
+  "exec": "node  ./node_modules/.bin/webpack",
+  "ignore": ["dist/", "node_modules/", "docs/"],
   "ext": "js, styl"
 }

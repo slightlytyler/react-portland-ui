@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin');
 const autoprefixer = require('autoprefixer');
 
 const __src = path.join(__dirname, 'src');
@@ -42,7 +43,8 @@ module.exports = {
           ignore: [ '.DS_Store']
         }
       ]
-    )
+    ),
+    new WebpackShellPlugin({ onBuildEnd:['npm run docs:generate'] })
   ],
   module: {
     preLoaders: [
