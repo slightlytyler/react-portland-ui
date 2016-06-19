@@ -3,13 +3,6 @@ import { Button as FormalButton } from 'react-formal';
 import classnames from 'classnames';
 
 export default class Button extends Component {
-  static documentation = {
-    name: 'Button',
-    module: 'buttons',
-    description: 'Hey this is a great button.',
-    examples: '<Button>BEST</Button>',
-  };
-
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,

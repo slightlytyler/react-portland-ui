@@ -113,9 +113,6 @@ module.exports = {
       helpers: path.join(__src, 'helpers')
     }
   },
-  stylus: {
-    resolver: () => __dirname
-  },
   postcss: function () {
     return [autoprefixer];
   },

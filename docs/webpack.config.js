@@ -14,7 +14,7 @@ const __dist = path.join(__dirname, 'dist');
 const __node_modules = path.join(__dirname, '../node_modules')
 const __pui = path.join(__dirname, '../dist')
 
-const DOC_DATA = fs.readFileSync(path.join(__dirname, 'data.json'), 'utf-8').toString();
+const DOC_DATA = fs.readFileSync(path.join(__dirname, 'build/data.json'), 'utf-8').toString();
 
 const env = process.env.NODE_ENV || 'development';
 const globals = {
@@ -77,14 +77,6 @@ const config = {
       {
         test: /\.svg|\.png$/,
         loader: 'url',
-      },
-      {
-        test:/\.md$/,
-        loaders: ['json', 'front-matter'],
-      },
-      {
-        test:/\.json$/,
-        loader: 'json',
       },
     ],
   },
