@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { modules } from 'pui';
 import jsx from 'react-jsx';
+import { modules } from 'pui';
+import Item from './Item';
 
 export default class ExamplesDocumentation extends Component {
   static propTypes = {
@@ -11,8 +12,8 @@ export default class ExamplesDocumentation extends Component {
     const component = jsx.server(this.props.examples);
 
     return (
-      <div className="documentation__examples">
-        {component({ ...modules })}
+      <div className="documentation__examples markdown-body">
+        {component({ Example: Item, ...modules })}
       </div>
     );
   }

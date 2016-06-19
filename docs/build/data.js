@@ -4,7 +4,7 @@ export default [
 		"name": "Button",
 		"module": "buttons",
 		"description": "Hey this is a great button.",
-		"examples": "<div class=\"container\"><h1 id=\"header\">Header</h1>\n<Button>Button</Button></div>",
+		"examples": "<div class=\"container\"><h4 id=\"a-basic-button\">A basic button</h4>\n<blockquote>\n<p>A basic button that works standalone and in forms.</p>\n<p>To submit a form the button must have <code>type</code> &quot;submit&quot;.</p>\n</blockquote>\n<Example>\n  <Button>Button</Button>\n</Example>\n\n<h4 id=\"a-big-button\">A big button</h4>\n<blockquote>\n<p>Buttons currently has two sizes controlled by prop <code>big</code>.</p>\n</blockquote>\n<Example>\n  <Button big>Button</Button>\n</Example>\n</div>",
 		"props": {
 			"className": {
 				"type": {

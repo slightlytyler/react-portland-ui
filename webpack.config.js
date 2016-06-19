@@ -44,7 +44,7 @@ module.exports = {
         }
       ]
     ),
-    new WebpackShellPlugin({ onBuildEnd:['npm run docs:generate'] })
+    new WebpackShellPlugin({ onBuildStart:['npm run docs:generate'] })
   ],
   module: {
     preLoaders: [
