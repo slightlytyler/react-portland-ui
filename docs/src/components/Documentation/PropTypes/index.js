@@ -7,7 +7,7 @@ import {
   TableRow,
   TableCell,
   TableHeadCell,
-} from 'pui/bundle';
+} from 'pui';
 
 export default class PropTypesDocumentation extends Component {
   static propTypes = {

@@ -10,7 +10,7 @@ const __node_modules = path.join(__dirname, 'node_modules');
 module.exports = {
   devtool: 'eval',
   entry: {
-    bundle: path.join(__src, 'entries/bundle.js'),
+    index: path.join(__src, 'entries/bundle.js'),
     icons: path.join(__src, 'entries/icons.js'),
   },
   output: {
@@ -48,32 +48,26 @@ module.exports = {
     preLoaders: [
       {
         test: /\.js$/,
-        include: __src,
-        loader: 'eslint'
+        loader: 'eslint',
+        include: __src
       }
     ],
     loaders: [
       {
         test: /\.js$/,
-        include: __src,
         loader: 'babel',
-        query: {
-          presets: ['es2015', 'react', 'stage-0']
-        }
+        include: __src
       },
       {
         test: /\.styl$/,
-        include: __src,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss!stylus-relative?resolve url')
+        loader: ExtractTextPlugin.extract('style', 'css!postcss!stylus-relative?resolve url'),
       },
       {
         test: /\.otf$/,
-        include: __src,
         loader: 'url'
       },
       {
         test: /\.svg$/,
-        include: __src,
         loader: 'url'
       }
     ]

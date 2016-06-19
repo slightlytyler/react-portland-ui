@@ -7,7 +7,7 @@ export default class Button extends Component {
     name: 'Button',
     module: 'buttons',
     description: 'Hey this is a great button.',
-    examples: '<Button>Great Button</Button>',
+    examples: '<Button>BEST</Button>',
   };
 
   static propTypes = {

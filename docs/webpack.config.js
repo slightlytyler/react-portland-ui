@@ -56,15 +56,15 @@ const config = {
     preLoaders: [
       {
         test: /\.js$/,
-        include: __src,
         loader: 'eslint',
+        include: __src,
       },
     ],
     loaders: [
       {
         test: /\.js$/,
         loaders: ['react-hot', 'babel'],
-        include: __src,
+        include: __src
       },
       {
         test: /\.styl$/,
@@ -77,6 +77,14 @@ const config = {
       {
         test: /\.svg|\.png$/,
         loader: 'url',
+      },
+      {
+        test:/\.md$/,
+        loaders: ['json', 'front-matter'],
+      },
+      {
+        test:/\.json$/,
+        loader: 'json',
       },
     ],
   },

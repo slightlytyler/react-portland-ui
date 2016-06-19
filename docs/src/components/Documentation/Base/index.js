@@ -33,7 +33,7 @@ export default class Documentation extends Component {
         </header>
         <section className="description">{this.props.description}</section>
         <PropTypesDocumentation propTypes={this.props.propTypes} />
-        <ExamplesDocumentation examples={this.props.examples} />
+        <ExamplesDocumentation name={this.props.name} examples={this.props.examples} />
       </div>
     );
   }

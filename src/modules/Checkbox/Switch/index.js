@@ -6,6 +6,13 @@ import checkIcon from 'icons/check.svg';
 import closeIcon from 'icons/close.svg';
 
 export default class Switch extends Component {
+  static documentation = {
+    name: 'Switch',
+    module: 'checkboxes',
+    description: "It's a switch!",
+    examples: '<div><Switch name="unchecked" /> <Switch name="checked" value /></div>',
+  };
+
   static propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.bool,

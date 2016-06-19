@@ -4,7 +4,7 @@
 		"name": "Button",
 		"module": "buttons",
 		"description": "Hey this is a great button.",
-		"examples": "<Button>Great Button</Button>",
+		"examples": "<Button>BEST</Button>",
 		"props": {
 			"className": {
 				"type": {
@@ -24,7 +24,7 @@
 				"type": {
 					"name": "string"
 				},
-				"required": true,
+				"required": false,
 				"description": "HTML type attribute"
 			},
 			"onClick": {
@@ -53,7 +53,58 @@
 					"name": "bool"
 				},
 				"required": false,
-				"description": "If true component will be big size",
+				"description": "If true component will be big size"
+			}
+		}
+	},
+	{
+		"file": "./src/modules/Checkbox/Switch/index.js",
+		"name": "Switch",
+		"module": "checkboxes",
+		"description": "It's a switch!",
+		"examples": "<div><Switch name=\"unchecked\" /> <Switch name=\"checked\" value /></div>",
+		"props": {
+			"name": {
+				"type": {
+					"name": "string"
+				},
+				"required": true,
+				"description": ""
+			},
+			"value": {
+				"type": {
+					"name": "bool"
+				},
+				"required": false,
+				"description": ""
+			},
+			"onChange": {
+				"type": {
+					"name": "func"
+				},
+				"required": false,
+				"description": ""
+			},
+			"label": {
+				"type": {
+					"name": "string"
+				},
+				"required": false,
+				"description": ""
+			},
+			"error": {
+				"type": {
+					"name": "array"
+				},
+				"required": false,
+				"description": ""
+			},
+			"square": {
+				"type": {
+					"name": "bool"
+				},
+				"required": false,
+				"description": "",
 				"defaultValue": {
 					"value": "false",
 					"computed": false
