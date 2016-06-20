@@ -24,6 +24,9 @@
       &:hover, &:active
         color: $blue-b
 
+  .description
+    color: $dark-gray-b
+
 .documentation__prop-types
   .header
     margin-bottom: 1em
@@ -37,11 +40,17 @@
 .documentation__examples
   font-family: inherit
 
-  h4
-    font-weight: normal
-
   blockquote
     font-weight: 300
 
   .item
     margin-bottom: 2em
+    border: 1px solid $light-gray-b
+    border-radius: 7px
+    overflow: hidden
+
+    .example, .code
+      padding: 1rem
+
+    .example
+      border-bottom: 1px solid $light-gray-b

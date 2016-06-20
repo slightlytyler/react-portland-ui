@@ -12,7 +12,7 @@ export default class ExamplesDocumentation extends Component {
     const component = jsx.server(this.props.examples);
 
     return (
-      <div className="documentation__examples markdown-body">
+      <div className="documentation__examples">
         {component({ Example: Item, ...modules })}
       </div>
     );
