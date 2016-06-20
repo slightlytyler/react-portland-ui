@@ -104,12 +104,6 @@ module.exports = {
       commonjs2: 'react-dom/server',
       amd: 'react-dom/server',
       root: 'ReactDOMServer'
-    },
-    'react-addons-pure-render-mixin': {
-      commonjs: 'react-addons-pure-render-mixin',
-      commonjs2: 'react-addons-pure-render-mixin',
-      amd: 'react-addons-pure-render-mixin',
-      root: 'ReactAddonsPureRenderMixin'
     }
   },
   resolve: {
