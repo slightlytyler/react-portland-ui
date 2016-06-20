@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import jsx from 'react-jsx';
-import { modules } from 'pui';
+import * as modules from 'pui';
 import Item from './Item';
 
 export default class ExamplesDocumentation extends Component {

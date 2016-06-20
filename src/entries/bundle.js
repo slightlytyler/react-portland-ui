@@ -1,3 +1,2 @@
-import './styles.styl';
+import 'styles/index.styl';
 export * from 'modules';
-export * as modules from 'modules';

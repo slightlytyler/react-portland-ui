@@ -54,16 +54,17 @@ export default class DateInput extends Component {
         onClick={this.handleClick}
         readOnly
       >
-        <InfiniteCalendar
-          className="calendar"
-          selectedDate={this.props.value}
-          onSelect={this.handleChange}
-          onClick={this.handleCalendarClickc}
-          width="100%"
-          height={250}
-          minDate={today}
-          keyboardSupport
-        />
+        <div onClick={this.handleCalendarClick}>
+          <InfiniteCalendar
+            className="calendar"
+            selectedDate={this.props.value}
+            onSelect={this.handleChange}
+            width="100%"
+            height={250}
+            minDate={today}
+            keyboardSupport
+          />
+        </div>
       </Input>
     );
   }

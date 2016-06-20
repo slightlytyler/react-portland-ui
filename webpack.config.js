@@ -30,14 +30,6 @@ module.exports = {
           ignore: [ '.DS_Store']
         },
         {
-          from: path.join(__node_modules, 'react-infinite-calendar/styles.css'),
-          to: 'stylus/vendor/react-infinite-calendar.styl'
-        },
-        {
-          from: path.join(__node_modules, 'normalize.css/normalize.css'),
-          to: 'stylus/vendor/normalize.styl'
-        },
-        {
           from: path.join(__src, 'assets'),
           to: 'assets',
           ignore: [ '.DS_Store']
