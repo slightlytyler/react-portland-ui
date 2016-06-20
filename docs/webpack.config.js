@@ -17,6 +17,9 @@ const __static = path.join(__src, 'static');
 
 const env = process.env.NODE_ENV || 'development';
 const globals = {
+  'process.env': {
+    'NODE_ENV': JSON.stringify(env),
+  },
   __NODE_ENV__: JSON.stringify(env),
   __DEV__: env === 'development',
   __PROD__: env === 'production',
@@ -30,7 +33,7 @@ const config = {
   output: {
     path: __dist,
     filename: 'bundle.js',
-    publicPath: '/',
+    publicPath: globals.__DEV__ ? '/' : '/react-portland-ui',
   },
   devServer:{
     host: 'localhost',
@@ -41,7 +44,7 @@ const config = {
     new webpack.DefinePlugin(globals),
     new HtmlWebpackPlugin({
       template: path.join(__src, 'index.html'),
-      filename: globals.__DEV__ ? 'index.html' : '200.html',
+      filename: 'index.html',
       inject: 'body',
       favicon: path.join(__static, 'favicon.ico'),
     }),
