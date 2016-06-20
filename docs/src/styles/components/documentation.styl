@@ -9,7 +9,7 @@
     &:not(:last-child)
       border-bottom: 1px solid $light-gray-b
 
-  .header
+  & > .header
     display: flex
     justify-content: space-between
     align-items: center
@@ -24,7 +24,7 @@
       &:hover, &:active
         color: $blue-b
 
-  .description
+  & > .description
     color: $dark-gray-b
 
 .documentation__prop-types
@@ -36,6 +36,24 @@
   .table
     box-shadow: none
     border: 1px solid $light-gray-b
+
+    .row
+      background-color: white
+
+    .cell
+      border-right-width: 0
+
+      &.name
+        color: darken(#a6e22e, 45%)
+
+      &.type
+        color: saturation(darken(#ae81ff, 30%), 40%)
+
+      &.default .required
+        color: $dark-gray-b
+
+      &.description
+        font-weight: 300
 
 .documentation__examples
   font-family: inherit
