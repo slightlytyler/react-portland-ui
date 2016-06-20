@@ -12,11 +12,11 @@ export default class Button extends Component {
     type: PropTypes.string,
     onClick: PropTypes.func,
     /**
-     * If true component has ghost styling
+     * If true button is ghost style
      */
     ghost: PropTypes.bool,
     /**
-     * If true component expands to fill container
+     * If true button expands to fill container
      */
     fluid: PropTypes.bool,
     /**

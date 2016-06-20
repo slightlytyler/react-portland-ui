@@ -1,12 +1,17 @@
 ---
 name: Button
 module: buttons
-description: Hey this is a great button.
+description: A button. Push it and it does stuff.
 ---
 
 #### Basic button
 <Example>
   <Button>Button</Button>
+</Example>
+
+#### Ghost button
+<Example>
+  <Button ghost>Button</Button>
 </Example>
 
 #### Big button

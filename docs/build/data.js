@@ -3,8 +3,8 @@ export default [
 		"file": "./src/modules/Button/index.js",
 		"name": "Button",
 		"module": "buttons",
-		"description": "Hey this is a great button.",
-		"examples": "<div class=\"container\"><h4 id=\"basic-button\">Basic button</h4>\n<Example>\n  <Button>Button</Button>\n</Example>\n\n<h4 id=\"big-button\">Big button</h4>\n<Example>\n  <Button big>Button</Button>\n</Example>\n</div>",
+		"description": "A button. Push it and it does stuff.",
+		"examples": "<div class=\"container\"><h4 id=\"basic-button\">Basic button</h4>\n<Example>\n  <Button>Button</Button>\n</Example>\n\n<h4 id=\"ghost-button\">Ghost button</h4>\n<Example>\n  <Button ghost>Button</Button>\n</Example>\n\n<h4 id=\"big-button\">Big button</h4>\n<Example>\n  <Button big>Button</Button>\n</Example>\n</div>",
 		"props": {
 			"className": {
 				"type": {
@@ -39,14 +39,14 @@ export default [
 					"name": "bool"
 				},
 				"required": false,
-				"description": "If true component has ghost styling"
+				"description": "If true button is ghost style"
 			},
 			"fluid": {
 				"type": {
 					"name": "bool"
 				},
 				"required": false,
-				"description": "If true component expands to fill container"
+				"description": "If true button expands to fill container"
 			},
 			"big": {
 				"type": {
@@ -61,15 +61,22 @@ export default [
 		"file": "./src/modules/Checkbox/Switch/index.js",
 		"name": "Switch",
 		"module": "checkboxes",
-		"description": "It's a checkbox. Wow!",
-		"examples": "<div class=\"container\"><h1 id=\"header\">Header</h1>\n<Switch name=\"unchecked\" />\n\n<Switch name=\"checked\" value={true} /></div>",
+		"description": "An alternative styling for a checkbox",
+		"examples": "<div class=\"container\"><h4 id=\"basic-switch\">Basic switch</h4>\n<Example>\n  <Switch name=\"someSwitch\" />\n</Example>\n\n<h4 id=\"square-switch\">Square switch</h4>\n<Example>\n  <Switch name=\"squareSwitch\" square />\n</Example></div>",
 		"props": {
+			"className": {
+				"type": {
+					"name": "string"
+				},
+				"required": false,
+				"description": ""
+			},
 			"name": {
 				"type": {
 					"name": "string"
 				},
 				"required": true,
-				"description": ""
+				"description": "Used as elements ID"
 			},
 			"value": {
 				"type": {
@@ -104,7 +111,7 @@ export default [
 					"name": "bool"
 				},
 				"required": false,
-				"description": "",
+				"description": "If true switch is square style",
 				"defaultValue": {
 					"value": "false",
 					"computed": false

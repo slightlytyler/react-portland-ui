@@ -1,11 +1,15 @@
 ---
 name: Switch
 module: checkboxes
-description: It's a checkbox. Wow!
+description: An alternative styling for a checkbox
 ---
 
-# Header
+#### Basic switch
+<Example>
+  <Switch name="someSwitch" />
+</Example>
 
-<Switch name="unchecked" />
-
-<Switch name="checked" value={true} />
+#### Square switch
+<Example>
+  <Switch name="squareSwitch" square />
+</Example>

@@ -6,19 +6,19 @@ import checkIcon from 'icons/check.svg';
 import closeIcon from 'icons/close.svg';
 
 export default class Switch extends Component {
-  static documentation = {
-    name: 'Switch',
-    module: 'checkboxes',
-    description: "It's a switch!",
-    examples: '<div><Switch name="unchecked" /> <Switch name="checked" value /></div>',
-  };
-
   static propTypes = {
+    className: PropTypes.string,
+    /**
+     * Used as elements ID
+     */
     name: PropTypes.string.isRequired,
     value: PropTypes.bool,
     onChange: PropTypes.func,
     label: PropTypes.string,
     error: PropTypes.array,
+    /**
+     * If true switch is square style
+     */
     square: PropTypes.bool,
   };
 
@@ -60,6 +60,7 @@ export default class Switch extends Component {
   render() {
     const classes = classnames(
       'pui--switch',
+      this.props.className,
       {
         error: this.props.error,
         square: this.props.square,
