@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const mkdirp = require('mkdirp');
 const glob = require('glob');
 const lodash = require('lodash');
 const { curry, filter } = lodash;
@@ -46,7 +47,15 @@ const handler = (file) => [
   documentationHandler(file),
 ];
 
-const parse = file => docgen.parse(fs.readFileSync(file), undefined, handler(file))
+const parse = file => docgen.parse(fs.readFileSync(file), undefined, handler(file));
+
+const write = docData => {
+  mkdirp(path.join(__dirname, '../build'));
+  fs.writeFile(
+    path.join(__dirname, '../build/data.js'),
+    `export default ${JSON.stringify(docData, null, '\t')}`
+  );
+};
 
 const files = glob.sync('./src/modules/**/*.js');
 
@@ -61,7 +70,4 @@ const docs = files.reduce((acc, file) => {
 
 const configuredDocs = filter(docs, doc => doc.name && doc.module)
 
-fs.writeFile(
-  path.join(__dirname, '../build/data.js'),
-  `export default ${JSON.stringify(configuredDocs, null, '\t')}`
-);
+write(configuredDocs);
