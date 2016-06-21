@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import logo from 'assets/images/see-er.png';
 
 export default class SideBar extends Component {
@@ -21,11 +22,18 @@ export default class SideBar extends Component {
         <section className="search">
           <input className="input" placeholder="Search Components" />
         </section>
-        <ul className="list">
+        <section className="list">
           {this.props.modules.map(module => (
-            <li key={module} className="item">{module}</li>
+            <Link
+              key={module}
+              to={`/${module}`}
+              className="item"
+              activeClassName="active"
+            >
+              {module}
+            </Link>
           ))}
-        </ul>
+        </section>
       </div>
     );
   }

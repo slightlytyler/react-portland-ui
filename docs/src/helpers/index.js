@@ -11,10 +11,12 @@ export const getComponents = memoize(data => getModules(data).reduce((acc, modul
   ...data.filter(docs => docs.module === module),
 ], []));
 
-export const getPackagesByModule = memoize((packages, module) => (
-  packages.filter(p => p.module === module)
-));
+export const getPackagesByModule = memoize(
+  (packages, module) => packages.filter(p => p.module === module),
+  (packages, module) => module,
+);
 
-export const getPackageByName = memoize((packages, name) => (
-  packages.find(p => kebabCase(p.name) === name)
-));
+export const getPackageByName = memoize(
+  (packages, name) => packages.find(p => kebabCase(p.name) === name),
+  (packages, name) => name,
+);
