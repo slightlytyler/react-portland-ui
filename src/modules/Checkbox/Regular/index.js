@@ -6,6 +6,9 @@ import checkIcon from 'icons/check.svg';
 
 export default class Checkbox extends Component {
   static propTypes = {
+     /**
+     * Used as elements ID
+     */
     name: PropTypes.string.isRequired,
     value: PropTypes.bool,
     onChange: PropTypes.func,
