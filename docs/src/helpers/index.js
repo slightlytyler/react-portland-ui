@@ -1,4 +1,4 @@
-import { memoize } from 'lodash';
+import { memoize, kebabCase } from 'lodash';
 
 export const getModules = memoize(data => data.reduce((acc, component) => {
   const { module } = component;
@@ -11,6 +11,10 @@ export const getComponents = memoize(data => getModules(data).reduce((acc, modul
   ...data.filter(docs => docs.module === module),
 ], []));
 
-export const getPackagesForModule = memoize((packages, module) => (
+export const getPackagesByModule = memoize((packages, module) => (
   packages.filter(p => p.module === module)
+));
+
+export const getPackageByName = memoize((packages, name) => (
+  packages.find(p => kebabCase(p.name) === name)
 ));

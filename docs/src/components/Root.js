@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { getPackagesForModule } from 'helpers';
+import { getPackageByName, getPackagesByModule } from 'helpers';
 import SideBar from 'components/SideBar';
 import Content from 'components/Content';
 
@@ -11,13 +11,18 @@ export default class Root extends Component {
     }),
     params: PropTypes.shape({
       module: PropTypes.string,
+      package: PropTypes.string,
     }),
   };
 
-  getCurrentPackages = () => getPackagesForModule(
-    this.props.route.packages,
-    this.props.params.module
-  );
+  getCurrentPackages = () => {
+    const { packages } = this.props.route;
+    const { module, package: pkg } = this.props.params;
+
+    if (pkg) return [getPackageByName(packages, pkg)];
+    if (module) return getPackagesByModule(packages, module);
+    return packages;
+  }
 
   render() {
     return (

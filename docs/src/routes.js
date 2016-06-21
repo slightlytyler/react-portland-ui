@@ -11,7 +11,9 @@ export default data => (
       modules={getModules(data)}
       packages={getComponents(data)}
     >
-      <Route path=":module" />
+      <Route path=":module">
+        <Route path=":package" />
+      </Route>
     </Route>
   </Router>
 );
