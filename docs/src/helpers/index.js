@@ -10,3 +10,7 @@ export const getComponents = memoize(data => getModules(data).reduce((acc, modul
   ...acc,
   ...data.filter(docs => docs.module === module),
 ], []));
+
+export const getPackagesForModule = memoize((packages, module) => (
+  packages.filter(p => p.module === module)
+));

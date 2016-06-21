@@ -1,16 +1,11 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 
-import 'styles/index.styl';
-import Root from './components/Root';
-
 import DATA from 'build/data';
-import { getModules, getComponents } from 'helpers';
 
-const render = data => ReactDOM.render(
-  <Root modules={getModules(data)} components={getComponents(data)} />,
-  document.getElementById('root')
-);
+import 'styles/index.styl';
+import routes from 'routes';
+
+const render = data => ReactDOM.render(routes(data), document.getElementById('root'));
 
 if (module.hot) {
   module.hot.accept('build/data', () => {

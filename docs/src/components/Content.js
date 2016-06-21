@@ -3,10 +3,10 @@ import Documentation from './Documentation';
 
 export default class Content extends Component {
   static propTypes = {
-    components: PropTypes.array.isRequired,
+    packages: PropTypes.array.isRequired,
   };
 
-  renderDocumentation = () => this.props.components.map(doc => (
+  renderDocumentation = () => this.props.packages.map(doc => (
     <Documentation
       key={doc.name}
       name={doc.name}
