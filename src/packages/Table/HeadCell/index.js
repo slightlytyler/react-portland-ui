@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
-import Icon from 'modules/Icon';
+import Icon from 'packages/Icon';
 import { caretDown } from 'icons';
 
 export default class TableHeadCell extends Component {

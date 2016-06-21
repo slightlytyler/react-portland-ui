@@ -4,7 +4,7 @@ import keycode from 'keycode';
 import { pickDiff, focusNode } from 'helpers';
 import Icon from 'react-svgcon';
 import Option from '../Option';
-import Spinner from 'modules/Spinner';
+import Spinner from 'packages/Spinner';
 import downCaret from 'icons/caret--down.svg';
 
 export default class BaseSelect extends Component {

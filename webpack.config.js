@@ -101,7 +101,7 @@ module.exports = {
   resolve: {
     alias: {
       src: __src,
-      modules: path.join(__src, 'modules'),
+      packages: path.join(__src, 'packages'),
       styles: path.join(__src, 'styles'),
       icons: path.join(__src, 'assets/icons'),
       helpers: path.join(__src, 'helpers')

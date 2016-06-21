@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
-import Icon from 'modules/Icon';
+import Icon from 'packages/Icon';
 import { check } from 'icons';
 
 export default class ListInput extends Component {

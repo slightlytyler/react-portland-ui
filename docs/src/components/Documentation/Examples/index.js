@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import jsx from 'react-jsx';
-import * as modules from 'pui';
+import * as packages from 'pui';
 import Item from './Item';
 
 export default class ExamplesDocumentation extends Component {
@@ -13,7 +13,7 @@ export default class ExamplesDocumentation extends Component {
 
     return (
       <div className="documentation__examples">
-        {component({ Example: Item, ...modules })}
+        {component({ Example: Item, ...packages })}
       </div>
     );
   }

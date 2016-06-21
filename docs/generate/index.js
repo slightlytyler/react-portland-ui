@@ -12,7 +12,7 @@ import {
 } from './handlers';
 
 const __out = path.join(__dirname, '../build/data.js');
-const __src = './src/modules/**/*.js';
+const __src = './src/packages/**/*.js';
 
 // Setup parse and write functions
 
