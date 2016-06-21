@@ -1,9 +1,9 @@
 .pui--button
-  size = .9em
+  size = 0.9em
   position: relative
   padding: 1em 4em
   font-size: size
-  letter-spacing: size * .1
+  letter-spacing: size * 0.1
   text-transform: uppercase
   border-width: 2px
   border-style: solid
@@ -23,6 +23,7 @@
     width: 100%
     height: 100%
     background-color: alpha(black, 0.075)
+    border-radius: 4px
 
     transition: opacity .1s ease
     opacity: 0
@@ -46,11 +47,11 @@
     background-color: transparent
     border-color: $light-gray-b
 
-    &:hover
-      background-color: alpha($light-gray-b, .2)
+    &:after
+      background-color: alpha(black, 0.035)
 
-    &:active
-      background-color: $light-gray-b
+    &:active:after
+      background-color: alpha(black, 0.055)
 
   &.fluid
     width: 100%

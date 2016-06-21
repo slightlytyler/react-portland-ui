@@ -62,10 +62,29 @@
     font-weight: 300
 
   .item
+    position: relative
     margin-bottom: 3em
-    border: 1px solid $dark-gray-a
-    border-radius: 7px
-    overflow: hidden
 
-    .example, .code
-      padding: 1rem
+    &.expanded
+      .example, .code
+        padding: 1rem
+
+      .example
+        border-color: $dark-gray-a
+
+    .example
+      border: 1px solid transparent
+      border-bottom-width: 0
+      border-top-left-radius: 7px
+      border-top-right-radius: 7px
+
+    .expand-button
+      position: absolute
+      right: .5em
+      top: .5em
+      padding: .5em
+      font-size: .75em
+      font-weight: 300
+      border: 1px solid $light-gray-b
+      border-radius: 4px
+      cursor: pointer
