@@ -10,6 +10,7 @@ export default class Content extends Component {
     <Documentation
       key={doc.name}
       name={doc.name}
+      module={doc.module}
       file={doc.file}
       description={doc.description}
       propTypes={doc.props}

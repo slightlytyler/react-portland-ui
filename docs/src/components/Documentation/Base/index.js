@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
+import { kebabCase } from 'lodash';
 import PropTypesDocumentation from '../PropTypes';
 import ExamplesDocumentation from '../Examples';
 import { GITHUB_URL } from 'config';
@@ -6,6 +8,7 @@ import { GITHUB_URL } from 'config';
 export default class Documentation extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
+    module: PropTypes.string.isRequired,
     file: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     propTypes: PropTypes.object.isRequired,
@@ -24,11 +27,21 @@ export default class Documentation extends Component {
     );
   };
 
+  renderName = () => (
+    <Link
+      key={this.props.name}
+      to={`/${this.props.module}/${kebabCase(this.props.name)}`}
+      className="name"
+    >
+      {this.props.name}
+    </Link>
+  );
+
   render() {
     return (
       <div className="documentation">
         <header className="header">
-          <section className="name">{this.props.name}</section>
+          {this.renderName()}
           {this.renderGithubLink()}
         </header>
         <section className="description">{this.props.description}</section>
