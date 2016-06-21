@@ -11,7 +11,9 @@ export default class SideBar extends Component {
     return (
       <div className="page__side-bar">
         <header className="header">
-          <h1 className="title">React Portland UI</h1>
+          <h1 className="title">
+            <Link to="/">React Portland UI</Link>
+          </h1>
           <h3 className="by">
             <div className="label">built by</div>
             <div className="logo">
