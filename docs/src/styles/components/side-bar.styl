@@ -57,7 +57,9 @@
 
   .list
     .item
-      display: block
+      display: flex
+      justify-content: flex-start
+      align-items: center
       text-transform: capitalize
       text-decoration: none
       cursor: pointer
@@ -65,3 +67,11 @@
       &:hover, &.active
         color: white
         background-color: alpha(black, 0.3)
+
+      &.active
+        opacity: 1
+
+      .icon
+        height: 1em
+        margin-right: 1em
+        opacity: .7

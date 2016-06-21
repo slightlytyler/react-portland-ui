@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import { Icon } from 'pui';
 import logo from 'assets/images/see-er.png';
+import radio from 'assets/icons/radio.svg';
 
 export default class SideBar extends Component {
   static propTypes = {
@@ -32,7 +34,7 @@ export default class SideBar extends Component {
               className="item"
               activeClassName="active"
             >
-              {module}
+              <Icon className="icon" path={radio} /> {module}
             </Link>
           ))}
         </section>
