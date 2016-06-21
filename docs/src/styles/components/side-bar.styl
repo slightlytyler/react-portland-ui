@@ -10,7 +10,7 @@
   .header, .search
     border-bottom: 1px solid $dark-blue-a
 
-  .header, .search, .list .item
+  .header, .search, .list .item .body
     padding: 1em
 
     .title, .by
@@ -57,21 +57,40 @@
 
   .list
     .item
-      display: flex
-      justify-content: flex-start
-      align-items: center
-      text-transform: capitalize
-      text-decoration: none
-      cursor: pointer
+      a
+        color: inherit
+        text-transform: capitalize
+        text-decoration: none
 
-      &:hover, &.active
-        color: white
-        background-color: alpha(black, 0.3)
+      .body
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        cursor: pointer
 
-      &.active
-        opacity: 1
+        &:hover, &.active
+          color: white
+          background-color: alpha(black, 0.3)
 
-      .icon
-        height: 1em
-        margin-right: 1em
-        opacity: .7
+        &.active
+          opacity: 1
+
+          & + .dropdown
+            display: block;
+
+        .icon
+          height: 1em
+          margin-right: 1em
+          opacity: .7
+
+      .dropdown
+        display: none
+        padding-left: 4em
+        margin-top: .5em
+
+        .element
+          display: block
+          margin-bottom: 1em
+
+          &:hover, &.active
+            color: white

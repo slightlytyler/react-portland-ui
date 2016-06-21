@@ -1,13 +1,49 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import { kebabCase } from 'lodash';
 import { Icon } from 'pui';
+import { getPackagesByModule } from 'helpers';
 import logo from 'assets/images/see-er.png';
 import radio from 'assets/icons/radio.svg';
 
 export default class SideBar extends Component {
   static propTypes = {
     modules: PropTypes.array.isRequired,
+    packages: PropTypes.array.isRequired,
   };
+
+  renderItemDropdownElement = (pkg, module) => (
+    <Link
+      key={pkg.name}
+      to={`/${module}/${kebabCase(pkg.name)}`}
+      className="element"
+      activeClassName="active"
+    >
+      {pkg.name}
+    </Link>
+  );
+
+  renderItemDropdown = module => (
+    <section className="dropdown">
+      {getPackagesByModule(this.props.packages, module).map(pkg => (
+        this.renderItemDropdownElement(pkg, module)
+      ))}
+    </section>
+  );
+
+  renderItem = module => (
+    <section key={module} className="item">
+      <Link
+        to={`/${module}`}
+        className="body"
+        activeClassName="active"
+      >
+        <Icon className="icon" path={radio} />
+        {module}
+      </Link>
+      {this.renderItemDropdown(module)}
+    </section>
+  );
 
   render() {
     return (
@@ -27,16 +63,7 @@ export default class SideBar extends Component {
           <input className="input" placeholder="Search Components" />
         </section>
         <section className="list">
-          {this.props.modules.map(module => (
-            <Link
-              key={module}
-              to={`/${module}`}
-              className="item"
-              activeClassName="active"
-            >
-              <Icon className="icon" path={radio} /> {module}
-            </Link>
-          ))}
+          {this.props.modules.map(this.renderItem)}
         </section>
       </div>
     );

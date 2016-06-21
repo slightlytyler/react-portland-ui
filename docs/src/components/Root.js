@@ -27,7 +27,7 @@ export default class Root extends Component {
   render() {
     return (
       <div className="layout">
-        <SideBar modules={this.props.route.modules} currentModule={this.props.params.module} />
+        <SideBar modules={this.props.route.modules} packages={this.props.route.packages} />
         <Content packages={this.getCurrentPackages()} />
       </div>
     );
