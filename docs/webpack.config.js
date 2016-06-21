@@ -90,7 +90,7 @@ const config = {
       assets: path.join(__src, 'assets'),
       components: path.join(__src, 'components'),
       config: path.join(__src, 'config'),
-      constants: path.join(__src, 'constants'),
+      helpers: path.join(__src, 'helpers'),
       routes: path.join(__src, 'routes'),
       styles: path.join(__src, 'styles'),
     },

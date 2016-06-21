@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Documentation from './Documentation';
-import { components } from 'constants';
 
 export default class Content extends Component {
-  renderDocumentation = () => components.map(doc => (
+  static propTypes = {
+    components: PropTypes.array.isRequired,
+  };
+
+  renderDocumentation = () => this.props.components.map(doc => (
     <Documentation
       key={doc.name}
       name={doc.name}

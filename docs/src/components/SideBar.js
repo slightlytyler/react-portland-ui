@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
-import { modules } from 'constants';
+import React, { Component, PropTypes } from 'react';
 import logo from 'assets/images/see-er.png';
 
 export default class SideBar extends Component {
+  static propTypes = {
+    modules: PropTypes.array.isRequired,
+  };
+
   render() {
     return (
       <div className="page__side-bar">
@@ -19,7 +22,7 @@ export default class SideBar extends Component {
           <input className="input" placeholder="Search Components" />
         </section>
         <ul className="list">
-          {modules.map(module => (
+          {this.props.modules.map(module => (
             <li key={module} className="item">{module}</li>
           ))}
         </ul>
