@@ -1,25 +1,40 @@
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
-const filter = require('lodash').filter;
+const lodash = require('lodash');
+const { curry, filter } = lodash;
 const docgen = require('react-docgen');
 const handlers = docgen.handlers;
 const frontMatter = require('front-matter');
 const marked = require('marked');
 
-const fileHandler = file => doc => doc._data._c.set('file', file);
+const fileHandler = file => doc => setDocAttribute(doc, 'file', file);
 
-const contain = markup => `<div class="container">${markup}</div>`;
-
-const documentationHandler = file => doc => {
+const getDocumentation = file => {
   const dir = path.dirname(file);
   const documentationData = fs.readFileSync(path.join(dir, 'documentation.md'), 'utf8');
-  const documentation = frontMatter(documentationData);
-  const { attributes, body } = documentation;
 
-  Object.keys(attributes).forEach(key => doc._data._c.set(key, attributes[key]));
+  return frontMatter(documentationData);
+};
 
-  doc._data._c.set('examples', contain(marked(body)));
+const setDocAttribute = curry((doc, key, value) => doc._data._c.set(key, value));
+
+const nameHandler = file => (doc, ast) => {
+  const { attributes } = getDocumentation(file);
+  const setDocName = setDocAttribute(doc, 'name');
+
+  if (attributes.name) setDocName(attributes.name);
+  else setDocName(ast.value.id.name);
+}
+
+const container = markup => `<div class="container">${markup}</div>`;
+
+const documentationHandler = file => doc => {
+  const { attributes, body } = getDocumentation(file);
+
+  Object.keys(attributes).forEach(key => setDocAttribute(doc, key, attributes[key]));
+
+  setDocAttribute(doc, 'examples', container(marked(body)));
 }
 
 const handler = (file) => [
@@ -27,6 +42,7 @@ const handler = (file) => [
   handlers.propDocBlockHandler,
   handlers.defaultPropsHandler,
   fileHandler(file),
+  nameHandler(file),
   documentationHandler(file),
 ];
 

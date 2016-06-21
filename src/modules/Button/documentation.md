@@ -1,5 +1,4 @@
 ---
-name: Button
 module: buttons
 description: A button. Push it and it does stuff.
 ---

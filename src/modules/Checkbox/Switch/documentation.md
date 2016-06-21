@@ -1,5 +1,4 @@
 ---
-name: Switch
 module: checkboxes
 description: An alternative styling for a checkbox
 ---
