@@ -2,67 +2,40 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 const glob = require('glob');
-const lodash = require('lodash');
-const { curry, filter } = lodash;
+const filter = require('lodash').filter;
 const docgen = require('react-docgen');
-const handlers = docgen.handlers;
-const frontMatter = require('front-matter');
-const marked = require('marked');
 
-const fileHandler = file => doc => setDocAttribute(doc, 'file', file);
+const defaultHandlers = docgen.handlers;
+const customHandlers = require('./handlers');
 
-const getDocumentation = file => {
-  const dir = path.dirname(file);
-  const documentationData = fs.readFileSync(path.join(dir, 'documentation.md'), 'utf8');
+const __out = path.join(__dirname, '../build/data.js');
+const __src = './src/modules/**/*.js';
 
-  return frontMatter(documentationData);
-};
+// Setup parse and write functions
 
-const setDocAttribute = curry((doc, key, value) => doc._data._c.set(key, value));
-
-const nameHandler = file => (doc, ast) => {
-  const { attributes } = getDocumentation(file);
-  const setDocName = setDocAttribute(doc, 'name');
-
-  if (attributes.name) setDocName(attributes.name);
-  else setDocName(ast.value.id.name);
-}
-
-const container = markup => `<div class="container">${markup}</div>`;
-
-const documentationHandler = file => doc => {
-  const { attributes, body } = getDocumentation(file);
-
-  Object.keys(attributes).forEach(key => setDocAttribute(doc, key, attributes[key]));
-
-  setDocAttribute(doc, 'examples', container(marked(body)));
-}
-
-const handler = (file) => [
-  handlers.propTypeHandler,
-  handlers.propDocBlockHandler,
-  handlers.defaultPropsHandler,
-  fileHandler(file),
-  nameHandler(file),
-  documentationHandler(file),
+const handler = file => [
+  defaultHandlers.propTypeHandler,
+  defaultHandlers.propDocBlockHandler,
+  defaultHandlers.defaultPropsHandler,
+  customHandlers.file(file),
+  customHandlers.name(file),
+  customHandlers.documentation(file),
 ];
 
 const parse = file => docgen.parse(fs.readFileSync(file), undefined, handler(file));
 
 const write = docData => {
-  mkdirp(path.join(__dirname, '../build'));
-  fs.writeFile(
-    path.join(__dirname, '../build/data.js'),
-    `export default ${JSON.stringify(docData, null, '\t')}`
-  );
+  mkdirp(path.dirname(__out));
+  fs.writeFile(__out, `export default ${JSON.stringify(docData, null, '\t')}`);
 };
 
-const files = glob.sync('./src/modules/**/*.js');
+// Handle generation
+
+const files = glob.sync(__src);
 
 const docs = files.reduce((acc, file) => {
   try {
-    const result = parse(file);
-    return Object.assign({}, acc, { [file]: result });
+    return Object.assign({}, acc, { [file]: parse(file) });
   } catch(error) {
     return acc;
   }
