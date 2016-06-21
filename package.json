@@ -8,7 +8,7 @@
     "build": "npm run clean && webpack",
     "prepublish": "npm run build",
     "dev": "nodemon",
-    "docs:generate": "node docs/generate",
+    "docs:generate": "babel-node docs/generate",
     "docs:clean": "rimraf docs/dist",
     "docs:build": "npm run docs:generate && webpack --config docs/webpack.config.js",
     "docs:dev": "npm run docs:generate && webpack-dev-server --config docs/webpack.config.js --inline --hot",
@@ -42,6 +42,7 @@
   "homepage": "https://github.com/slightlytyler/react-portland-ui#readme",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "babel-cli": "^6.10.1",
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",

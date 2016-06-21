@@ -1,3 +1,3 @@
-const curry = require('lodash').curry;
+import { curry } from 'lodash';
 
-module.exports = curry((doc, key, value) => doc._data._c.set(key, value));
+export default curry((doc, key, value) => doc._data._c.set(key, value));

@@ -1,6 +1,6 @@
-const { getDocumentation, setDocAttribute } = require('../helpers');
+import { getDocumentation, setDocAttribute } from '../helpers';
 
-module.exports = file => (doc, ast) => {
+export default file => (doc, ast) => {
   const { attributes } = getDocumentation(file);
   const setDocName = setDocAttribute(doc, 'name');
 

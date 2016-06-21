@@ -1,4 +1,2 @@
-module.exports = {
-  getDocumentation: require('./getDocumentation'),
-  setDocAttribute: require('./setDocAttribute'),
-};
+export getDocumentation from './getDocumentation';
+export setDocAttribute from './setDocAttribute';

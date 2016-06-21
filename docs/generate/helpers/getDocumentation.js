@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const frontMatter = require('front-matter');
+import fs from 'fs';
+import path from 'path';
+import frontMatter from 'front-matter';
 
-module.exports = file => {
+export default file => {
   const dir = path.dirname(file);
   const documentationData = fs.readFileSync(path.join(dir, 'documentation.md'), 'utf8');
 

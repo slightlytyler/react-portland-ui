@@ -1,3 +1,3 @@
-const { setDocAttribute } = require('../helpers');
+import { setDocAttribute } from '../helpers';
 
-module.exports = file => doc => setDocAttribute(doc, 'file', file);
+export default file => doc => setDocAttribute(doc, 'file', file);

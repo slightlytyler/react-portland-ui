@@ -1,9 +1,9 @@
-const marked = require('marked');
-const { getDocumentation, setDocAttribute } = require('../helpers');
+import marked from 'marked';
+import { getDocumentation, setDocAttribute } from '../helpers';
 
 const container = markup => `<div class="container">${markup}</div>`;
 
-module.exports = file => doc => {
+export default file => doc => {
   const { attributes, body } = getDocumentation(file);
 
   Object.keys(attributes).forEach(key => setDocAttribute(doc, key, attributes[key]));
