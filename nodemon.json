@@ -2,6 +2,6 @@
   "verbose": false,
   "watch": ["src", "webpack.config.js"],
   "exec": "node  ./node_modules/.bin/webpack",
-  "ignore": ["dist/", "node_modules/", "docs/"],
+  "ignore": ["dist/", "node_modules/", "docs/", "**/test.js"],
   "ext": "js, styl, md"
 }

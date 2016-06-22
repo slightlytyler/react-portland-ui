@@ -15,10 +15,12 @@ module.exports = config => config.set({
     'karma-sourcemap-loader',
     'karma-mocha-reporter',
     'karma-spec-reporter',
+    'karma-eslint'
   ],
   port: 9876,
   preprocessors: {
-    'tests.webpack.js': ['webpack', 'sourcemap']
+    'src/**/*.js': ['eslint'],
+    'tests.webpack.js': ['webpack', 'sourcemap'],
   },
   reporters: ['mocha'],
   singleRun: false,
@@ -28,6 +30,7 @@ module.exports = config => config.set({
   webpack: {
     devtool: 'inline-source-maps',
     module: {
+      preLoaders: webpackConfig.module.preLoaders,
       loaders: [webpackConfig.module.loaders[0]] // js loader
     },
     externals: {
@@ -36,6 +39,9 @@ module.exports = config => config.set({
       'react/lib/ExecutionEnvironment': true,
       'react/lib/ReactContext': true
     }
+  },
+  webpackMiddleware: {
+    noInfo: true
   },
   webpackServer: {
     noInfo: true

@@ -1,5 +1,5 @@
 describe('<Button />', () => {
   it('passes this example test', () => {
-    expect(true).toEqual(false);
+    expect(true).toEqual(true);
   });
 });

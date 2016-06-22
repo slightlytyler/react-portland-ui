@@ -12,7 +12,10 @@
     "__PROD__": false,
     "__TEST__": false,
     "__DEBUG__": false,
-    "__BASENAME__": false
+    "__BASENAME__": false,
+    "describe": false,
+    "it": false,
+    "expect": false
   },
   "rules": {
     "import/no-unresolved": "off",
