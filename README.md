@@ -16,7 +16,7 @@ npm install --save react-portland-ui
 
 There's two ways to include the styles; via the compiled `styles.css` or using the source stylus modules avaiable at `styles/index.styl`.
 
-#### Using compiles styles
+#### Using compiled styles
 
 Best for simpler use cases without much customization.
 
@@ -53,6 +53,96 @@ and navigate to `localhost:3000`.
 npm run docs:dev
 ```
 
-and navigate to `localhost:3000`.
+and navigate to `localhost:4000`.
 
 Modules can be documented via their `documentation.md` file and comments inline with their `propTypes`.
+
+#### Example
+
+`modules/Button/index.js`
+
+```javascript
+import React, { Component, PropTypes } from 'react';
+import { Button as FormalButton } from 'react-formal';
+import classnames from 'classnames';
+
+export default class Button extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+    /**
+     * HTML type attribute
+     */
+    type: PropTypes.string,
+    onClick: PropTypes.func,
+    /**
+     * If true button is ghost style
+     */
+    ghost: PropTypes.bool,
+    /**
+     * If true button expands to fill container
+     */
+    fluid: PropTypes.bool,
+    /**
+     * If true component will be big size
+     */
+    big: PropTypes.bool,
+  };
+
+  render() {
+    const classes = classnames(
+      'pui--button',
+      this.props.className,
+      {
+        ghost: this.props.ghost,
+        fluid: this.props.fluid,
+        big: this.props.big,
+      }
+    );
+
+    if (this.context.reactFormalContext) {
+      return (
+        <FormalButton className={classes} type={this.props.type}>
+          {this.props.children}
+        </FormalButton>
+      );
+    }
+
+    return (
+      <button
+        className={classes}
+        type={this.props.type}
+        onClick={this.props.onClick}
+      >
+        {this.props.children}
+      </button>
+    );
+  }
+}
+```
+
+`modules/Button/documentation.md`
+
+```markdown
+---
+module: buttons
+description: A button. Push it and it does stuff.
+---
+
+#### Basic button
+<Example>
+  <Button>Button</Button>
+</Example>
+
+#### Ghost button
+<Example>
+  <Button ghost>Button</Button>
+</Example>
+
+#### Big button
+<Example>
+  <Button big>Button</Button>
+</Example>
+```
+
+The `name` attribute can be resolved from the markdown front matter or inferred from the component class name.
