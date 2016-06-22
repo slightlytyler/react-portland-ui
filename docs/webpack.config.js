@@ -33,7 +33,7 @@ const config = {
   output: {
     path: __dist,
     filename: 'bundle.js',
-    publicPath: globals.__DEV__ ? '/' : '/react-portland-ui',
+    publicPath: '/',
   },
   devServer:{
     host: 'localhost',
@@ -44,7 +44,7 @@ const config = {
     new webpack.DefinePlugin(globals),
     new HtmlWebpackPlugin({
       template: path.join(__src, 'index.html'),
-      filename: 'index.html',
+      filename: globals.__DEV__ ? 'index.html' : '200.html',
       inject: 'body',
       favicon: path.join(__static, 'favicon.ico'),
     }),

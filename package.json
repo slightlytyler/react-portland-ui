@@ -8,16 +8,16 @@
     "build": "npm run clean && webpack",
     "prepublish": "npm run build",
     "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "docs:generate": "babel-node docs/generate",
     "docs:clean": "rimraf docs/dist",
     "docs:build": "npm run docs:generate && webpack --config docs/webpack.config.js",
     "docs:dev": "npm run docs:generate && webpack-dev-server --config docs/webpack.config.js --inline --hot",
-    "docs:deploy": "better-npm-run docs:deploy",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docs:deploy": "better-npm-run docs:deploy"
   },
   "betterScripts": {
     "docs:deploy": {
-      "command": "npm run docs:clean && npm run docs:build && git-directory-deploy --directory docs/dist --branch gh-pages",
+      "command": "npm run docs:clean && npm run docs:build && surge --project ./docs/dist",
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*"
@@ -62,7 +62,6 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "front-matter": "^2.1.0",
-    "git-directory-deploy": "^1.5.0",
     "github-markdown-css": "^2.3.0",
     "glob": "^7.0.4",
     "html-webpack-plugin": "^2.21.0",
@@ -84,6 +83,7 @@
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-relative-loader": "^2.1.1",
+    "surge": "^0.18.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",
