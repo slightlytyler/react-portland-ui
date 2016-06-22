@@ -20,17 +20,17 @@ There's two ways to include the styles; via the compiled `styles.css` or using t
 
 Best for simpler use cases without much customization.
 
+From the root of your application:
+
 ```javascript
 import 'react-portland-ui/styles.css'
 ```
-
-from the root of your application.
 
 #### Using stylus modules
 
 For more advanced cases with custom styling needs. First, install [stylus-relative-loader](https://github.com/walmartlabs/stylus-relative-loader) and configure it to use the `resolve url` option.
 
-From your stylus root
+From your stylus root:
 
 ```stylus
 @import '~react-portland-ui/dist/stylus/index'
