@@ -16,7 +16,9 @@ npm install --save react-portland-ui
 
 There's two ways to include the styles; via the compiled `styles.css` or using the source stylus modules avaiable at `styles/index.styl`.
 
-For simpler use cases opt for the first. Just
+#### Using compiles styles
+
+Best for simpler use cases without much customization.
 
 ```javascript
 import 'react-portland-ui/styles.css'
@@ -24,7 +26,11 @@ import 'react-portland-ui/styles.css'
 
 from the root of your application.
 
-For more advanced cases with custom styling needs use stylus. First, install [stylus-relative-loader](https://github.com/walmartlabs/stylus-relative-loader) and configure it to resolve urls like `stylus-relative-loader?resolve url`. Then just import the styles from your stylus root
+#### Using stylus modules
+
+For more advanced cases with custom styling needs. First, install [stylus-relative-loader](https://github.com/walmartlabs/stylus-relative-loader) and configure it to use the `resolve url` option.
+
+From your stylus root
 
 ```stylus
 @import '~react-portland-ui/dist/stylus/index'
