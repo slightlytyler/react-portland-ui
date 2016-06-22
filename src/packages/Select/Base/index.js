@@ -78,8 +78,10 @@ export default class BaseSelect extends Component {
   finishSelecting = () => this.setState({ selecting: false });
 
   handleMouseDown = e => {
-    e.preventDefault();
-    e.stopPropagation();
+    if (this.state.selecting) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
   };
 
   handleMouseUp = () => {

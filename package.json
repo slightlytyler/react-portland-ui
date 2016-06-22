@@ -103,6 +103,6 @@
     "prismjs": "^1.5.1",
     "react-formal": "^0.17.9",
     "react-infinite-calendar": "^1.1.14",
-    "react-svgcon": "^0.4.2"
+    "react-svgcon": "^0.4.4"
   }
 }
