@@ -3,7 +3,7 @@ const webpackConfig = require('./webpack.config.js');
 
 module.exports = config => config.set({
   autoWatch: true,
-  browsers: ['jsdom'],
+  browsers: ['Chrome'],
   colors: true,
   concurrency: Infinity,
   frameworks: ['mocha'],
