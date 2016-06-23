@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import keycode from 'keycode';
 import { Input } from 'pui';
 import Documentation from './Documentation';
+import searchIcon from 'assets/icons/search.svg';
 
 export class Content extends Component {
   static propTypes = {
@@ -37,7 +38,8 @@ export class Content extends Component {
         className="input"
         placeholder="Search for packages"
         onKeyDown={this.handleKeyDown}
-        ghost
+        icon={searchIcon}
+        autoFocus
       />
     </section>
   );

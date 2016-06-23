@@ -14,10 +14,32 @@
   &.fluid
     @extends $inputs-fluid
 
+  &.thin
+    input, .dummy
+      padding: .5em 0
+
+  &.ghost
+    color: $dark-blue-a
+    border-color: $dark-blue-a
+
+    &.focusing
+      box-shadow: none
+
+    &, input
+      background-color: transparent
+
+      &::placeholder, .placeholder
+        color: currentColor
+        opacity: .85
+
+    .icon
+      color: currentColor
+
   &.error
     @extends $inputs-error
 
   input, .dummy
+    color: inherit
     flex: 1
     height: 100%
     min-width: 0

@@ -20,6 +20,8 @@ export default class InputBase extends Component {
     readOnly: PropTypes.bool,
     error: PropTypes.array,
     fluid: PropTypes.bool,
+    ghost: PropTypes.bool,
+    thin: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -98,6 +100,8 @@ export default class InputBase extends Component {
         focusing: this.state.focusing,
         error: this.props.error,
         fluid: this.props.fluid,
+        ghost: this.props.ghost,
+        thin: this.props.thin,
       },
     );
 

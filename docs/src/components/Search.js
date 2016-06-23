@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { withRouter } from 'react-router';
 import keycode from 'keycode';
+import { Input } from 'pui';
+import searchIcon from 'assets/icons/search.svg';
 
 export class Search extends Component {
   static propTypes = {
@@ -28,11 +30,14 @@ export class Search extends Component {
 
   render() {
     return (
-      <input
+      <Input
         className="input"
         placeholder="Search Components"
         onKeyDown={this.handleKeyDown}
-        autoFocus
+        icon={searchIcon}
+        fluid
+        thin
+        ghost
       />
     );
   }
