@@ -1,26 +1,17 @@
+const path = require('path');
 const webpackConfig = require('./webpack.config.js');
 
 module.exports = config => config.set({
   autoWatch: true,
-  browsers: ['PhantomJS'],
+  browsers: ['jsdom'],
   colors: true,
   concurrency: Infinity,
-  frameworks: ['jasmine'],
-  files: ['tests.webpack.js'],
+  frameworks: ['mocha'],
+  files: ['./tests.js'],
   logLevel: config.LOG_INFO,
-  plugins: [
-    'karma-webpack',
-    'karma-jasmine',
-    'karma-phantomjs-launcher',
-    'karma-sourcemap-loader',
-    'karma-mocha-reporter',
-    'karma-spec-reporter',
-    'karma-eslint'
-  ],
   port: 9876,
   preprocessors: {
-    'src/**/*.js': ['eslint'],
-    'tests.webpack.js': ['webpack', 'sourcemap'],
+    'tests.js': ['webpack', 'sourcemap'],
   },
   reporters: ['mocha'],
   singleRun: false,
@@ -30,20 +21,42 @@ module.exports = config => config.set({
   webpack: {
     devtool: 'inline-source-maps',
     module: {
+      noParse: [
+        /node_modules(\\|\/)sinon/
+      ],
       preLoaders: webpackConfig.module.preLoaders,
-      loaders: [webpackConfig.module.loaders[0]] // js loader
+      loaders: [
+        webpackConfig.module.loaders[0], // js loader
+        {
+          test: /\.json$/,
+          loader: 'json',
+        }
+      ]
     },
     externals: {
-      'cheerio': 'window',
       'react/addons': true,
       'react/lib/ExecutionEnvironment': true,
       'react/lib/ReactContext': true
+    },
+    resolve: {
+      alias: {
+        sinon: 'sinon/pkg/sinon',
+      }
+    },
+    eslint: {
+      configFile: path.join(__dirname, '.test.eslintrc')
     }
   },
-  webpackMiddleware: {
-    noInfo: true
-  },
   webpackServer: {
-    noInfo: true
+    noInfo: true,
+    stats: {
+      assets: false,
+      colors: true,
+      version: false,
+      hash: false,
+      timings: false,
+      chunks: false,
+      chunkModules: false
+    }
   },
 });

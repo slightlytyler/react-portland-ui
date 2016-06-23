@@ -25,6 +25,10 @@ export default class Button extends Component {
     big: PropTypes.bool,
   };
 
+  static contextTypes = {
+    reactFormalContext: PropTypes.bool,
+  };
+
   render() {
     const classes = classnames(
       'pui--button',
