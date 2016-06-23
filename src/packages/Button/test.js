@@ -1,13 +1,13 @@
 import React from 'react';
 import { expect } from 'chai';
 import { spy } from 'sinon';
-import { shallow } from 'enzyme';
+import { render, shallow } from 'enzyme';
 import Button from './index';
 import { Button as FormalButton } from 'react-formal';
 
 describe('<Button />', () => {
   it('renders', () => {
-    const wrapper = shallow(<Button />);
+    const wrapper = render(<Button />);
     expect(wrapper).to.be.present();
   });
 

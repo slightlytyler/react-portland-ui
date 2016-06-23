@@ -42,7 +42,11 @@ export default class Button extends Component {
 
     if (this.context.reactFormalContext) {
       return (
-        <FormalButton className={classes} type={this.props.type}>
+        <FormalButton
+          className={classes}
+          type={this.props.type}
+          onClick={this.props.onClick}
+        >
           {this.props.children}
         </FormalButton>
       );
