@@ -1,6 +1,6 @@
 ---
 module: buttons
-description: A button. Push it and it does stuff.
+description: A button. Click it and it does stuff.
 ---
 
 #### Basic button
@@ -16,4 +16,9 @@ description: A button. Push it and it does stuff.
 #### Big button
 <Example>
   <Button big>Button</Button>
+</Example>
+
+#### Fluid button
+<Example>
+  <Button fluid>Button</Button>
 </Example>
