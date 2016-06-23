@@ -47,6 +47,81 @@ npm run dev
 
 and navigate to `localhost:3000`.
 
+## Development
+
+```
+npm test
+```
+
+Packages can be tested via their `test.js` file.
+
+Tools you'll need to be familiar with: [Enzyme](https://github.com/airbnb/enzyme) [Chai](http://chaijs.com/) [Chai Enzyme](https://github.com/producthunt/chai-enzyme) [Sinon](http://sinonjs.org/)
+
+After starting the tests **don't** close the spawned chrome browser, just minimize it.
+
+#### Example
+
+```javascript
+import React from 'react';
+import { expect } from 'chai';
+import { spy } from 'sinon';
+import { shallow } from 'enzyme';
+import Button from './index';
+import { Button as FormalButton } from 'react-formal';
+
+`modules/Button/test.js`
+
+describe('<Button />', () => {
+  it('renders', () => {
+    const wrapper = shallow(<Button />);
+    expect(wrapper).to.be.present();
+  });
+
+  it('render children', () => {
+    const wrapper = shallow(<Button>Test</Button>);
+    expect(wrapper).to.have.text('Test');
+  });
+
+  it('renders a form button when in form context', () => {
+    const context = { reactFormalContext: true };
+    const wrapper = shallow(<Button />, { context });
+    expect(wrapper.find(FormalButton)).to.have.length(1);
+  });
+
+  it('accepts a className', () => {
+    const wrapper = shallow(<Button className="some-class" />);
+    expect(wrapper).to.have.className('some-class');
+  });
+
+  it('accepts a type', () => {
+    const wrapper = shallow(<Button type="submit" />);
+    expect(wrapper).to.have.attr('type', 'submit');
+  });
+
+  it('accepts an onClick action', () => {
+    const onClick = spy();
+    const wrapper = shallow(<Button onClick={onClick} />);
+    wrapper.simulate('click');
+    expect(onClick.calledOnce).to.equal(true);
+  });
+
+  it('accepts a ghost prop', () => {
+    const wrapper = shallow(<Button ghost />);
+    expect(wrapper).to.have.className('ghost');
+  });
+
+  it('accepts a fluid prop', () => {
+    const wrapper = shallow(<Button fluid />);
+    expect(wrapper).to.have.className('fluid');
+  });
+
+  it('accepts a big prop', () => {
+    const wrapper = shallow(<Button big />);
+    expect(wrapper).to.have.className('big');
+  });
+});
+```
+
 ## Documentation
 
 ```
@@ -55,7 +130,7 @@ npm run docs:dev
 
 and navigate to `localhost:4000`.
 
-Modules can be documented via their `documentation.md` file and comments inline with their `propTypes`.
+Packages can be documented via their `documentation.md` file and comments inline with their `propTypes`.
 
 #### Example
 
