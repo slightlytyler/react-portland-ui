@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { kebabCase } from 'lodash';
 import { Icon } from 'pui';
 import { getPackagesByModule } from 'helpers';
+import Search from './Search';
 import logo from 'assets/images/see-er.png';
 import radio from 'assets/icons/radio.svg';
 
@@ -60,7 +61,7 @@ export default class SideBar extends Component {
           </h3>
         </header>
         <section className="search">
-          <input className="input" placeholder="Search Components" />
+          <Search />
         </section>
         <section className="list">
           {this.props.modules.map(this.renderItem)}

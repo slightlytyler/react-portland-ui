@@ -11,12 +11,15 @@ export default class InputBase extends Component {
     type: PropTypes.string,
     value: PropTypes.any,
     onChange: PropTypes.func,
+    onKeyDown: PropTypes.func,
+    onKeyUp: PropTypes.func,
+    onClick: PropTypes.func,
     placeholder: PropTypes.string,
+    autoFocus: PropTypes.bool,
     icon: PropTypes.string,
+    readOnly: PropTypes.bool,
     error: PropTypes.array,
     fluid: PropTypes.bool,
-    readOnly: PropTypes.bool,
-    onClick: PropTypes.func,
   };
 
   static defaultProps = {
@@ -74,9 +77,12 @@ export default class InputBase extends Component {
           type={this.props.type}
           value={this.props.value}
           onChange={this.handleChange}
+          onKeyDown={this.props.onKeyDown}
+          onKeyUp={this.props.onKeyUp}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
           placeholder={this.props.placeholder}
+          autoFocus={this.props.autoFocus}
         />
       );
     }
@@ -89,9 +95,9 @@ export default class InputBase extends Component {
       'pui--input',
       this.props.className,
       {
+        focusing: this.state.focusing,
         error: this.props.error,
         fluid: this.props.fluid,
-        focusing: this.state.focusing,
       },
     );
 

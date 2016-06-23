@@ -93,6 +93,7 @@ const config = {
       helpers: path.join(__src, 'helpers'),
       routes: path.join(__src, 'routes'),
       styles: path.join(__src, 'styles'),
+      utilities: path.join(__src, 'utilities'),
     },
   },
   resolveLoader: { fallback: __node_modules },

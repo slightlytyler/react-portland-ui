@@ -5,5 +5,19 @@
   margin-left: 17.5em
   overflow: auto
 
+  &.empty, .empty-state
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
   & > *:not(:last-child)
     margin-bottom: 5em
+
+  .empty-state
+    margin-bottom: 25vh
+    .header
+      margin-bottom: 1em
+      font-size: 1.25em
+      font-weight: bold
+
