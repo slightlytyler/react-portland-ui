@@ -1,5 +1,7 @@
 # React Portland UI
 
+[![Build Status](https://travis-ci.org/slightlytyler/react-portland-ui.svg?branch=master)](https://travis-ci.org/slightlytyler/react-portland-ui)
+
 A component & pattern library based on the Portland UI Kit.
 
 #### [Docs](http://react-portland-ui.surge.sh/)
