@@ -1,10 +1,8 @@
 *.DS_Store
 .DS_Store
-
 node_modules/
 *.log
-
 dist/
-
 docs/dist
 docs/build
+coverage

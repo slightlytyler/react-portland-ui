@@ -2,21 +2,11 @@ const path = require('path');
 const webpackConfig = require('./webpack.config.js');
 
 module.exports = config => config.set({
-  autoWatch: false,
-  browsers: process.env.TRAVIS ? ['ChromeTravis'] : ['Chrome'],
-  colors: true,
-  concurrency: Infinity,
   frameworks: ['mocha'],
-  files: ['./tests.js'],
-  logLevel: config.LOG_INFO,
-  port: 9876,
+  files: ['tests.js'],
+  browsers: process.env.TRAVIS ? ['ChromeTravis'] : ['Chrome'],
   preprocessors: {
-    'tests.js': ['webpack', 'sourcemap'],
-  },
-  reporters: ['mocha'],
-  singleRun: true,
-  specReporter: {
-    suppressPassed: true
+    'tests.js': ['webpack', 'sourcemap',],
   },
   customLaunchers: {
     ChromeTravis: {
@@ -24,6 +14,16 @@ module.exports = config => config.set({
       flags: ['--no-sandbox']
     }
   },
+  reporters: ['mocha'],
+  specReporter: {
+    suppressPassed: true
+  },
+  autoWatch: false,
+  singleRun: true,
+  concurrency: Infinity,
+  logLevel: config.LOG_INFO,
+  colors: true,
+  port: 9876,
   webpack: {
     devtool: 'inline-source-maps',
     module: {

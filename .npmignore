@@ -1,7 +1,12 @@
 src
 docs
 node_modules
+.babelrc
 .eslintrc
+.test.eslintrc
 .gitignore
+.travis.yml
+karma.config.js
 nodemon.json
 webpack.config.js
+test.js
