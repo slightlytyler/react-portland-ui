@@ -16,7 +16,7 @@ Star the repo and come back later. Maybe it will be finished :grin:
 npm install --save react-portland-ui
 ```
 
-There's two ways to include the styles; via the compiled `styles.css` or using the source stylus modules avaiable at `styles/index.styl`.
+There's two ways to include the styles; via the compiled `styles.css` or using the source stylus modules avaiable at `stylus/index.styl`.
 
 #### Using compiled styles
 
