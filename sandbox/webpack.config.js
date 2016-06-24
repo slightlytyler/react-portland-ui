@@ -85,9 +85,10 @@ const config = {
     alias: {
       src: __src,
       pui: __pui,
-      assets: path.join(__src, 'assets'),
       components: path.join(__src, 'components'),
       config: path.join(__src, 'config'),
+      icons: path.join(__src, 'assets/icons'),
+      images: path.join(__src, 'assets/images'),
       modules: path.join(__src, 'modules'),
       routes: path.join(__src, 'routes'),
       styles: path.join(__src, 'styles'),
