@@ -11,6 +11,46 @@ export default class Button extends Component {
      */
     type: PropTypes.string,
     onClick: PropTypes.func,
+    onMouseDown: PropTypes.func,
+    onMouseUp: PropTypes.func,
+    /**
+     * Renders dropdown with passed in options
+     */
+    dropdown: PropTypes.array(PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        label: PropTypes.string,
+      }),
+      PropTypes.func,
+    ])),
+    /**
+     * If true button dropdown icon is separated by a divider
+     */
+    dropdownDivder: PropTypes.bool,
+    /**
+     * Renders icon with passed in path
+     */
+    icon: PropTypes.string,
+    iconAlign: PropTypes.oneOf([
+      'center',
+      'left',
+      'right',
+    ]),
+    iconColor: PropTypes.string,
+    iconBackgroundColor: PropTypes.string,
+    /**
+     * If true button is thinner
+     */
+    thin: PropTypes.bool,
+    /**
+     * If true button is rounded style
+     */
+    rounded: PropTypes.bool,
+    /**
+     * Background color of the button
+     */
+    color: PropTypes.string,
     /**
      * If true button is ghost style
      */
