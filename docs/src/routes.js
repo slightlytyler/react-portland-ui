@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 import { getModules, getComponents } from 'helpers';
 import Root from './components/Root';
 
-export default data => (
+const Routes = ({ data }) => (
   <Router history={browserHistory}>
     <Route
       path="/"
@@ -17,3 +17,9 @@ export default data => (
     </Route>
   </Router>
 );
+
+Routes.propTypes = {
+  data: PropTypes.array.isRequired,
+};
+
+export default Routes;

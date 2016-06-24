@@ -3,6 +3,6 @@
 node_modules/
 *.log
 dist/
-docs/dist
+*/dist/
 docs/build
 coverage
