@@ -49,7 +49,7 @@ npm run dev
 
 and navigate to `localhost:3000`.
 
-## Development
+## Testing
 
 ```
 npm test
@@ -57,69 +57,68 @@ npm test
 
 Packages can be tested via their `test.js` file.
 
-Tools you'll need to be familiar with: [Enzyme](https://github.com/airbnb/enzyme) [Chai](http://chaijs.com/) [Chai Enzyme](https://github.com/producthunt/chai-enzyme) [Sinon](http://sinonjs.org/)
+Tools you'll need to be familiar with: [karma](https://karma-runner.github.io/1.0/index.html), [mocha](https://mochajs.org/), [chai](http://chaijs.com/), [sinon](http://sinonjs.org/), [enzyme](https://github.com/airbnb/enzyme), [sinon-chai](https://github.com/domenic/sinon-chai), [chai-enzyme](https://github.com/producthunt/chai-enzyme).
 
 After starting the tests **don't** close the spawned chrome browser, just minimize it.
 
 #### Example
 
+`packages/Button/test.js`
+
 ```javascript
 import React from 'react';
-import { expect } from 'chai';
 import { spy } from 'sinon';
-import { shallow } from 'enzyme';
+import { render, shallow } from 'enzyme';
 import Button from './index';
 import { Button as FormalButton } from 'react-formal';
 
-`modules/Button/test.js`
-
 describe('<Button />', () => {
   it('renders', () => {
-    const wrapper = shallow(<Button />);
-    expect(wrapper).to.be.present();
+    const wrapper = render(<Button />);
+    wrapper.should.be.present();
   });
 
   it('render children', () => {
     const wrapper = shallow(<Button>Test</Button>);
-    expect(wrapper).to.have.text('Test');
+    wrapper.should.have.text('Test');
   });
 
   it('renders a form button when in form context', () => {
     const context = { reactFormalContext: true };
     const wrapper = shallow(<Button />, { context });
-    expect(wrapper.find(FormalButton)).to.have.length(1);
+    wrapper.find(FormalButton).should.have.length(1);
   });
 
   it('accepts a className', () => {
     const wrapper = shallow(<Button className="some-class" />);
-    expect(wrapper).to.have.className('some-class');
+    wrapper.should.have.className('some-class');
   });
 
   it('accepts a type', () => {
     const wrapper = shallow(<Button type="submit" />);
-    expect(wrapper).to.have.attr('type', 'submit');
+    wrapper.should.have.attr('type', 'submit');
   });
 
   it('accepts an onClick action', () => {
     const onClick = spy();
     const wrapper = shallow(<Button onClick={onClick} />);
     wrapper.simulate('click');
-    expect(onClick.calledOnce).to.equal(true);
+    onClick.should.have.been.calledOnce;
   });
 
   it('accepts a ghost prop', () => {
     const wrapper = shallow(<Button ghost />);
-    expect(wrapper).to.have.className('ghost');
+    wrapper.should.have.className('ghost');
   });
 
   it('accepts a fluid prop', () => {
     const wrapper = shallow(<Button fluid />);
-    expect(wrapper).to.have.className('fluid');
+    wrapper.should.have.className('fluid');
   });
 
   it('accepts a big prop', () => {
     const wrapper = shallow(<Button big />);
-    expect(wrapper).to.have.className('big');
+    wrapper.should.have.className('big');
   });
 });
 ```
@@ -136,7 +135,7 @@ Packages can be documented via their `documentation.md` file and comments inline
 
 #### Example
 
-`modules/Button/index.js`
+`packages/Button/index.js`
 
 ```javascript
 import React, { Component, PropTypes } from 'react';
@@ -198,7 +197,7 @@ export default class Button extends Component {
 }
 ```
 
-`modules/Button/documentation.md`
+`packages/Button/documentation.md`
 
 ```markdown
 ---
