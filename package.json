@@ -18,11 +18,21 @@
     "docs:build": "npm run docs:generate && webpack --config docs/webpack.config.js",
     "docs:dev": "npm run docs:generate && webpack-dev-server --config docs/webpack.config.js --inline --hot",
     "docs:deploy": "better-npm-run docs:deploy",
-    "sandbox:dev": "webpack-dev-server --config sandbox/webpack.config.js --inline --hot"
+    "sandbox:clean": "rimraf sandbox/dist/*",
+    "sandbox:build": "webpack --config sandbox/webpack.config.js",
+    "sandbox:dev": "webpack-dev-server --config sandbox/webpack.config.js --inline --hot",
+    "sandbox:deploy": "better-npm-run sandbox:deploy"
   },
   "betterScripts": {
     "docs:deploy": {
       "command": "npm run docs:clean && npm run docs:build && surge --project ./docs/dist",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
+    "sandbox:deploy": {
+      "command": "npm run sandbox:clean && npm run sandbox:build && surge --project ./sandbox/dist",
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*"

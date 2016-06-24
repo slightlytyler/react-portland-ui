@@ -49,7 +49,7 @@ const config = {
     }),
     new ExtractTextPlugin('styles.css'),
     new CopyWebpackPlugin(
-      [{ from: __static }]
+      [{ from: __static, ignore: '.DS_Store' }]
     ),
   ],
   module: {
@@ -88,6 +88,7 @@ const config = {
       assets: path.join(__src, 'assets'),
       components: path.join(__src, 'components'),
       config: path.join(__src, 'config'),
+      modules: path.join(__src, 'modules'),
       routes: path.join(__src, 'routes'),
       styles: path.join(__src, 'styles'),
     },

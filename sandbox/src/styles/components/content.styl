@@ -1,0 +1,22 @@
+.page__content
+  height: 100%
+  width: calc(100% - 17.5em)
+  padding: 1em
+  margin-left: 17.5em
+  overflow: auto
+
+  &.empty, .empty-state
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+  & > *:not(:last-child)
+    margin-bottom: 5em
+
+  .empty-state
+    margin-bottom: 25vh
+
+    .header
+      font-size: 3em
+      font-weight: bold

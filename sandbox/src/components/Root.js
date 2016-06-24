@@ -1,10 +1,20 @@
-import React, { Component } from 'react';
-import { Button } from 'pui';
+import React, { Component, PropTypes } from 'react';
+import Sidebar from './Sidebar';
+import Content from './Content';
 
 export default class Root extends Component {
+  static propTypes = {
+    children: PropTypes.node,
+  };
+
   render() {
     return (
-      <Button>Sandbox</Button>
+      <div className="page__layout">
+        <Sidebar />
+        <Content>
+          {this.props.children}
+        </Content>
+      </div>
     );
   }
 }

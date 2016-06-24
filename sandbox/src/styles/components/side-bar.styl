@@ -1,0 +1,29 @@
+.page__side-bar
+  position: fixed
+  left: 0
+  top: 0
+  width: 17.5em
+  height: 100%
+  padding: 3em 0
+  color: white
+  background-color: $dark-blue-b
+
+  .header
+    padding: 0 1rem
+    margin-bottom: .5rem
+    font-size: 1.5em
+
+  .item
+    display: block
+    padding: 1rem
+    color: white
+    text-transform: capitalize
+    text-decoration: none
+    cursor: pointer
+
+    &:hover, &.active
+      color: white
+      background-color: alpha(black, 0.3)
+
+    &.active
+      opacity: 1
