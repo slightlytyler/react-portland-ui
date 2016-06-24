@@ -47,7 +47,17 @@ npm install
 npm run dev
 ```
 
-and navigate to `localhost:3000`.
+To use the dev version in other project use [npm link](https://docs.npmjs.com/cli/link). For local development use the sandbox.
+
+#### Sandbox
+
+A sandbox environment is included under `sandbox`.
+
+```
+npm run sandbox:dev
+```
+
+and navigate to `localhost:5000`.
 
 ## Testing
 
