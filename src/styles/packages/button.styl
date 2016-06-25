@@ -1,29 +1,35 @@
-.pui--button
-  size = 0.9em
-  position: relative
-  padding: 1em 4em
-  font-size: size
-  letter-spacing: size * 0.1
-  text-transform: uppercase
-  border-width: 2px
-  border-style: solid
-  border-radius: 4px
-  cursor: pointer
-  user-select: none
+$pui--button__size = 0.75em
 
+.pui--button
+  $border-width = 0.166em
+  $border-radius = 0.333em
+  position: relative
+  min-width: 16em
+  padding-left: 4em
+  padding-right: 4em
+  padding-top: 1.25em
+  padding-bottom: 1.25em
+  font-size: $pui--button__size
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  border-width: $border-width
+  border-style: solid
+  border-radius: $border-radius
   color: white
   background-color: $highlight-color
   border-color: $highlight-color
+  cursor: pointer
+  user-select: none
 
   &:after
     content: ''
     position: absolute
-    left: 0
-    top: 0
-    width: 100%
-    height: 100%
+    left: -($border-width)
+    top: -($border-width)
+    width: 'calc(100% + %s)' % ($border-width * 2)
+    height: 'calc(100% + %s)' % ($border-width * 2)
     background-color: alpha(black, 0.075)
-    border-radius: 4px
+    border-radius: $border-radius
 
     transition: opacity .1s ease
     opacity: 0
@@ -42,21 +48,31 @@
       background-color: alpha(black, 0.15)
       opacity: 1
 
-  &.ghost
-    color: $dark-blue-a
-    background-color: transparent
-    border-color: $light-gray-b
+.pui--button.big
+  font-size: $pui--button__size * 1.25
+  text-transform: none
 
-    &:after
-      background-color: alpha(black, 0.035)
+.pui--button.fluid
+  width: 100%
 
-    &:active:after
-      background-color: alpha(black, 0.055)
+.pui--button.ghost
+  color: $dark-blue-a
+  background-color: transparent
+  border-color: $light-gray-b
 
-  &.fluid
-    width: 100%
+  &:after
+    background-color: alpha(black, 0.035)
 
-  &.big
-    padding: 1.25em 5em
-    font-size: 1em
-    text-transform: none
+  &:active:after
+    background-color: alpha(black, 0.055)
+
+.pui--button.rounded
+  $border-radius = 5em
+  border-radius: $border-radius
+
+  &:after
+    border-radius: $border-radius
+
+.pui--button.thin
+  padding-top: .75em
+  padding-bottom: .75em

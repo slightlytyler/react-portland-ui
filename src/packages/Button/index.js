@@ -16,7 +16,7 @@ export default class Button extends Component {
     /**
      * Renders dropdown with passed in options
      */
-    dropdown: PropTypes.array(PropTypes.oneOfType([
+    dropdown: PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.shape({
         value: PropTypes.string.isRequired,
@@ -40,29 +40,29 @@ export default class Button extends Component {
     iconColor: PropTypes.string,
     iconBackgroundColor: PropTypes.string,
     /**
-     * If true button is thinner
+     * If true component will be big size
      */
-    thin: PropTypes.bool,
-    /**
-     * If true button is rounded style
-     */
-    rounded: PropTypes.bool,
+    big: PropTypes.bool,
     /**
      * Background color of the button
      */
     color: PropTypes.string,
     /**
-     * If true button is ghost style
-     */
-    ghost: PropTypes.bool,
-    /**
      * If true button expands to fill container
      */
     fluid: PropTypes.bool,
     /**
-     * If true component will be big size
+     * If true button is ghost style
      */
-    big: PropTypes.bool,
+    ghost: PropTypes.bool,
+    /**
+     * If true button is rounded style
+     */
+    rounded: PropTypes.bool,
+    /**
+     * If true button is thinner
+     */
+    thin: PropTypes.bool,
   };
 
   static contextTypes = {
@@ -74,9 +74,11 @@ export default class Button extends Component {
       'pui--button',
       this.props.className,
       {
-        ghost: this.props.ghost,
-        fluid: this.props.fluid,
         big: this.props.big,
+        fluid: this.props.fluid,
+        ghost: this.props.ghost,
+        rounded: this.props.rounded,
+        thin: this.props.thin,
       }
     );
 
@@ -86,6 +88,8 @@ export default class Button extends Component {
           className={classes}
           type={this.props.type}
           onClick={this.props.onClick}
+          onMouseDown={this.props.onMouseDown}
+          onMouseUp={this.props.onMouseUp}
         >
           {this.props.children}
         </FormalButton>
@@ -97,6 +101,8 @@ export default class Button extends Component {
         className={classes}
         type={this.props.type}
         onClick={this.props.onClick}
+        onMouseDown={this.props.onMouseDown}
+        onMouseUp={this.props.onMouseUp}
       >
         {this.props.children}
       </button>

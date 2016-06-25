@@ -71,6 +71,26 @@ export default class Buttons extends Component {
             </div>
           </div>
         </div>
+        <div className="panel">
+          <div className="row">
+            <Button big>Squared</Button>
+            <Button color="aqua" big rounded>Rounded</Button>
+            <Button color="red" dropdown={this.dropdownOptions} dropdownDivider big rounded>Dropdown</Button>
+          </div>
+          <div className="row">
+            <Button big ghost>Squared</Button>
+            <Button big ghost rounded>Rounded</Button>
+            <Button dropdown={this.dropdownOptions} dropdownDivider big ghost rounded>Dropdown</Button>
+          </div>
+        </div>
+        <div className="panel">
+          <div className="row">
+            <Button fluid>Squared</Button>
+          </div>
+          <div className="row">
+            <Button fluid ghost>Squared</Button>
+          </div>
+        </div>
       </div>
     );
   }
