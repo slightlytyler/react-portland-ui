@@ -45,9 +45,7 @@ module.exports = config => config.set({
       'react/lib/ReactContext': true
     },
     resolve: {
-      alias: {
-        sinon: 'sinon/pkg/sinon',
-      }
+      alias: Object.assign({ sinon: 'sinon/pkg/sinon' }, webpackConfig.resolve.alias)
     },
     eslint: {
       configFile: path.join(__dirname, '.test.eslintrc')
