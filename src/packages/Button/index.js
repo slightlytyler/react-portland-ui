@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Button as FormalButton } from 'react-formal';
-import Icon from 'packages/Icon';
 import classnames from 'classnames';
+import color from 'helpers/color';
+import Icon from 'packages/Icon';
 
 export default class Button extends Component {
   static propTypes = {
@@ -15,7 +16,11 @@ export default class Button extends Component {
     onMouseDown: PropTypes.func,
     onMouseUp: PropTypes.func,
     /**
-     * Background color of the button
+     * Background of the button
+     */
+    background: PropTypes.string,
+    /**
+     * Text color of the button
      */
     color: PropTypes.string,
     /**
@@ -37,7 +42,7 @@ export default class Button extends Component {
      * Renders icon with passed in path
      */
     icon: PropTypes.string,
-    iconBackgroundColor: PropTypes.string,
+    iconBackground: PropTypes.string,
     iconColor: PropTypes.string,
     iconJustify: PropTypes.oneOf(['edge', 'center']),
     iconSide: PropTypes.oneOf(['left', 'right']),
@@ -76,19 +81,32 @@ export default class Button extends Component {
     iconJustify: 'edge',
   };
 
+  renderIcon = () => (
+    <div
+      className={classnames(
+        'icon',
+        this.props.iconJustify,
+        this.props.iconSide,
+        { background: color(this.props.iconBackground) },
+      )}
+      style={{ background: color(this.props.iconBackground) }}
+    >
+      <Icon
+        className="element"
+        style={{ color: this.props.iconColor }}
+        path={this.props.icon}
+      />
+    </div>
+  );
+
   renderContent = () => {
-    const { children, icon } = this.props;
-
-    if (icon) {
-      const { iconSide: side, iconJustify: justify } = this.props;
-      const classes = classnames('icon', justify, side);
-
-      switch (side) {
+    if (this.props.icon) {
+      switch (this.props.iconSide) {
         case 'right':
           return (
             <div className="inner">
-              {children}
-              <Icon className={classes} path={icon} />
+              {this.props.children}
+              {this.renderIcon()}
             </div>
           );
 
@@ -96,8 +114,8 @@ export default class Button extends Component {
         default:
           return (
             <div className="inner">
-              <Icon className={classes} path={icon} />
-              {children}
+              {this.renderIcon()}
+              {this.props.children}
             </div>
           );
       }
@@ -105,7 +123,7 @@ export default class Button extends Component {
 
     return (
       <div className="inner">
-        {children}
+        {this.props.children}
       </div>
     );
   }
@@ -123,8 +141,12 @@ export default class Button extends Component {
         thin: this.props.thin,
       }
     );
+    const style = {
+      background: color(this.props.background),
+    };
     const props = {
       className: classes,
+      style,
       type: this.props.type,
       onClick: this.props.onClick,
       onMouseDown: this.props.onMouseDown,
