@@ -8,9 +8,9 @@ description: A button. Click it and it does stuff.
   <Button>Button</Button>
 </Example>
 
-#### Ghost button
+#### Colorized button
 <Example>
-  <Button ghost>Button</Button>
+  <Button background="aqua-a" color="blue-a">Button</Button>
 </Example>
 
 #### Big button
@@ -18,7 +18,29 @@ description: A button. Click it and it does stuff.
   <Button big>Button</Button>
 </Example>
 
+#### Collapse button
+<Example>
+  <Button collapse>Button</Button>
+</Example>
+
+
 #### Fluid button
 <Example>
   <Button fluid>Button</Button>
+</Example>
+
+#### Ghost button
+<Example>
+  <Button ghost>Button</Button>
+</Example>
+
+#### Rounded button
+<Example>
+  <Button rounded>Button</Button>
+</Example>
+
+
+#### Thin button
+<Example>
+  <Button thin>Button</Button>
 </Example>
