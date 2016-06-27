@@ -38,14 +38,16 @@ export default class ButtonGroup extends Component {
     thin: PropTypes.bool,
   };
 
-  applyButtonProps = Button => React.cloneElement(Button, {
+  passThroughProps = {
     background: this.props.background,
     color: this.props.color,
     big: this.props.big,
     ghost: this.props.ghost,
     rounded: this.props.rounded,
     thin: this.props.thin,
-  })
+  };
+
+  applyButtonProps = Button => React.cloneElement(Button, this.passThroughProps);
 
   render() {
     const classes = classnames('pui--button__group', this.props.className, {
