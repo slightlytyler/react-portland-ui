@@ -5,5 +5,9 @@ description: A collection of similar buttons.
 
 #### Basic button
 <Example>
-  <Button>Button</Button>
+  <ButtonGroup>
+    <Button>First</Button>
+    <Button>Second</Button>
+    <Button>Third</Button>
+  </ButtonGroup>
 </Example>

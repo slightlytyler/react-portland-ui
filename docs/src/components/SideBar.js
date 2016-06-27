@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
-import { kebabCase } from 'lodash';
+import { kebabCase, startCase } from 'lodash';
 import { Icon } from 'pui';
 import { getPackagesByModule } from 'helpers';
 import Search from './Search';
@@ -20,7 +20,7 @@ export default class SideBar extends Component {
       className="element"
       activeClassName="active"
     >
-      {pkg.name}
+      {startCase(pkg.name)}
     </Link>
   );
 
