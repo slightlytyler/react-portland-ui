@@ -1,4 +1,5 @@
 $pui--button__size = 0.75em
+$pui--button__border-width = 0.166em
 $pui--button__border-radius--squared = 0.333em
 $pui--button__border-radius--rounded = 5em
 
@@ -108,7 +109,7 @@ $pui--button__border-radius--rounded = 5em
 
   .inner
     border-color: $light-gray-b
-    border-width: 0.166em
+    border-width: $pui--button__border-width
 
 .pui--button.rounded
   &, &:after, .inner
@@ -121,9 +122,6 @@ $pui--button__border-radius--rounded = 5em
 // Button Group
 .pui--button__group
   .pui--button
-    &, &:after, .inner
-      border-radius: $pui--button__border-radius--squared
-
     &:not(:first-child):not(:last-child)
       &, &:after, .inner
         border-radius: 0
@@ -141,14 +139,16 @@ $pui--button__border-radius--rounded = 5em
     .inner
       min-width: 12em
 
-.pui--button__group.rounded
-  .pui--button
-    &:first-child
-      &, &:after, .inner
-        border-top-left-radius: $pui--button__border-radius--rounded
-        border-bottom-left-radius: $pui--button__border-radius--rounded
+  .pui--button.big
+    min-width: 18em
 
-    &:last-child
-      &, &:after, .inner
-        border-top-right-radius: $pui--button__border-radius--rounded
-        border-bottom-right-radius: $pui--button__border-radius--rounded
+  .pui--button.ghost
+    &:not(:first-child):not(:last-child) .inner
+      border-left-width: $pui--button__border-width * 0.5
+      border-right-width: $pui--button__border-width * 0.5
+
+    &:first-child .inner
+      border-right-width: $pui--button__border-width * 0.5
+
+    &:last-child .inner
+      border-left-width: $pui--button__border-width * 0.5

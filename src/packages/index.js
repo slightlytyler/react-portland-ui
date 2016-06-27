@@ -1,4 +1,4 @@
-export Button from './Button';
+export * from './Button';
 export * from './Checkbox';
 export CodeBlock from './CodeBlock';
 export * from './Form';

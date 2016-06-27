@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 import React, { Component } from 'react';
-import { Button } from 'pui';
+import { Button, ButtonGroup } from 'pui';
 import facebook from 'icons/facebook.svg';
 import checkmark from 'icons/checkmark.svg';
 
@@ -32,18 +32,22 @@ export default class Buttons extends Component {
             <Button dropdown={this.dropdownOptions} dropdownDivider rounded thin ghost>Dropdown</Button>
           </div>
           <div className="row">
-            <div className="pui--button__group rounded">
-              <Button thin>First</Button>
-              <Button thin>Second</Button>
-              <Button thin>Third</Button>
-            </div>
-            <div className="pui--button__group rounded ghost">
-              <Button thin>First</Button>
-              <Button thin>Second</Button>
-              <Button thin>Third</Button>
-            </div>
+            <Button thin fluid>Fluid</Button>
+          </div>
+          <div className="row">
+            <ButtonGroup background="dark-blue-a" rounded thin>
+              <Button>First</Button>
+              <Button>Second</Button>
+              <Button>Third</Button>
+            </ButtonGroup>
+            <ButtonGroup ghost rounded thin>
+              <Button>First</Button>
+              <Button>Second</Button>
+              <Button>Third</Button>
+            </ButtonGroup>
           </div>
         </div>
+
         <div className="panel">
           <div className="row">
             <Button>Squared</Button>
@@ -60,35 +64,41 @@ export default class Buttons extends Component {
             <Button dropdown={this.dropdownOptions} dropdownDivider rounded ghost>Dropdown</Button>
           </div>
           <div className="row">
-            <div className="pui--button__group rounded">
+            <Button fluid>Fluid</Button>
+          </div>
+          <div className="row">
+            <ButtonGroup background="dark-blue-a" rounded>
               <Button>First</Button>
               <Button>Second</Button>
               <Button>Third</Button>
-            </div>
-            <div className="pui--button__group rounded ghost">
+            </ButtonGroup>
+            <ButtonGroup rounded ghost>
               <Button>First</Button>
               <Button>Second</Button>
-            </div>
+            </ButtonGroup>
           </div>
         </div>
+
         <div className="panel">
           <div className="row">
             <Button big>Squared</Button>
             <Button background="aqua-a" big rounded>Rounded</Button>
-            <Button background="red-a" dropdown={this.dropdownOptions} dropdownDivider big rounded>Dropdown</Button>
+            <Button background="red-a" dropdown={this.dropdownOptions} dropdownDivider big rounded>With Dropdown</Button>
           </div>
           <div className="row">
             <Button big ghost>Squared</Button>
             <Button big ghost rounded>Rounded</Button>
-            <Button dropdown={this.dropdownOptions} dropdownDivider big ghost rounded>Dropdown</Button>
-          </div>
-        </div>
-        <div className="panel">
-          <div className="row">
-            <Button fluid>Squared</Button>
+            <Button dropdown={this.dropdownOptions} dropdownDivider big ghost rounded>With Dropdown</Button>
           </div>
           <div className="row">
-            <Button fluid ghost>Squared</Button>
+            <Button big fluid>Fluid</Button>
+          </div>
+          <div className="row">
+            <ButtonGroup background="dark-blue-a" big rounded>
+              <Button>First</Button>
+              <Button>Second</Button>
+              <Button>Third</Button>
+            </ButtonGroup>
           </div>
         </div>
       </div>
