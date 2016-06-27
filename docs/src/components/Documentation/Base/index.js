@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
-import { kebabCase } from 'lodash';
+import { kebabCase, startCase } from 'lodash';
 import PropTypesDocumentation from '../PropTypes';
 import ExamplesDocumentation from '../Examples';
 import { GITHUB_URL } from 'config';
@@ -33,7 +33,7 @@ export default class Documentation extends Component {
       to={`/${this.props.module}/${kebabCase(this.props.name)}`}
       className="name"
     >
-      {this.props.name}
+      {startCase(this.props.name)}
     </Link>
   );
 

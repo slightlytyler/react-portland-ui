@@ -15,7 +15,7 @@ export default class ExamplesDcumentationItem extends Component {
   toggleExpand = () => this.setState({ expanded: !this.state.expanded });
 
   renderExpandButton = () => (
-    <Button className="expand-button" onClick={this.toggleExpand} collapse ghost>
+    <Button className="expand-button" onClick={this.toggleExpand} collapse ghost thin>
       {this.state.expanded ? 'Hide Source' : 'Show Source'}
     </Button>
   );

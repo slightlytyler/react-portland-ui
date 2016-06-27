@@ -3,14 +3,17 @@ import classnames from 'classnames';
 
 export default class ButtonGroup extends Component {
   static propTypes = {
+    /**
+     * Must be Button components
+     */
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     /**
-     * Background of the button
+     * Background of the button group
      */
     background: PropTypes.string,
     /**
-     * Text color of the button
+     * Text color of the button group
      */
     color: PropTypes.string,
     /**
@@ -18,19 +21,19 @@ export default class ButtonGroup extends Component {
      */
     big: PropTypes.bool,
     /**
-     * If true button expands to fill container
+     * If true button group expands to fill container
      */
     fluid: PropTypes.bool,
     /**
-     * If true button is ghost style
+     * If true button group is ghost style
      */
     ghost: PropTypes.bool,
     /**
-     * If true button is rounded style
+     * If true button group is rounded style
      */
     rounded: PropTypes.bool,
     /**
-     * If true button is thinner
+     * If true button group is thinner
      */
     thin: PropTypes.bool,
   };
