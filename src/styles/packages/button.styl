@@ -1,4 +1,4 @@
-$pui--button__size = 0.75em
+$pui--button__size = 0.75rem
 $pui--button__border-width = 0.166em
 $pui--button__border-radius--squared = 0.333em
 $pui--button__border-radius--rounded = 5em
@@ -86,6 +86,7 @@ $pui--button__border-radius--rounded = 5em
 
 .pui--button.big
   font-size: $pui--button__size * 1.25
+  letter-spacing: 0
   text-transform: none
 
   .inner
@@ -121,6 +122,14 @@ $pui--button__border-radius--rounded = 5em
 
 // Button Group
 .pui--button__group
+  display: flex
+
+  &.fluid
+    width: 100%;
+
+    .pui--button
+      flex: 1
+
   .pui--button
     &:not(:first-child):not(:last-child)
       &, &:after, .inner

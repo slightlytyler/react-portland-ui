@@ -45,7 +45,9 @@ export default class ButtonGroup extends Component {
   })
 
   render() {
-    const classes = classnames('pui--button__group', this.props.className);
+    const classes = classnames('pui--button__group', this.props.className, {
+      fluid: this.props.fluid,
+    });
 
     return (
       <div className={classes}>
