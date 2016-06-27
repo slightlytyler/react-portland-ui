@@ -18,7 +18,7 @@ describe('<Button />', () => {
   it('renders a form button when in form context', () => {
     const context = { reactFormalContext: true };
     const wrapper = shallow(<Button />, { context });
-    wrapper.find(FormalButton).should.have.length(1);
+    wrapper.should.have.exactly(1).descendants(FormalButton);
   });
 
   it('accepts a className', () => {
