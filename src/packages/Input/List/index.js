@@ -25,7 +25,7 @@ export default class ListInput extends Component {
 
     return (
       <li key={value} className={classes} onClick={handleClick}>
-        <section className="check"><Icon className="icon" path={check} /></section>
+        <section className="check"><Icon className="icon" svg={check} /></section>
         <section className="label">{label}</section>
       </li>
     );

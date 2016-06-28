@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
-import { getModules, getComponents } from 'helpers';
+import { getModules, getPackages } from 'helpers';
 import Root from './components/Root';
 
 const routes = (data) => (
@@ -9,7 +9,7 @@ const routes = (data) => (
       path="/"
       component={Root}
       modules={getModules(data)}
-      packages={getComponents(data)}
+      packages={getPackages(data)}
     >
       <Route path=":module">
         <Route path=":package" />

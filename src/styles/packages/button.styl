@@ -1,19 +1,37 @@
+$pui--button__size = 0.75rem
+$pui--button__border-width = 0.166em
+$pui--button__border-radius--squared = 0.333em
+$pui--button__border-radius--rounded = 5em
+
+// Button
 .pui--button
-  size = 0.9em
   position: relative
-  padding: 1em 4em
-  font-size: size
-  letter-spacing: size * 0.1
+  padding: 0
+  font-size: $pui--button__size
+  letter-spacing: 0.1em
   text-transform: uppercase
-  border-width: 2px
-  border-style: solid
-  border-radius: 4px
+  color: white
+  background-color: $highlight-color
+  border-width: 0
   cursor: pointer
   user-select: none
 
-  color: white
-  background-color: $highlight-color
-  border-color: $highlight-color
+  &:hover:after
+    opacity: 1
+
+  &:focus
+    outline: none
+    box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+
+  &:active
+    box-shadow: 0 7px 20px 0 alpha($dark-blue-a, 0.17)
+
+    &:after
+      background-color: alpha(black, 0.15)
+      opacity: 1
+
+  &, &:after, .inner
+    border-radius: $pui--button__border-radius--squared
 
   &:after
     content: ''
@@ -23,40 +41,124 @@
     width: 100%
     height: 100%
     background-color: alpha(black, 0.075)
-    border-radius: 4px
 
     transition: opacity .1s ease
     opacity: 0
 
-  &:focus
-    outline: none
-    box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+  .inner
+    display: flex
+    justify-content: center
+    align-items: center
+    min-width: 16em
+    min-height: 4em
+    padding: .5em
+    border-width: 0
+    border-style: solid
 
-  &:hover:after
-    opacity: 1
+  .icon
+    &.background
+      padding: .5em
+      border-radius: 50%
 
-  &:active
-    box-shadow: 0 7px 20px 0 alpha($dark-blue-a, 0.17)
+    &.center
+      $margin = 0.5em
 
-    &:after
-      background-color: alpha(black, 0.15)
-      opacity: 1
+      &.left
+        margin-right: $margin
 
-  &.ghost
-    color: $dark-blue-a
-    background-color: transparent
+      &.right
+        margin-left: $margin
+
+    &.edge
+      $margin = .85em
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+
+      &.left
+        left: $margin
+
+      &.right
+        right: $margin
+
+    .element
+      height: 1.5em
+
+.pui--button.big
+  font-size: $pui--button__size * 1.25
+  letter-spacing: 0
+  text-transform: none
+
+  .inner
+    min-width: 23em
+
+.pui--button.collapse
+  .inner
+    min-width: 0
+
+.pui--button.fluid
+  width: 100%
+
+.pui--button.ghost
+  color: $dark-blue-a
+  background-color: transparent
+
+  &:after
+    background-color: alpha(black, 0.035)
+
+  &:active:after
+    background-color: alpha(black, 0.055)
+
+  .inner
     border-color: $light-gray-b
+    border-width: $pui--button__border-width
 
-    &:after
-      background-color: alpha(black, 0.035)
+.pui--button.rounded
+  &, &:after, .inner
+    border-radius: $pui--button__border-radius--rounded
 
-    &:active:after
-      background-color: alpha(black, 0.055)
+.pui--button.thin
+  .inner
+    min-height: 3em
+
+// Button Group
+.pui--button__group
+  display: flex
 
   &.fluid
-    width: 100%
+    width: 100%;
 
-  &.big
-    padding: 1.25em 5em
-    font-size: 1em
-    text-transform: none
+    .pui--button
+      flex: 1
+
+  .pui--button
+    &:not(:first-child):not(:last-child)
+      &, &:after, .inner
+        border-radius: 0
+
+    &:first-child
+      &, &:after, .inner
+        border-top-right-radius: 0
+        border-bottom-right-radius: 0
+
+    &:last-child
+      &, &:after, .inner
+        border-top-left-radius: 0
+        border-bottom-left-radius: 0
+
+    .inner
+      min-width: 12em
+
+  .pui--button.big
+    min-width: 18em
+
+  .pui--button.ghost
+    &:not(:first-child):not(:last-child) .inner
+      border-left-width: $pui--button__border-width * 0.5
+      border-right-width: $pui--button__border-width * 0.5
+
+    &:first-child .inner
+      border-right-width: $pui--button__border-width * 0.5
+
+    &:last-child .inner
+      border-left-width: $pui--button__border-width * 0.5

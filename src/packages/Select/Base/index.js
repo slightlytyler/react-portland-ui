@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import keycode from 'keycode';
 import { pickDiff, focusNode } from 'helpers';
-import Icon from 'react-svgcon';
+import Icon from 'packages/Icon';
 import Option from '../Option';
 import Spinner from 'packages/Spinner';
-import downCaret from 'icons/caret--down.svg';
+import { caretDown } from 'icons';
 
 export default class BaseSelect extends Component {
   static propTypes = {
@@ -250,7 +250,7 @@ export default class BaseSelect extends Component {
           <div className="container">
             <div className="display">
               {this.renderDisplay()}
-              <Icon className="icon" path={downCaret} />
+              <Icon className="icon" svg={caretDown} />
             </div>
             {this.renderMenu()}
           </div>

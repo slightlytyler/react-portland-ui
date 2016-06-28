@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import { pickDiff } from 'helpers';
-import Icon from 'react-svgcon';
-import checkIcon from 'icons/check.svg';
+import Icon from 'packages/Icon';
+import { check } from 'icons';
 
 export default class Checkbox extends Component {
   static propTypes = {
@@ -49,7 +49,7 @@ export default class Checkbox extends Component {
           onMouseDown={this.handleMouseDown}
           onMouseUp={this.handleMouseUp}
         >
-          <Icon key="check" className="check icon" path={checkIcon} />
+          <Icon key="check" className="check icon" svg={check} />
         </label>
         <span className="label">{this.props.label}</span>
       </div>

@@ -9,6 +9,8 @@ const autoprefixer = require('autoprefixer');
 const argv = require('yargs').argv;
 
 const __src = path.join(__dirname, 'src');
+const __assets = path.join(__src, 'assets');
+const __icons = path.join(__assets, 'icons');
 const __build = path.join(__dirname, 'build');
 const __dist = path.join(__dirname, 'dist');
 const __node_modules = path.join(__dirname, '../node_modules');
@@ -65,7 +67,7 @@ const config = {
       {
         test: /\.js$/,
         loaders: ['react-hot', 'babel'],
-        include: [__src, __build],
+        include: [__src],
       },
       {
         test: /\.styl$/,
@@ -76,8 +78,14 @@ const config = {
         loader: 'url',
       },
       {
+        test: /\.svg$/,
+        loader: 'raw',
+        incude: __icons,
+      },
+      {
         test: /\.svg|\.png$/,
         loader: 'url',
+        exclude: __icons,
       },
     ],
   },
@@ -87,10 +95,11 @@ const config = {
       src: __src,
       build: __build,
       pui: __pui,
-      assets: path.join(__src, 'assets'),
       components: path.join(__src, 'components'),
       config: path.join(__src, 'config'),
       helpers: path.join(__src, 'helpers'),
+      icons: __icons,
+      images: path.join(__assets, 'images'),
       routes: path.join(__src, 'routes'),
       styles: path.join(__src, 'styles'),
       utilities: path.join(__src, 'utilities'),

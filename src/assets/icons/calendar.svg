@@ -1,35 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 3.8.2 (29753) - http://www.bohemiancoding.com/sketch -->
-    <title>calendar</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Appointment-Create" transform="translate(-588.000000, -579.000000)" fill="#000000">
-            <g id="Form" transform="translate(521.000000, 189.000000)">
-                <g id="Date" transform="translate(54.000000, 353.000000)">
-                    <g id="calendar" transform="translate(13.000000, 37.000000)">
-                        <g id="Layer_1">
-                            <path d="M14.375,15 L14.375,3.75 L0.625,3.75 L0.625,15 L14.375,15 L14.375,15 Z M1.875,5 L13.125,5 L13.125,13.75 L1.875,13.75 L1.875,5 L1.875,5 Z" id="Shape"></path>
-                            <path d="M14.375,1.875 L12.5,1.875 L12.5,3.125 L10,3.125 L10,1.875 L5,1.875 L5,3.125 L2.5,3.125 L2.5,1.875 L0.625,1.875 C0.28,1.875 0,2.155 0,2.5 L0,4.375 C0,4.72 0.28,5 0.625,5 L14.375,5 C14.72,5 15,4.72 15,4.375 L15,2.5 C15,2.155 14.72,1.875 14.375,1.875 L14.375,1.875 Z" id="Shape"></path>
-                            <rect id="Rectangle-path" x="3.125" y="0" width="1.25" height="2.5"></rect>
-                            <rect id="Rectangle-path" x="10.625" y="0" width="1.25" height="2.5"></rect>
-                            <rect id="Rectangle-path" x="3.125" y="6.25" width="1.25" height="1.25"></rect>
-                            <rect id="Rectangle-path" x="5.625" y="6.25" width="1.25" height="1.25"></rect>
-                            <rect id="Rectangle-path" x="8.125" y="6.25" width="1.25" height="1.25"></rect>
-                            <rect id="Rectangle-path" x="10.625" y="6.25" width="1.25" height="1.25"></rect>
-                            <rect id="Rectangle-path" x="3.125" y="8.75" width="1.25" height="1.25"></rect>
-                            <rect id="Rectangle-path" x="5.625" y="8.75" width="1.25" height="1.25"></rect>
-                            <rect id="Rectangle-path" x="8.125" y="8.75" width="1.25" height="1.25"></rect>
-                            <rect id="Rectangle-path" x="10.625" y="8.75" width="1.25" height="1.25"></rect>
-                            <rect id="Rectangle-path" x="3.125" y="11.25" width="1.25" height="1.25"></rect>
-                            <rect id="Rectangle-path" x="5.625" y="11.25" width="1.25" height="1.25"></rect>
-                            <rect id="Rectangle-path" x="8.125" y="11.25" width="1.25" height="1.25"></rect>
-                            <rect id="Rectangle-path" x="10.625" y="11.25" width="1.25" height="1.25"></rect>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" id="Layer_1" x="0px" y="0px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve" fill="#000000">
+<path fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" d="M10,5H2C1.4,5,1,5.4,1,6v42  c0,0.6,0.4,1,1,1h46c0.6,0,1-0.4,1-1V6c0-0.6-0.4-1-1-1h-8"/>
+<line fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="36" y1="5" x2="14" y2="5"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" d="M37,1c-0.6,0-1,0.4-1,1v6  c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V2c0-0.6-0.4-1-1-1H37z"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" d="M11,1c-0.6,0-1,0.4-1,1v6  c0,0.6,0.4,1,1,1h2c0.6,0,1-0.4,1-1V2c0-0.6-0.4-1-1-1H11z"/>
+<line fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="1" y1="15" x2="49" y2="15"/>
+<polygon fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" points="7,22 43,22 43,43   30,43 7,43 "/>
+<line fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="7" y1="29" x2="43" y2="29"/>
+<line fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="7" y1="36" x2="43" y2="36"/>
+<line fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="25" y1="22" x2="25" y2="43"/>
+<line fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="16" y1="22" x2="16" y2="43"/>
+<line fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="34" y1="22" x2="34" y2="43"/>
 </svg>

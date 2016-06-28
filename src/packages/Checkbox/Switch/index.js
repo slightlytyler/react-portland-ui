@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import { pickDiff } from 'helpers';
-import Icon from 'react-svgcon';
-import checkIcon from 'icons/check.svg';
-import closeIcon from 'icons/close.svg';
+import Icon from 'packages/Icon';
+import { check, close } from 'icons';
 
 export default class Switch extends Component {
   static propTypes = {
@@ -44,16 +43,16 @@ export default class Switch extends Component {
     if (this.props.square) {
       return (
         <div className="knob">
-          <Icon className="check icon" path={checkIcon} />
-          <Icon className="close icon" path={closeIcon} />
+          <Icon className="check icon" svg={check} />
+          <Icon className="close icon" svg={close} />
         </div>
       );
     }
 
     return [
       <div key="knob" className="knob" />,
-      <Icon key="check" className="check icon" path={checkIcon} />,
-      <Icon key="close" className="close icon" path={closeIcon} />,
+      <Icon key="check" className="check icon" svg={check} />,
+      <Icon key="close" className="close icon" svg={close} />,
     ];
   };
 

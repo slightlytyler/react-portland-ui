@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import { without } from 'lodash';
-import Icon from 'react-svgcon';
+import Icon from 'packages/Icon';
 import Base from '../Base';
-import checkIcon from 'icons/check.svg';
+import { check } from 'icons';
 
 export default class MultiSelect extends Base {
   static propTypes = {
@@ -27,7 +27,7 @@ export default class MultiSelect extends Base {
 
   renderOptionLabel = label => (
     <div className="label">
-      <Icon className="check icon" path={checkIcon} />
+      <Icon className="check icon" svg={check} />
       <span className="text">{label}</span>
     </div>
   );

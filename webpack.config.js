@@ -6,6 +6,8 @@ const WebpackShellPlugin = require('webpack-shell-plugin');
 const autoprefixer = require('autoprefixer');
 
 const __src = path.join(__dirname, 'src');
+const __assets = path.join(__src, 'assets');
+const __icons = path.join(__assets, 'icons');
 const __node_modules = path.join(__dirname, 'node_modules');
 
 module.exports = {
@@ -62,8 +64,14 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'url'
-      }
+        loader: 'raw',
+        incude: __icons,
+      },
+      {
+        test: /\.svg|\.png$/,
+        loader: 'url',
+        exclude: __icons,
+      },
     ]
   },
   externals: {
@@ -103,7 +111,7 @@ module.exports = {
       src: __src,
       packages: path.join(__src, 'packages'),
       styles: path.join(__src, 'styles'),
-      icons: path.join(__src, 'assets/icons'),
+      icons: __icons,
       helpers: path.join(__src, 'helpers')
     }
   },

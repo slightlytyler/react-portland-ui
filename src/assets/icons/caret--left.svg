@@ -1,20 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="6px" height="9px" viewBox="0 0 6 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 3.8.2 (29753) - http://www.bohemiancoding.com/sketch -->
-    <title>Back Icon</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Navigation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g transform="translate(-157.000000, -4092.000000)" id="Paginators" fill="#000000">
-            <g transform="translate(115.000000, 4051.000000)">
-                <g id="Ghost">
-                    <g id="Paginator" transform="translate(24.000000, 24.000000)">
-                        <g id="Back" transform="translate(18.000000, 17.000000)">
-                            <path d="M3.25,6.78888569 C3.00739393,6.84874691 2.74031947,6.78388637 2.55073717,6.59430406 L-0.783870219,3.25969668 C-1.07204326,2.97152364 -1.07204326,2.50430282 -0.783870219,2.21612978 C-0.495697177,1.92795674 -0.0284763617,1.92795674 0.25969668,2.21612978 L3.25,5.2064331 L6.24030332,2.21612978 C6.52847636,1.92795674 6.99569718,1.92795674 7.28387022,2.21612978 C7.57204326,2.50430282 7.57204326,2.97152364 7.28387022,3.25969668 L3.94926283,6.59430406 C3.75968053,6.78388637 3.49260607,6.84874691 3.25,6.78888569 Z" id="Back-Icon" transform="translate(3.250000, 4.405217) rotate(-270.000000) translate(-3.250000, -4.405217) "></path>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32" xml:space="preserve" fill="#000000">
+<polyline style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10" points="19.75,27 8.75,16 19.75,5 " fill="#000000"/>
 </svg>

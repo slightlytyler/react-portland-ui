@@ -15,7 +15,7 @@ export default class ExamplesDcumentationItem extends Component {
   toggleExpand = () => this.setState({ expanded: !this.state.expanded });
 
   renderExpandButton = () => (
-    <Button ghost className="expand-button" onClick={this.toggleExpand}>
+    <Button className="expand-button" onClick={this.toggleExpand} collapse ghost thin>
       {this.state.expanded ? 'Hide Source' : 'Show Source'}
     </Button>
   );
@@ -24,11 +24,15 @@ export default class ExamplesDcumentationItem extends Component {
     <section className="example">{this.props.children}</section>
   );
 
+  renderJSX = () => React.Children.map(this.props.children, child => (
+    reactElementToJSXString(child, { showDefaultProps: false })
+  )).join('\n');
+
   renderCode = () => {
     if (this.state.expanded) {
       return (
         <CodeBlock className="code" language="jsx">
-          {reactElementToJSXString(this.props.children)}
+          {this.renderJSX()}
         </CodeBlock>
       );
     }

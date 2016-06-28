@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 import React, { Component } from 'react';
-import { Button } from 'pui';
+import { Button, ButtonGroup } from 'pui';
 import facebook from 'icons/facebook.svg';
 import checkmark from 'icons/checkmark.svg';
 
@@ -19,56 +19,86 @@ export default class Buttons extends Component {
         <div className="panel">
           <div className="row">
             <Button thin>Squared</Button>
-            <Button color="aqua" rounded thin>Rounded</Button>
-            <Button color="#4C5BB4" icon={facebook} rounded thin>Share</Button>
-            <Button color="green" dropdown={this.dropdownOptions} rounded thin>Dropdown</Button>
-            <Button color="red" dropdown={this.dropdownOptions} dropdownDivider rounded thin>Dropdown</Button>
+            <Button background="aqua-a" rounded thin>Rounded</Button>
+            <Button background="#4C5BB4" icon={facebook} iconJustify="center" rounded thin>Share</Button>
+            <Button background="green-a" rounded thin>Dropdown</Button>
+            <Button background="red-a" rounded thin>Dropdown</Button>
           </div>
           <div className="row">
             <Button thin ghost>Squared</Button>
             <Button rounded thin ghost>Rounded</Button>
-            <Button icon={facebook} rounded thin ghost>Share</Button>
-            <Button dropdown={this.dropdownOptions} rounded thin ghost>Dropdown</Button>
-            <Button dropdown={this.dropdownOptions} dropdownDivider rounded thin ghost>Dropdown</Button>
+            <Button icon={facebook} iconJustify="center" rounded thin ghost>Share</Button>
+            <Button rounded thin ghost>Dropdown</Button>
+            <Button rounded thin ghost>Dropdown</Button>
           </div>
           <div className="row">
-            <div className="pui--button__group rounded">
-              <Button thin>First</Button>
-              <Button thin>Second</Button>
-              <Button thin>Third</Button>
-            </div>
-            <div className="pui--button__group rounded ghost">
-              <Button thin>First</Button>
-              <Button thin>Second</Button>
-              <Button thin>Third</Button>
-            </div>
+            <Button thin fluid>Fluid</Button>
+          </div>
+          <div className="row">
+            <ButtonGroup background="dark-blue-a" thin>
+              <Button>First</Button>
+              <Button>Second</Button>
+              <Button>Third</Button>
+            </ButtonGroup>
+            <ButtonGroup ghost rounded thin>
+              <Button>First</Button>
+              <Button>Second</Button>
+              <Button>Third</Button>
+            </ButtonGroup>
           </div>
         </div>
+
         <div className="panel">
           <div className="row">
             <Button>Squared</Button>
-            <Button color="aqua" rounded>Rounded</Button>
-            <Button color="dark-blue" icon={checkmark} iconAlign="left" iconBackgroundColor="rgba(255, 255, 255, 0.2)" rounded>Share</Button>
-            <Button color="green" dropdown={this.dropdownOptions} rounded>Dropdown</Button>
-            <Button color="red" dropdown={this.dropdownOptions} dropdownDivider rounded>Dropdown</Button>
+            <Button background="aqua-a" rounded>Rounded</Button>
+            <Button background="dark-blue-a" icon={checkmark} iconSide="left" iconBackground="rgba(255, 255, 255, 0.2)" rounded>Checkbox</Button>
+            <Button background="green-a" rounded>Dropdown</Button>
+            <Button background="red-a" rounded>Dropdown</Button>
           </div>
           <div className="row">
             <Button ghost>Squared</Button>
             <Button rounded ghost>Rounded</Button>
-            <Button icon={checkmark} iconAlign="left" iconColor="white" iconBackgroundColor="green" ghost rounded>Share</Button>
-            <Button dropdown={this.dropdownOptions} rounded ghost>Dropdown</Button>
-            <Button dropdown={this.dropdownOptions} dropdownDivider rounded ghost>Dropdown</Button>
+            <Button icon={checkmark} iconSide="left" iconColor="white" iconBackground="green-a" ghost rounded>Checkbox</Button>
+            <Button rounded ghost>Dropdown</Button>
+            <Button rounded ghost>Dropdown</Button>
           </div>
           <div className="row">
-            <div className="pui--button__group rounded">
+            <Button fluid>Fluid</Button>
+          </div>
+          <div className="row">
+            <ButtonGroup background="dark-blue-a">
               <Button>First</Button>
               <Button>Second</Button>
               <Button>Third</Button>
-            </div>
-            <div className="pui--button__group rounded ghost">
+            </ButtonGroup>
+            <ButtonGroup rounded ghost>
               <Button>First</Button>
               <Button>Second</Button>
-            </div>
+            </ButtonGroup>
+          </div>
+        </div>
+
+        <div className="panel">
+          <div className="row">
+            <Button big>Squared</Button>
+            <Button background="aqua-a" big rounded>Rounded</Button>
+            <Button background="red-a" big rounded>With Dropdown</Button>
+          </div>
+          <div className="row">
+            <Button big ghost>Squared</Button>
+            <Button big ghost rounded>Rounded</Button>
+            <Button big ghost rounded>With Dropdown</Button>
+          </div>
+          <div className="row">
+            <Button big fluid>Fluid</Button>
+          </div>
+          <div className="row">
+            <ButtonGroup background="dark-blue-a" big fluid rounded>
+              <Button>First</Button>
+              <Button>Second</Button>
+              <Button>Third</Button>
+            </ButtonGroup>
           </div>
         </div>
       </div>
