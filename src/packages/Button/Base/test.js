@@ -16,7 +16,7 @@ describe('<Button />', () => {
   });
 
   it('renders a form button when in form context', () => {
-    const context = { reactFormalContext: true };
+    const context = { reactFormalContext: {} };
     const wrapper = shallow(<Button />, { context });
     wrapper.should.have.exactly(1).descendants(FormalButton);
   });
