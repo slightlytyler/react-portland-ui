@@ -79,7 +79,7 @@ export default class Button extends Component {
       <Icon
         className="element"
         style={{ color: this.props.iconColor }}
-        path={this.props.icon}
+        svg={this.props.icon}
       />
     </div>
   );

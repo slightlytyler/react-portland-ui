@@ -91,11 +91,11 @@ export default class Pagination extends Component {
     return (
       <div className="pui--pagination">
         <section className="left arrow option" onClick={this.handlePrevious}>
-          <Icon className="icon" path={leftCaret} />
+          <Icon className="icon" svg={leftCaret} />
         </section>
         {this.renderOptions()}
         <section className="right arrow option" onClick={this.handleNext}>
-          <Icon className="icon" path={rightCaret} />
+          <Icon className="icon" svg={rightCaret} />
         </section>
       </div>
     );

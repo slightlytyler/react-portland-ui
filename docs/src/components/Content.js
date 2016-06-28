@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import keycode from 'keycode';
 import { Input } from 'pui';
 import Documentation from './Documentation';
-import searchIcon from 'assets/icons/search.svg';
+import searchIcon from 'icons/search.icon.svg';
 
 export class Content extends Component {
   static propTypes = {

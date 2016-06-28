@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { withRouter } from 'react-router';
 import keycode from 'keycode';
 import { Input } from 'pui';
-import searchIcon from 'assets/icons/search.svg';
+import searchIcon from 'icons/search.icon.svg';
 
 export class Search extends Component {
   static propTypes = {

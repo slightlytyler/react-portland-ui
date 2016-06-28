@@ -4,8 +4,8 @@ import { kebabCase, startCase } from 'lodash';
 import { Icon } from 'pui';
 import { getPackagesByModule } from 'helpers';
 import Search from './Search';
-import logo from 'assets/images/see-er.png';
-import radio from 'assets/icons/radio.svg';
+import logo from 'images/see-er.png';
+import radio from 'icons/radio.icon.svg';
 
 export default class SideBar extends Component {
   static propTypes = {
@@ -39,7 +39,7 @@ export default class SideBar extends Component {
         className="body"
         activeClassName="active"
       >
-        <Icon className="icon" path={radio} />
+        <Icon className="icon" svg={radio} />
         {module}
       </Link>
       {this.renderItemDropdown(module)}

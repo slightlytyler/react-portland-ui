@@ -25,7 +25,7 @@ export default class TableHeadCell extends Component {
 
   renderIcon = () => {
     if (this.props.onSort) {
-      return <Icon className="icon" path={caretDown} />;
+      return <Icon className="icon" svg={caretDown} />;
     }
 
     return undefined;

@@ -27,7 +27,7 @@ export default class MultiSelect extends Base {
 
   renderOptionLabel = label => (
     <div className="label">
-      <Icon className="check icon" path={checkIcon} />
+      <Icon className="check icon" svg={checkIcon} />
       <span className="text">{label}</span>
     </div>
   );

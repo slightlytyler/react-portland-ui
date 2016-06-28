@@ -250,7 +250,7 @@ export default class BaseSelect extends Component {
           <div className="container">
             <div className="display">
               {this.renderDisplay()}
-              <Icon className="icon" path={downCaret} />
+              <Icon className="icon" svg={downCaret} />
             </div>
             {this.renderMenu()}
           </div>

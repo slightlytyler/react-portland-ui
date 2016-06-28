@@ -55,7 +55,7 @@ export default class InputBase extends Component {
 
   renderIcon = () => {
     if (this.props.icon) {
-      return <Icon className="icon" path={this.props.icon} />;
+      return <Icon className="icon" svg={this.props.icon} />;
     }
 
     return undefined;

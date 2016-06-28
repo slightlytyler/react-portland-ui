@@ -49,7 +49,7 @@ export default class Checkbox extends Component {
           onMouseDown={this.handleMouseDown}
           onMouseUp={this.handleMouseUp}
         >
-          <Icon key="check" className="check icon" path={checkIcon} />
+          <Icon key="check" className="check icon" svg={checkIcon} />
         </label>
         <span className="label">{this.props.label}</span>
       </div>
