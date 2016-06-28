@@ -9,7 +9,8 @@ export default class InputBase extends Component {
     className: PropTypes.string,
     children: PropTypes.node,
     type: PropTypes.string,
-    value: PropTypes.any,
+    value: PropTypes.string,
+    defaultValue: PropTypes.string,
     onChange: PropTypes.func,
     onKeyDown: PropTypes.func,
     onKeyUp: PropTypes.func,
@@ -43,9 +44,7 @@ export default class InputBase extends Component {
     return false;
   }
 
-  handleChange = e => {
-    if (this.props.onChange) this.props.onChange(e.target.value);
-  };
+  handleChange = e => attempt(this.props.onChange, e.target.value);
 
   handleClick = e => attempt(this.props.onClick, e);
 
@@ -77,7 +76,8 @@ export default class InputBase extends Component {
       return (
         <input
           type={this.props.type}
-          value={this.props.value}
+          value={this.props.value === null ? '' : this.props.value}
+          defaultValue={this.props.defaultValue}
           onChange={this.handleChange}
           onKeyDown={this.props.onKeyDown}
           onKeyUp={this.props.onKeyUp}

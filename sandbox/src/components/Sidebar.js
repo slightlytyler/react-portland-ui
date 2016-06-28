@@ -21,6 +21,7 @@ export default class SideBar extends Component {
         <header className="header">Modules</header>
         <section className="list">
           <Item module="buttons" />
+          <Item module="forms" />
         </section>
       </div>
     );

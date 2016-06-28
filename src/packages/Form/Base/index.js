@@ -9,7 +9,7 @@ export default class Form extends Component {
     className: PropTypes.string,
     children: PropTypes.node,
     schema: PropTypes.object.isRequired,
-    defaultValue: PropTypes.object.isRequired,
+    defaultValue: PropTypes.object,
     onError: PropTypes.func,
     panel: PropTypes.bool,
     fluid: PropTypes.bool,

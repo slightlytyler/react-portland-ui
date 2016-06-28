@@ -58,7 +58,7 @@ export default class Button extends Component {
   };
 
   static contextTypes = {
-    reactFormalContext: PropTypes.bool,
+    reactFormalContext: PropTypes.object,
   };
 
   static defaultProps = {
