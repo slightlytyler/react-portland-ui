@@ -6,7 +6,7 @@ export const getModules = memoize(data => data.reduce((acc, component) => {
   return acc;
 }, []));
 
-export const getComponents = memoize(data => getModules(data).reduce((acc, module) => [
+export const getPackages = memoize(data => getModules(data).reduce((acc, module) => [
   ...acc,
   ...data.filter(docs => docs.module === module),
 ], []));
