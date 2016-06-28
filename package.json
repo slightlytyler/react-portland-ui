@@ -1,6 +1,6 @@
 {
   "name": "react-portland-ui",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "description": "A React component & pattern library based on the Portland UI Kit",
   "main": "dist/index.js",
   "scripts": {
