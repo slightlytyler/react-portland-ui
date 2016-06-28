@@ -65,7 +65,7 @@ const config = {
       {
         test: /\.js$/,
         loaders: ['react-hot', 'babel'],
-        include: [__src, __build],
+        include: [__src],
       },
       {
         test: /\.styl$/,

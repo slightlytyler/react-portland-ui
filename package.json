@@ -83,7 +83,6 @@
     "github-markdown-css": "^2.3.0",
     "glob": "^7.0.4",
     "html-webpack-plugin": "^2.21.0",
-    "i": "^0.3.5",
     "json-loader": "^0.5.4",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
