@@ -24,7 +24,9 @@ export default class ExamplesDcumentationItem extends Component {
     <section className="example">{this.props.children}</section>
   );
 
-  renderJSX = () => reactElementToJSXString(this.props.children, { showDefaultProps: false })
+  renderJSX = () => React.Children.map(this.props.children, child => (
+    reactElementToJSXString(child, { showDefaultProps: false })
+  )).join('\n');
 
   renderCode = () => {
     if (this.state.expanded) {

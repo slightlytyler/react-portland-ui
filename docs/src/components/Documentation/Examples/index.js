@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import * as packages from 'pui';
 import Item from './Item';
+import * as icons from 'pui/icons';
 
 export default class ExamplesDocumentation extends Component {
   static propTypes = {
@@ -13,7 +14,11 @@ export default class ExamplesDocumentation extends Component {
 
     return (
       <div className="documentation__examples">
-        {component(React)({ Example: Item, ...packages })}
+        {component(React)({
+          Example: Item,
+          icons,
+          ...packages,
+        })}
       </div>
     );
   }

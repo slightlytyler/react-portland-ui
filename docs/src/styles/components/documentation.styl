@@ -75,10 +75,15 @@
         border-color: $dark-gray-a
 
     .example
+      display: flex
+      align-items: center
       border: 1px solid transparent
       border-bottom-width: 0
       border-top-left-radius: 7px
       border-top-right-radius: 7px
+
+      & > *:not(:last-child)
+        margin-right: 1em
 
     .expand-button
       position: absolute

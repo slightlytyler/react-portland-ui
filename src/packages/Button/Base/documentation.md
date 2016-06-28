@@ -13,6 +13,14 @@ description: A button. Click it and it does stuff.
   <Button background="aqua-a" color="blue-a">Button</Button>
 </Example>
 
+#### Icon button
+<Example>
+  <Button icon={icons.check}>Button</Button>
+  <Button icon={icons.check} iconBackground="rgba(255,255,255,0.4)">Button</Button>
+  <Button icon={icons.check} iconSide="right">Button</Button>
+  <Button icon={icons.check} iconJustify="center">Button</Button>
+</Example>
+
 #### Big button
 <Example>
   <Button big>Button</Button>
@@ -22,7 +30,6 @@ description: A button. Click it and it does stuff.
 <Example>
   <Button collapse>Button</Button>
 </Example>
-
 
 #### Fluid button
 <Example>
