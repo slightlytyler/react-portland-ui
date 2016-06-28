@@ -24,11 +24,13 @@ export default class ExamplesDcumentationItem extends Component {
     <section className="example">{this.props.children}</section>
   );
 
+  renderJSX = () => reactElementToJSXString(this.props.children, { showDefaultProps: false })
+
   renderCode = () => {
     if (this.state.expanded) {
       return (
         <CodeBlock className="code" language="jsx">
-          {reactElementToJSXString(this.props.children)}
+          {this.renderJSX()}
         </CodeBlock>
       );
     }
