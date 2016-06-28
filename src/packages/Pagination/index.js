@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
-import Icon from 'react-svgcon';
-import leftCaret from 'icons/caret--left.svg';
-import rightCaret from 'icons/caret--right.svg';
+import Icon from 'packages/Icon';
+import { caretLeft, caretRight } from 'icons';
 
 export default class Pagination extends Component {
   static propTypes = {
@@ -91,11 +90,11 @@ export default class Pagination extends Component {
     return (
       <div className="pui--pagination">
         <section className="left arrow option" onClick={this.handlePrevious}>
-          <Icon className="icon" svg={leftCaret} />
+          <Icon className="icon" svg={caretLeft} />
         </section>
         {this.renderOptions()}
         <section className="right arrow option" onClick={this.handleNext}>
-          <Icon className="icon" svg={rightCaret} />
+          <Icon className="icon" svg={caretRight} />
         </section>
       </div>
     );

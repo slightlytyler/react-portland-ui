@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { attempt } from 'lodash';
 import classnames from 'classnames';
-import Icon from 'react-svgcon';
+import Icon from 'packages/Icon';
 import { pickDiff } from 'helpers';
 
 export default class InputBase extends Component {
