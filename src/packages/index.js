@@ -5,6 +5,7 @@ export * from './Form';
 export Icon from './Icon';
 export * from './Input';
 export Label from './Label';
+export Notifications from './Notifications';
 export Pagination from './Pagination';
 export * from './Radio';
 export * from './Select';

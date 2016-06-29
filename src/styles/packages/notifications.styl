@@ -1,0 +1,51 @@
+.pui--notifications
+  .notifications-wrapper
+    position: fixed
+    right: 0
+    top: 0
+    width: 20em
+    height: auto
+    padding: 0 0.75em 0.75em 0.75em
+    z-index: 1000
+
+  .notification
+    position: relative
+    display: flex
+    width: 100%
+    min-height: 6em
+    padding: 0.75em 2em 0.75em 0.75em
+    margin: 0.75em 0 0
+    font-size: 0.8em
+    background-color: alpha(white, 0.85)
+    border-top-width: 0.4em
+    border-top-style: solid
+    box-shadow: 0 10px 25px 0 alpha($dark-blue-a, 0.15)
+    cursor: pointer
+
+    transition: 0.3s ease-in-out
+    opacity: 0
+
+    &.notification-visible
+      opacity: 1
+
+    &.notification-hidden
+      opacity: 0
+
+    &.notification-success
+      border-top-color: $green-a
+
+    &.notification-error
+      border-top-color: $red-a
+
+    &.notification-warning
+      border-top-color: $yellow-a
+
+    &.notification-info
+      border-top-color: $blue-a
+
+  .notification-dismiss
+    position: absolute
+    right: 0.15em
+    top: 0
+    font-size: 2.2em
+    line-height: .6
