@@ -132,8 +132,10 @@
     "moment": "^2.13.0",
     "normalize.css": "^4.1.1",
     "prismjs": "^1.5.1",
+    "react-flexr": "^2.1.0-beta",
     "react-formal": "^0.18.2",
     "react-infinite-calendar": "^1.1.14",
+    "react-layout-components": "^3.0.0",
     "react-notification-system": "^0.2.7",
     "react-svgcon": "^0.6.0"
   }

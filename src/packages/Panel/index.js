@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
-const Panel = ({ children, className }) => (
-  <div className={classnames('pui--panel', className)}>
+const Panel = ({ children, className, fluid }) => (
+  <div
+    className={classnames('pui--panel', className, { fluid })}
+  >
     {children}
   </div>
 );
@@ -10,6 +12,7 @@ const Panel = ({ children, className }) => (
 Panel.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  fluid: PropTypes.bool,
 };
 
 export default Panel;
