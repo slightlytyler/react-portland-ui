@@ -7,6 +7,7 @@ export * from './Input';
 export Label from './Label';
 export Notifications from './Notifications';
 export Pagination from './Pagination';
+export Panel from './Panel';
 export * from './Radio';
 export * from './Select';
 export Spinner from './Spinner';

@@ -11,13 +11,7 @@ export default class Form extends Component {
     schema: PropTypes.object.isRequired,
     defaultValue: PropTypes.object,
     onError: PropTypes.func,
-    panel: PropTypes.bool,
     fluid: PropTypes.bool,
-  };
-
-  static defaultProps = {
-    panel: false,
-    fluid: false,
   };
 
   state = {
@@ -30,7 +24,6 @@ export default class Form extends Component {
     'className',
     'children',
     'onError',
-    'panel',
     'fluid',
   ];
 
@@ -56,10 +49,7 @@ export default class Form extends Component {
     const classes = classnames(
       'pui--form',
       this.props.className,
-      {
-        panel: this.props.panel,
-        fluid: this.props.fluid,
-      }
+      { fluid: this.props.fluid }
     );
     const passProps = omit(this.props, this.handledProps);
 
