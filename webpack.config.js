@@ -104,6 +104,12 @@ module.exports = {
       commonjs2: 'react-dom/server',
       amd: 'react-dom/server',
       root: 'ReactDOMServer'
+    },
+    lodash: {
+      commonjs: 'lodash',
+      commonjs2: 'lodash',
+      amd: 'lodash',
+      root: 'lodash'
     }
   },
   resolve: {

@@ -1,3 +1,3 @@
 import { factory } from '../Base';
 
-export default factory('small');
+export default factory('large');

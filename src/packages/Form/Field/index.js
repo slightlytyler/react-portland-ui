@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Field, Message } from 'react-formal';
 import Label from '../../Label';
 import classnames from 'classnames';
-import omit from 'lodash.omit';
+import { omit } from 'lodash';
 
 export default class FormField extends Component {
   static propTypes = {
