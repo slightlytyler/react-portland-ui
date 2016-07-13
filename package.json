@@ -1,6 +1,6 @@
 {
   "name": "react-portland-ui",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A React component & pattern library based on the Portland UI Kit",
   "main": "dist/index.js",
   "scripts": {
@@ -139,6 +139,6 @@
     "react-infinite-calendar": "^1.1.14",
     "react-layout-components": "^3.0.0",
     "react-notification-system": "^0.2.7",
-    "react-svgcon": "^0.6.0"
+    "react-svgcon": "^0.7.0"
   }
 }
