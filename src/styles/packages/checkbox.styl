@@ -1,5 +1,5 @@
 .pui--checkbox
-  size = 1.5em
+  size = 1.25em
   icon-size = .5em
 
   display: flex
@@ -7,13 +7,13 @@
   padding: .325em 0
   font-size: size
 
-  &.error label
+  &.error .body
     @extends $inputs-error
 
-  input
+  .dummy
     @extends $inputs-dummy
 
-    &:checked + label
+    &:checked + .body
       background-color: $highlight-color
       border-color: $highlight-color
 
@@ -21,7 +21,7 @@
         transform: translate3d(-50%, -50%, 0) scale(1)
 
 
-  label
+  .body
     display: inline-block
     position: relative
     width: 1em
@@ -62,4 +62,4 @@
     flex-direction: column
 
     & > *:not(:last-child)
-      margin-bottom: 1em
+      margin-bottom: .25em

@@ -78,6 +78,7 @@ export default class Switch extends Component {
         <input
           ref="dummy"
           id={this.props.name}
+          className="dummy"
           type="checkbox"
           checked={this.props.value}
           onChange={this.handleChange}
@@ -86,6 +87,7 @@ export default class Switch extends Component {
         />
         <label
           htmlFor={this.props.name}
+          className="body"
           onMouseDown={this.handleMouseDown}
           onMouseUp={this.handleMouseUp}
         >
