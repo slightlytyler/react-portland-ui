@@ -4,6 +4,7 @@ import { uniq, without } from 'lodash';
 
 export default class CheckboxGroupBase extends Component {
   static propTypes = {
+    className: PropTypes.string,
     component: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.any,
@@ -15,6 +16,7 @@ export default class CheckboxGroupBase extends Component {
     valueByKey: PropTypes.bool,
     error: PropTypes.array,
     vertical: PropTypes.bool,
+    labelGetter: PropTypes.func,
   };
 
   static defaultProps = {
@@ -26,16 +28,18 @@ export default class CheckboxGroupBase extends Component {
   handleChange = (value, checked) => {
     const { value: currentValue, onChange } = this.props;
 
-    if (this.valueByKey()) {
-      if (checked) onChange({ ...currentValue, [value]: true });
-      else onChange({ ...currentValue, [value]: false });
-    } else {
-      if (checked) onChange(uniq([...currentValue, value]));
-      else onChange(without(currentValue, value));
+    if (onChange) {
+      if (this.valueByKey()) {
+        if (checked) onChange({ ...currentValue, [value]: true });
+        else onChange({ ...currentValue, [value]: false });
+      } else {
+        if (checked) onChange(uniq([...currentValue, value]));
+        else onChange(without(currentValue, value));
+      }
     }
   };
 
-  renderOption = option => {
+  renderOption = (option, index) => {
     const key = `${this.props.name}-${option.value}`;
     const isChecked = () => {
       if (this.props.value) {
@@ -54,13 +58,16 @@ export default class CheckboxGroupBase extends Component {
       onChange: handleChange,
       label: option.label,
       error: this.props.error,
+      labelComponent: this.props.labelGetter
+       ? this.props.labelGetter({ option, index })
+       : undefined,
     });
   };
 
   renderOptions = () => this.props.options.map(this.renderOption);
 
   render() {
-    const classes = classnames('pui--checkbox__group', {
+    const classes = classnames('pui--checkbox__group', this.props.className, {
       vertical: this.props.vertical,
     });
 

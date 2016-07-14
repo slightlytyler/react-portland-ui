@@ -14,6 +14,7 @@ export default class Checkbox extends Component {
     onChange: PropTypes.func,
     label: PropTypes.string,
     error: PropTypes.array,
+    labelComponent: PropTypes.element,
   };
 
   shouldComponentUpdate(nextProps) {
@@ -30,6 +31,11 @@ export default class Checkbox extends Component {
     if (this.props.onChange) this.props.onChange(e.target.checked);
   };
 
+  renderLabel = () => {
+    if (this.props.labelComponent) return this.props.labelComponent;
+    return <span className="label">{this.props.label}</span>;
+  };
+
   render() {
     const classes = classnames('pui--checkbox', { error: this.props.error });
 
@@ -38,6 +44,7 @@ export default class Checkbox extends Component {
         <input
           ref="dummy"
           id={this.props.name}
+          className="dummy"
           type="checkbox"
           checked={this.props.value}
           onChange={this.handleChange}
@@ -46,12 +53,13 @@ export default class Checkbox extends Component {
         />
         <label
           htmlFor={this.props.name}
+          className="body"
           onMouseDown={this.handleMouseDown}
           onMouseUp={this.handleMouseUp}
         >
           <Icon key="check" className="check icon" svg={check} />
         </label>
-        <span className="label">{this.props.label}</span>
+        {this.renderLabel()}
       </div>
     );
   }

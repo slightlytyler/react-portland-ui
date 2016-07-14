@@ -19,6 +19,7 @@ export default class Switch extends Component {
      * If true switch is square style
      */
     square: PropTypes.bool,
+    labelComponent: PropTypes.element,
   };
 
   static defaultProps = {
@@ -56,6 +57,11 @@ export default class Switch extends Component {
     ];
   };
 
+  renderLabel = () => {
+    if (this.props.labelComponent) return this.props.labelComponent;
+    return <span className="label">{this.props.label}</span>;
+  };
+
   render() {
     const classes = classnames(
       'pui--switch',
@@ -85,7 +91,7 @@ export default class Switch extends Component {
         >
           {this.renderKnob()}
         </label>
-        <span className="label">{this.props.label}</span>
+        {this.renderLabel()}
       </div>
     );
   }
