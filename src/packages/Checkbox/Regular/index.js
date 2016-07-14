@@ -6,6 +6,7 @@ import { check } from 'icons';
 
 export default class Checkbox extends Component {
   static propTypes = {
+    className: PropTypes.string,
      /**
      * Used as elements ID
      */
@@ -37,7 +38,13 @@ export default class Checkbox extends Component {
   };
 
   render() {
-    const classes = classnames('pui--checkbox', { error: this.props.error });
+    const classes = classnames(
+      'pui--checkbox',
+      this.props.className,
+      {
+        error: this.props.error,
+      }
+    );
 
     return (
       <div className={classes}>

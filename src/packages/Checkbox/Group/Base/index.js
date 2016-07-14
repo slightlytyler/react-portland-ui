@@ -67,9 +67,13 @@ export default class CheckboxGroupBase extends Component {
   renderOptions = () => this.props.options.map(this.renderOption);
 
   render() {
-    const classes = classnames('pui--checkbox__group', this.props.className, {
-      vertical: this.props.vertical,
-    });
+    const classes = classnames(
+      'pui--checkbox__group',
+      this.props.className,
+      {
+        vertical: this.props.vertical,
+      }
+    );
 
     return (
       <div className={classes}>
