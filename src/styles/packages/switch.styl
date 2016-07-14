@@ -16,14 +16,14 @@
     @extends $inputs-error
 
   &.regular
-    label
+    .body
       color: alpha(black, .3)
       background-color: $light-gray-b
       border-radius: 24px
 
       transition: background-color .3s ease
 
-    input:checked + label
+    .dummy:checked + .body
       background-color: $green-a
 
     .knob
@@ -46,12 +46,12 @@
         transform: translate3d(50%, -50%, 0)
 
   &.square
-    label
+    .body
       color: white
       background-color: $light-gray-b
       border-radius: 3px
 
-    input:checked + label .knob
+    .dummy:checked + .body .knob
       background-color: $green-a
 
       .icon
@@ -81,13 +81,13 @@
       &.close
         transform: translate3d(-50%, -50%, 0)
 
-  input
+  .dummy
     @extends $inputs-dummy
 
-    &:checked + label .knob
+    &:checked + .body .knob
       transform: 'translate3d(calc(%s - 100%), -50%, 0)' % (width - knob-margin)
 
-  label
+  .body
     content: ''
     display: inline-block
     position: relative
