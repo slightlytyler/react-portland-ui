@@ -1,3 +1,4 @@
+export Badge from './Badge';
 export * from './Button';
 export * from './Checkbox';
 export CodeBlock from './CodeBlock';
