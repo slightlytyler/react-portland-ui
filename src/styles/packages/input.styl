@@ -5,6 +5,9 @@
   align-items: center
   padding: 0 1em
 
+  &.error
+    @extends $inputs-error
+
   &.focusing
     @extends $inputs-focus
 
@@ -13,10 +16,6 @@
 
   &.fluid
     @extends $inputs-fluid
-
-  &.thin
-    input, .dummy
-      padding: .5em 0
 
   &.ghost
     color: $dark-blue-a
@@ -35,8 +34,28 @@
     .icon
       color: currentColor
 
-  &.error
-    @extends $inputs-error
+  &.size
+    &--smal
+      font-size: .5em
+
+    &--medium
+      font-size: 1em
+
+    &--large
+      font-size: 2em
+      font-weight: 200
+
+  &.thin
+    input, .dummy
+      padding: .5em 0
+
+  &.transparent
+    padding: 0
+    border-width: 0
+
+  &.flat, &.transparent
+    &.focusing
+      box-shadow: none
 
   input, .dummy
     color: inherit

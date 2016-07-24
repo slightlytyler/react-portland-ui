@@ -20,14 +20,18 @@ export default class InputBase extends Component {
     icon: PropTypes.string,
     readOnly: PropTypes.bool,
     error: PropTypes.array,
+    flat: PropTypes.bool,
     fluid: PropTypes.bool,
     ghost: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
     thin: PropTypes.bool,
+    transparent: PropTypes.bool,
   };
 
   static defaultProps = {
     fluid: false,
     readOnly: false,
+    size: 'medium',
   };
 
   state = {
@@ -96,12 +100,15 @@ export default class InputBase extends Component {
     const classes = classnames(
       'pui--input',
       this.props.className,
+      `size--${this.props.size}`,
       {
         focusing: this.state.focusing,
         error: this.props.error,
+        flat: this.props.flat,
         fluid: this.props.fluid,
         ghost: this.props.ghost,
         thin: this.props.thin,
+        transparent: this.props.transparent,
       },
     );
 
