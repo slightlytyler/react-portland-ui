@@ -42,7 +42,12 @@ export default class BaseSelect extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.value !== nextProps.value) {
+    if (
+      this.state.currentValue
+      && !nextProps.options.find(option => option.value === this.state.currentValue)
+    ) {
+      this.setCurrentValue(undefined);
+    } else if (this.props.value !== nextProps.value) {
       this.setCurrentValue(nextProps.value);
     }
   }
