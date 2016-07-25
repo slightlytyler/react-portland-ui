@@ -6,14 +6,14 @@ import { omit } from 'lodash';
 
 export default class FormField extends Component {
   static propTypes = {
-    name: PropTypes.string.isRequired,
+    error: PropTypes.array,
     label: PropTypes.string,
-    width: PropTypes.number,
+    name: PropTypes.string.isRequired,
     placeholder: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.bool,
     ]),
-    error: PropTypes.array,
+    width: PropTypes.number,
   };
 
   handledProps = ['label', 'placeholder'];

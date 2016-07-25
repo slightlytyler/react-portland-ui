@@ -10,16 +10,16 @@ export default class Switch extends Component {
     /**
      * Used as elements ID
      */
-    name: PropTypes.string.isRequired,
-    value: PropTypes.bool,
-    onChange: PropTypes.func,
-    label: PropTypes.string,
     error: PropTypes.array,
+    label: PropTypes.string,
+    labelComponent: PropTypes.element,
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func,
     /**
      * If true switch is square style
      */
     square: PropTypes.bool,
-    labelComponent: PropTypes.element,
+    value: PropTypes.bool,
   };
 
   static defaultProps = {

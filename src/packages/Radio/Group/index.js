@@ -4,13 +4,13 @@ import RadioButton from '../Button';
 
 export default class RadioGroup extends Component {
   static propTypes = {
-    value: PropTypes.string,
+    error: PropTypes.array,
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape({
       label: PropTypes.string,
       value: PropTypes.any.isRequired,
     })),
-    error: PropTypes.array,
+    value: PropTypes.string,
   };
 
   renderOptions = () => this.props.options.map(o => (

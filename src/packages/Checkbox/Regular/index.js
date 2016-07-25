@@ -7,15 +7,15 @@ import { check } from 'icons';
 export default class Checkbox extends Component {
   static propTypes = {
     className: PropTypes.string,
-     /**
+    /**
      * Used as elements ID
      */
-    name: PropTypes.string.isRequired,
-    value: PropTypes.bool,
-    onChange: PropTypes.func,
-    label: PropTypes.string,
     error: PropTypes.array,
+    label: PropTypes.string,
     labelComponent: PropTypes.element,
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func,
+    value: PropTypes.bool,
   };
 
   shouldComponentUpdate(nextProps) {

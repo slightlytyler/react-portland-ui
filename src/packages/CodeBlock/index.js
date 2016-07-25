@@ -5,8 +5,8 @@ import 'prismjs/components/prism-jsx.js';
 
 export default class CodeBlock extends Component {
   static propTypes = {
-    className: PropTypes.string,
     children: PropTypes.node,
+    className: PropTypes.string,
     language: PropTypes.string,
   };
 

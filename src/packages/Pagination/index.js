@@ -6,8 +6,8 @@ import { caretLeft, caretRight } from 'icons';
 export default class Pagination extends Component {
   static propTypes = {
     currentPage: PropTypes.number.isRequired,
-    totalPages: PropTypes.number.isRequired,
     onChange: PropTypes.func.isRequired,
+    totalPages: PropTypes.number.isRequired,
   };
 
   getOptions = () => {

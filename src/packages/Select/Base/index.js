@@ -10,19 +10,19 @@ import { caretDown } from 'icons';
 export default class BaseSelect extends Component {
   static propTypes = {
     className: PropTypes.string,
+    disabled: PropTypes.bool,
+    error: PropTypes.array,
+    fluid: PropTypes.bool,
+    loading: PropTypes.bool,
+    loadingLabel: PropTypes.string,
     name: PropTypes.string,
-    value: PropTypes.string,
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape({
       label: PropTypes.string,
       value: PropTypes.any.isRequired,
     })),
     placeholder: PropTypes.string,
-    disabled: PropTypes.bool,
-    loading: PropTypes.bool,
-    loadingLabel: PropTypes.string,
-    error: PropTypes.array,
-    fluid: PropTypes.bool,
+    value: PropTypes.string,
   };
 
   static defaultProps = {

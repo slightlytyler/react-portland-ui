@@ -4,14 +4,14 @@ import Switch from '../../Switch';
 
 export default class CheckboxGroupSwitch extends Component {
   static propTypes = {
-    value: PropTypes.any,
-    onChange: PropTypes.func,
+    error: PropTypes.array,
     name: PropTypes.string.isRequired,
+    onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape({
       label: PropTypes.string,
       value: PropTypes.any.isRequired,
     })),
-    error: PropTypes.array,
+    value: PropTypes.any,
     vertical: PropTypes.bool,
   };
 

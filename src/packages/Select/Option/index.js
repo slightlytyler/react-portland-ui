@@ -3,13 +3,13 @@ import classnames from 'classnames';
 
 export default class SelectOption extends Component {
   static propTypes = {
-    value: PropTypes.any,
-    onSelect: PropTypes.func,
+    active: PropTypes.bool,
     label: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.node,
     ]),
-    active: PropTypes.bool,
+    onSelect: PropTypes.func,
+    value: PropTypes.any,
   };
 
   handleMouseDown = e => {

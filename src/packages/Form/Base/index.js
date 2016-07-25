@@ -6,12 +6,12 @@ import FieldSet from '../FieldSet';
 
 export default class Form extends Component {
   static propTypes = {
-    className: PropTypes.string,
     children: PropTypes.node,
-    schema: PropTypes.object.isRequired,
+    className: PropTypes.string,
     defaultValue: PropTypes.object,
-    onError: PropTypes.func,
     fluid: PropTypes.bool,
+    onError: PropTypes.func,
+    schema: PropTypes.object.isRequired,
   };
 
   state = {

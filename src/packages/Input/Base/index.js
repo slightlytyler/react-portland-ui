@@ -6,26 +6,26 @@ import { pickDiff } from 'helpers';
 
 export default class InputBase extends Component {
   static propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.node,
-    type: PropTypes.string,
-    value: PropTypes.string,
-    defaultValue: PropTypes.string,
-    onChange: PropTypes.func,
-    onKeyDown: PropTypes.func,
-    onKeyUp: PropTypes.func,
-    onClick: PropTypes.func,
-    placeholder: PropTypes.string,
     autoFocus: PropTypes.bool,
-    icon: PropTypes.string,
-    readOnly: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    defaultValue: PropTypes.string,
     error: PropTypes.array,
     flat: PropTypes.bool,
     fluid: PropTypes.bool,
     ghost: PropTypes.bool,
+    icon: PropTypes.string,
+    onChange: PropTypes.func,
+    onClick: PropTypes.func,
+    onKeyDown: PropTypes.func,
+    onKeyUp: PropTypes.func,
+    placeholder: PropTypes.string,
+    readOnly: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     thin: PropTypes.bool,
     transparent: PropTypes.bool,
+    type: PropTypes.string,
+    value: PropTypes.string,
   };
 
   static defaultProps = {

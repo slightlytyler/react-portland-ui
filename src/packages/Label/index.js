@@ -3,8 +3,8 @@ import classnames from 'classnames';
 
 export default class Label extends Component {
   static propTypes = {
-    className: PropTypes.string,
     children: PropTypes.node,
+    className: PropTypes.string,
   };
 
   render() {

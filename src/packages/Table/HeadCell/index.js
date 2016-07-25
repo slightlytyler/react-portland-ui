@@ -5,12 +5,12 @@ import { caretDown } from 'icons';
 
 export default class TableHeadCell extends Component {
   static propTypes = {
+    active: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
-    sortBy: PropTypes.string,
-    sortAscending: PropTypes.bool,
-    active: PropTypes.bool,
     onSort: PropTypes.func,
+    sortAscending: PropTypes.bool,
+    sortBy: PropTypes.string,
   };
 
   handleClick = () => {

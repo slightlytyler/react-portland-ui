@@ -6,17 +6,17 @@ export default class CheckboxGroupBase extends Component {
   static propTypes = {
     className: PropTypes.string,
     component: PropTypes.func.isRequired,
+    error: PropTypes.array,
+    labelGetter: PropTypes.func,
     name: PropTypes.string.isRequired,
-    value: PropTypes.any,
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape({
       label: PropTypes.string,
       value: PropTypes.any.isRequired,
     })),
+    value: PropTypes.any,
     valueByKey: PropTypes.bool,
-    error: PropTypes.array,
     vertical: PropTypes.bool,
-    labelGetter: PropTypes.func,
   };
 
   static defaultProps = {

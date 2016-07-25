@@ -6,39 +6,24 @@ import Icon from 'packages/Icon';
 
 export default class Button extends Component {
   static propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.node,
-    /**
-     * HTML type attribute
-     */
-    type: PropTypes.string,
-    onClick: PropTypes.func,
-    onMouseDown: PropTypes.func,
-    onMouseUp: PropTypes.func,
     /**
      * Background of the button
      */
     background: PropTypes.string,
     /**
-     * Text color of the button
-     */
-    color: PropTypes.string,
-    /**
-     * Renders icon with passed in path
-     */
-    icon: PropTypes.string,
-    iconBackground: PropTypes.string,
-    iconColor: PropTypes.string,
-    iconJustify: PropTypes.oneOf(['edge', 'center']),
-    iconSide: PropTypes.oneOf(['left', 'right']),
-    /**
      * If true component will be big size
      */
     big: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
     /**
      * If true component does not have minimum width
      */
     collapse: PropTypes.bool,
+    /**
+     * Text color of the button
+     */
+    color: PropTypes.string,
     /**
      * If true button expands to fill container
      */
@@ -48,6 +33,17 @@ export default class Button extends Component {
      */
     ghost: PropTypes.bool,
     /**
+     * Renders icon with passed in path
+     */
+    icon: PropTypes.string,
+    iconBackground: PropTypes.string,
+    iconColor: PropTypes.string,
+    iconJustify: PropTypes.oneOf(['edge', 'center']),
+    iconSide: PropTypes.oneOf(['left', 'right']),
+    onClick: PropTypes.func,
+    onMouseDown: PropTypes.func,
+    onMouseUp: PropTypes.func,
+    /**
      * If true button is rounded style
      */
     rounded: PropTypes.bool,
@@ -55,6 +51,10 @@ export default class Button extends Component {
      * If true button is thinner
      */
     thin: PropTypes.bool,
+    /**
+     * HTML type attribute
+     */
+    type: PropTypes.string,
   };
 
   static contextTypes = {

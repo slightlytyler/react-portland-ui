@@ -6,7 +6,7 @@ import { check } from 'icons';
 export default class ListInput extends Component {
   static propTypes = {
     className: PropTypes.string,
-    value: PropTypes.any,
+    onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.shape({
@@ -14,7 +14,7 @@ export default class ListInput extends Component {
         label: PropTypes.string,
       }),
     ])),
-    onChange: PropTypes.func,
+    value: PropTypes.any,
   };
 
   renderOption = option => {

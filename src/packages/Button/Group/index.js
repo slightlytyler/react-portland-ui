@@ -4,22 +4,22 @@ import classnames from 'classnames';
 export default class ButtonGroup extends Component {
   static propTypes = {
     /**
+     * Background of the button group
+     */
+    background: PropTypes.string,
+    /**
+     * If true component will be big size
+     */
+    big: PropTypes.bool,
+    /**
      * Must be Button components
      */
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     /**
-     * Background of the button group
-     */
-    background: PropTypes.string,
-    /**
      * Text color of the button group
      */
     color: PropTypes.string,
-    /**
-     * If true component will be big size
-     */
-    big: PropTypes.bool,
     /**
      * If true button group expands to fill container
      */
